@@ -1,0 +1,287 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC6300C8174C78FD00C132C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6300C7174C78FD00C132C2 /* UIKit.framework */; };
+		DC6300CA174C78FD00C132C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6300C9174C78FD00C132C2 /* Foundation.framework */; };
+		DC6300CC174C78FD00C132C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6300CB174C78FD00C132C2 /* CoreGraphics.framework */; };
+		DC6300D2174C78FD00C132C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC6300D0174C78FD00C132C2 /* InfoPlist.strings */; };
+		DC6300D4174C78FD00C132C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6300D3174C78FD00C132C2 /* main.m */; };
+		DC6300D8174C78FD00C132C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6300D7174C78FD00C132C2 /* AppDelegate.m */; };
+		DC6300DA174C78FD00C132C2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC6300D9174C78FD00C132C2 /* Default.png */; };
+		DC6300DC174C78FD00C132C2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC6300DB174C78FD00C132C2 /* Default@2x.png */; };
+		DC6300DE174C78FD00C132C2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC6300DD174C78FD00C132C2 /* Default-568h@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DC6300C4174C78FD00C132C2 /* ChineseTelephone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChineseTelephone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC6300C7174C78FD00C132C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DC6300C9174C78FD00C132C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DC6300CB174C78FD00C132C2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DC6300CF174C78FD00C132C2 /* ChineseTelephone-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChineseTelephone-Info.plist"; sourceTree = "<group>"; };
+		DC6300D1174C78FD00C132C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DC6300D3174C78FD00C132C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DC6300D5174C78FD00C132C2 /* ChineseTelephone-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChineseTelephone-Prefix.pch"; sourceTree = "<group>"; };
+		DC6300D6174C78FD00C132C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DC6300D7174C78FD00C132C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DC6300D9174C78FD00C132C2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		DC6300DB174C78FD00C132C2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		DC6300DD174C78FD00C132C2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC6300C1174C78FD00C132C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC6300C8174C78FD00C132C2 /* UIKit.framework in Frameworks */,
+				DC6300CA174C78FD00C132C2 /* Foundation.framework in Frameworks */,
+				DC6300CC174C78FD00C132C2 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC6300BB174C78FD00C132C2 = {
+			isa = PBXGroup;
+			children = (
+				DC6300CD174C78FD00C132C2 /* ChineseTelephone */,
+				DC6300C6174C78FD00C132C2 /* Frameworks */,
+				DC6300C5174C78FD00C132C2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC6300C5174C78FD00C132C2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC6300C4174C78FD00C132C2 /* ChineseTelephone.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC6300C6174C78FD00C132C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC6300C7174C78FD00C132C2 /* UIKit.framework */,
+				DC6300C9174C78FD00C132C2 /* Foundation.framework */,
+				DC6300CB174C78FD00C132C2 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC6300CD174C78FD00C132C2 /* ChineseTelephone */ = {
+			isa = PBXGroup;
+			children = (
+				DC6300D6174C78FD00C132C2 /* AppDelegate.h */,
+				DC6300D7174C78FD00C132C2 /* AppDelegate.m */,
+				DC6300CE174C78FD00C132C2 /* Supporting Files */,
+			);
+			path = ChineseTelephone;
+			sourceTree = "<group>";
+		};
+		DC6300CE174C78FD00C132C2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC6300CF174C78FD00C132C2 /* ChineseTelephone-Info.plist */,
+				DC6300D0174C78FD00C132C2 /* InfoPlist.strings */,
+				DC6300D3174C78FD00C132C2 /* main.m */,
+				DC6300D5174C78FD00C132C2 /* ChineseTelephone-Prefix.pch */,
+				DC6300D9174C78FD00C132C2 /* Default.png */,
+				DC6300DB174C78FD00C132C2 /* Default@2x.png */,
+				DC6300DD174C78FD00C132C2 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC6300C3174C78FD00C132C2 /* ChineseTelephone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC6300E1174C78FD00C132C2 /* Build configuration list for PBXNativeTarget "ChineseTelephone" */;
+			buildPhases = (
+				DC6300C0174C78FD00C132C2 /* Sources */,
+				DC6300C1174C78FD00C132C2 /* Frameworks */,
+				DC6300C2174C78FD00C132C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChineseTelephone;
+			productName = ChineseTelephone;
+			productReference = DC6300C4174C78FD00C132C2 /* ChineseTelephone.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC6300BC174C78FD00C132C2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = richitec;
+			};
+			buildConfigurationList = DC6300BF174C78FD00C132C2 /* Build configuration list for PBXProject "ChineseTelephone" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DC6300BB174C78FD00C132C2;
+			productRefGroup = DC6300C5174C78FD00C132C2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC6300C3174C78FD00C132C2 /* ChineseTelephone */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC6300C2174C78FD00C132C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC6300D2174C78FD00C132C2 /* InfoPlist.strings in Resources */,
+				DC6300DA174C78FD00C132C2 /* Default.png in Resources */,
+				DC6300DC174C78FD00C132C2 /* Default@2x.png in Resources */,
+				DC6300DE174C78FD00C132C2 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC6300C0174C78FD00C132C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC6300D4174C78FD00C132C2 /* main.m in Sources */,
+				DC6300D8174C78FD00C132C2 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DC6300D0174C78FD00C132C2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC6300D1174C78FD00C132C2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DC6300DF174C78FD00C132C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DC6300E0174C78FD00C132C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DC6300E2174C78FD00C132C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChineseTelephone/ChineseTelephone-Prefix.pch";
+				INFOPLIST_FILE = "ChineseTelephone/ChineseTelephone-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DC6300E3174C78FD00C132C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChineseTelephone/ChineseTelephone-Prefix.pch";
+				INFOPLIST_FILE = "ChineseTelephone/ChineseTelephone-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC6300BF174C78FD00C132C2 /* Build configuration list for PBXProject "ChineseTelephone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC6300DF174C78FD00C132C2 /* Debug */,
+				DC6300E0174C78FD00C132C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC6300E1174C78FD00C132C2 /* Build configuration list for PBXNativeTarget "ChineseTelephone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC6300E2174C78FD00C132C2 /* Debug */,
+				DC6300E3174C78FD00C132C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC6300BC174C78FD00C132C2 /* Project object */;
+}
