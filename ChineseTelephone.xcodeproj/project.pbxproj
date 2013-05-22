@@ -10,12 +10,16 @@
 		DC6300C8174C78FD00C132C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6300C7174C78FD00C132C2 /* UIKit.framework */; };
 		DC6300CA174C78FD00C132C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6300C9174C78FD00C132C2 /* Foundation.framework */; };
 		DC6300CC174C78FD00C132C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6300CB174C78FD00C132C2 /* CoreGraphics.framework */; };
-		DC6300D2174C78FD00C132C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC6300D0174C78FD00C132C2 /* InfoPlist.strings */; };
 		DC6300D4174C78FD00C132C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6300D3174C78FD00C132C2 /* main.m */; };
 		DC6300D8174C78FD00C132C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6300D7174C78FD00C132C2 /* AppDelegate.m */; };
-		DC6300DA174C78FD00C132C2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC6300D9174C78FD00C132C2 /* Default.png */; };
-		DC6300DC174C78FD00C132C2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC6300DB174C78FD00C132C2 /* Default@2x.png */; };
-		DC6300DE174C78FD00C132C2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC6300DD174C78FD00C132C2 /* Default-568h@2x.png */; };
+		DC630126174CA2A300C132C2 /* CommonToolkitBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC63011E174CA2A300C132C2 /* CommonToolkitBundle.bundle */; };
+		DC630127174CA2A300C132C2 /* Pinyin4jBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC63011F174CA2A300C132C2 /* Pinyin4jBundle.bundle */; };
+		DC630128174CA2A300C132C2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC630123174CA2A300C132C2 /* Default-568h@2x.png */; };
+		DC630129174CA2A300C132C2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC630124174CA2A300C132C2 /* Default.png */; };
+		DC63012A174CA2A300C132C2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC630125174CA2A300C132C2 /* Default@2x.png */; };
+		DC63012F174CA3BC00C132C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC63012D174CA3BC00C132C2 /* Localizable.strings */; };
+		DC630132174CA3FB00C132C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC630130174CA3FB00C132C2 /* InfoPlist.strings */; };
+		DC630135174CA40700C132C2 /* ChineseTelephone-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC6300CF174C78FD00C132C2 /* ChineseTelephone-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,15 +27,22 @@
 		DC6300C7174C78FD00C132C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DC6300C9174C78FD00C132C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DC6300CB174C78FD00C132C2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		DC6300CF174C78FD00C132C2 /* ChineseTelephone-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChineseTelephone-Info.plist"; sourceTree = "<group>"; };
-		DC6300D1174C78FD00C132C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DC6300CF174C78FD00C132C2 /* ChineseTelephone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ChineseTelephone-Info.plist"; sourceTree = "<group>"; };
 		DC6300D3174C78FD00C132C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DC6300D5174C78FD00C132C2 /* ChineseTelephone-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChineseTelephone-Prefix.pch"; sourceTree = "<group>"; };
 		DC6300D6174C78FD00C132C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DC6300D7174C78FD00C132C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DC6300D9174C78FD00C132C2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		DC6300DB174C78FD00C132C2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		DC6300DD174C78FD00C132C2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		DC63011E174CA2A300C132C2 /* CommonToolkitBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CommonToolkitBundle.bundle; sourceTree = "<group>"; };
+		DC63011F174CA2A300C132C2 /* Pinyin4jBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Pinyin4jBundle.bundle; sourceTree = "<group>"; };
+		DC630123174CA2A300C132C2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		DC630124174CA2A300C132C2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		DC630125174CA2A300C132C2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		DC63012E174CA3BC00C132C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = internationalization/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DC630131174CA3FB00C132C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = internationalization/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DC630133174CA40700C132C2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "internationalization/zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		DC630134174CA40700C132C2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "internationalization/zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		DC630136174CA41800C132C2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "internationalization/zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		DC630137174CA41800C132C2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "internationalization/zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +91,7 @@
 			children = (
 				DC6300D6174C78FD00C132C2 /* AppDelegate.h */,
 				DC6300D7174C78FD00C132C2 /* AppDelegate.m */,
+				DC63011C174CA2A300C132C2 /* Resources */,
 				DC6300CE174C78FD00C132C2 /* Supporting Files */,
 			);
 			path = ChineseTelephone;
@@ -88,15 +100,57 @@
 		DC6300CE174C78FD00C132C2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DC630130174CA3FB00C132C2 /* InfoPlist.strings */,
 				DC6300CF174C78FD00C132C2 /* ChineseTelephone-Info.plist */,
-				DC6300D0174C78FD00C132C2 /* InfoPlist.strings */,
 				DC6300D3174C78FD00C132C2 /* main.m */,
 				DC6300D5174C78FD00C132C2 /* ChineseTelephone-Prefix.pch */,
-				DC6300D9174C78FD00C132C2 /* Default.png */,
-				DC6300DB174C78FD00C132C2 /* Default@2x.png */,
-				DC6300DD174C78FD00C132C2 /* Default-568h@2x.png */,
+				DC63012D174CA3BC00C132C2 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC63011C174CA2A300C132C2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DC63011D174CA2A300C132C2 /* Bundles */,
+				DC630120174CA2A300C132C2 /* Icons */,
+				DC630121174CA2A300C132C2 /* Images */,
+				DC630122174CA2A300C132C2 /* Splash */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DC63011D174CA2A300C132C2 /* Bundles */ = {
+			isa = PBXGroup;
+			children = (
+				DC63011E174CA2A300C132C2 /* CommonToolkitBundle.bundle */,
+				DC63011F174CA2A300C132C2 /* Pinyin4jBundle.bundle */,
+			);
+			path = Bundles;
+			sourceTree = "<group>";
+		};
+		DC630120174CA2A300C132C2 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
+		DC630121174CA2A300C132C2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		DC630122174CA2A300C132C2 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				DC630123174CA2A300C132C2 /* Default-568h@2x.png */,
+				DC630124174CA2A300C132C2 /* Default.png */,
+				DC630125174CA2A300C132C2 /* Default@2x.png */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,6 +188,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = DC6300BB174C78FD00C132C2;
 			productRefGroup = DC6300C5174C78FD00C132C2 /* Products */;
@@ -150,10 +206,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC6300D2174C78FD00C132C2 /* InfoPlist.strings in Resources */,
-				DC6300DA174C78FD00C132C2 /* Default.png in Resources */,
-				DC6300DC174C78FD00C132C2 /* Default@2x.png in Resources */,
-				DC6300DE174C78FD00C132C2 /* Default-568h@2x.png in Resources */,
+				DC630126174CA2A300C132C2 /* CommonToolkitBundle.bundle in Resources */,
+				DC630127174CA2A300C132C2 /* Pinyin4jBundle.bundle in Resources */,
+				DC630128174CA2A300C132C2 /* Default-568h@2x.png in Resources */,
+				DC630129174CA2A300C132C2 /* Default.png in Resources */,
+				DC63012A174CA2A300C132C2 /* Default@2x.png in Resources */,
+				DC63012F174CA3BC00C132C2 /* Localizable.strings in Resources */,
+				DC630132174CA3FB00C132C2 /* InfoPlist.strings in Resources */,
+				DC630135174CA40700C132C2 /* ChineseTelephone-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,10 +232,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DC6300D0174C78FD00C132C2 /* InfoPlist.strings */ = {
+		DC63012D174CA3BC00C132C2 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DC6300D1174C78FD00C132C2 /* en */,
+				DC63012E174CA3BC00C132C2 /* en */,
+				DC630134174CA40700C132C2 /* zh-Hans */,
+				DC630137174CA41800C132C2 /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		DC630130174CA3FB00C132C2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC630131174CA3FB00C132C2 /* en */,
+				DC630133174CA40700C132C2 /* zh-Hans */,
+				DC630136174CA41800C132C2 /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -208,7 +280,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -232,7 +304,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
