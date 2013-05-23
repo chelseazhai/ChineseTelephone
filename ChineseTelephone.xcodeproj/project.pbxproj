@@ -120,6 +120,7 @@
 		DC6300CD174C78FD00C132C2 /* ChineseTelephone */ = {
 			isa = PBXGroup;
 			children = (
+				DC857526174E14CD008D8B76 /* App */,
 				DC6300D6174C78FD00C132C2 /* AppDelegate.h */,
 				DC6300D7174C78FD00C132C2 /* AppDelegate.m */,
 				DC63011C174CA2A300C132C2 /* Resources */,
@@ -182,6 +183,13 @@
 				DC630125174CA2A300C132C2 /* Default@2x.png */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		DC857526174E14CD008D8B76 /* App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
