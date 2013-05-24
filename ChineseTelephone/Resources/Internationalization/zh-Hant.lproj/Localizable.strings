@@ -5,3 +5,19 @@
   Created by Ares on 13-5-22.
   Copyright (c) 2013年 richitec. All rights reserved.
 */
+
+// tab content section
+// call record
+"call record history list tab content view navigation title" = "通话记录";
+"call record history list tab item title" = "最近通话";
+
+// contact list
+"contact list tab content view navigation title" = "联系人";
+"contact list tab item title" = "联系人";
+
+// dial
+"dial tab item title" = "拨号";
+
+// more
+"more tab content view navigation title" = "更多";
+"more tab item title" = "更多";

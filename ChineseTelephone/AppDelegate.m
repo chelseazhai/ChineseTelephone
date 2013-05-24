@@ -8,14 +8,48 @@
 
 #import "AppDelegate.h"
 
+#import "CommonToolkit/CommonToolkit.h"
+
+#import "CallRecordHistoryListTabContentViewController.h"
+#import "DialTabContentViewController.h"
+#import "ContactListTabContentViewController.h"
+#import "MoreTabContentViewController.h"
+
 @implementation AppDelegate
+
+@synthesize rootViewController = _rootViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    // traversal addressBook
+    [[AddressBookManager shareAddressBookManager] traversalAddressBook];
+    
+    // tab content navigation bar tint color
+    UIColor *_tabContentNavigationBatTintColor = [UIColor colorWithIntegerRed:39 integerGreen:39 integerBlue:39 alpha:1.0];
+    
+    // create, init tab bar controller and its all content view controller
+    UITabBarController *_tabBarController = [[UITabBarController alloc] init];
+    UINavigationController *_callRecordHistoryListTabContentViewController = [[UINavigationController alloc] initWithRootViewController:[[CallRecordHistoryListTabContentViewController alloc] init] andBarTintColor:_tabContentNavigationBatTintColor];
+    UIViewController *_dialTabContentViewController = [[DialTabContentViewController alloc] init];
+    UINavigationController *_contactListTabContentViewController = [[UINavigationController alloc] initWithRootViewController:[[ContactListTabContentViewController alloc] init] andBarTintColor:_tabContentNavigationBatTintColor];
+    UINavigationController *_moreTabContentViewController = [[UINavigationController alloc] initWithRootViewController:[[MoreTabContentViewController alloc] init] andBarTintColor:_tabContentNavigationBatTintColor];
+    
+    // set tab content view controller
+    _tabBarController.viewControllers = [NSArray arrayWithObjects:_callRecordHistoryListTabContentViewController, _dialTabContentViewController, _contactListTabContentViewController, _moreTabContentViewController, nil];
+    
+    // set index for first selected tab, dial tab content view controller
+    [_tabBarController setSelectedIndex:1];
+    
+    // init application root view controller
+    _rootViewController = [[AppRootViewController alloc] initWithPresentViewController:_tabBarController andMode:normalController];
+    
+    // set application window rootViewController and show the main window
+    self.window.rootViewController = _rootViewController;
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
