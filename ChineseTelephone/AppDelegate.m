@@ -10,10 +10,10 @@
 
 #import "CommonToolkit/CommonToolkit.h"
 
-#import "CallRecordHistoryListTabContentViewController.h"
-#import "DialTabContentViewController.h"
-#import "ContactListTabContentViewController.h"
-#import "MoreTabContentViewController.h"
+#import "CallRecordHistoryListTabContentView.h"
+#import "DialTabContentView.h"
+#import "ContactListTabContentView.h"
+#import "MoreTabContentView.h"
 
 @implementation AppDelegate
 
@@ -32,10 +32,10 @@
     
     // create, init tab bar controller and its all content view controller
     UITabBarController *_tabBarController = [[UITabBarController alloc] init];
-    UINavigationController *_callRecordHistoryListTabContentViewController = [[UINavigationController alloc] initWithRootViewController:[[CallRecordHistoryListTabContentViewController alloc] init] andBarTintColor:_tabContentNavigationBatTintColor];
-    UIViewController *_dialTabContentViewController = [[DialTabContentViewController alloc] init];
-    UINavigationController *_contactListTabContentViewController = [[UINavigationController alloc] initWithRootViewController:[[ContactListTabContentViewController alloc] init] andBarTintColor:_tabContentNavigationBatTintColor];
-    UINavigationController *_moreTabContentViewController = [[UINavigationController alloc] initWithRootViewController:[[MoreTabContentViewController alloc] init] andBarTintColor:_tabContentNavigationBatTintColor];
+    UINavigationController *_callRecordHistoryListTabContentViewController = [[UINavigationController alloc] initWithRootViewController:[[UIViewController alloc] initWithCompatibleView:[[CallRecordHistoryListTabContentView alloc] init]] andBarTintColor:_tabContentNavigationBatTintColor];
+    UIViewController *_dialTabContentViewController = [[UIViewController alloc] initWithCompatibleView:[[DialTabContentView alloc] init]];
+    UINavigationController *_contactListTabContentViewController = [[UINavigationController alloc] initWithRootViewController:[[UIViewController alloc] initWithCompatibleView:[[ContactListTabContentView alloc] init]] andBarTintColor:_tabContentNavigationBatTintColor];
+    UINavigationController *_moreTabContentViewController = [[UINavigationController alloc] initWithRootViewController:[[UIViewController alloc] initWithCompatibleView:[[MoreTabContentView alloc] init]] andBarTintColor:_tabContentNavigationBatTintColor];
     
     // set tab content view controller
     _tabBarController.viewControllers = [NSArray arrayWithObjects:_callRecordHistoryListTabContentViewController, _dialTabContentViewController, _contactListTabContentViewController, _moreTabContentViewController, nil];

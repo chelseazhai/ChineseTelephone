@@ -1,5 +1,5 @@
 //
-//  DialTabContentViewController.h
+//  MoreTabContentView.h
 //  ChineseTelephone
 //
 //  Created by Ares on 13-5-24.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DialTabContentViewController : UIViewController
+@interface DialTabContentView : UIView
 
 @end

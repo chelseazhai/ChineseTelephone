@@ -14,6 +14,7 @@
 // contact list
 "contact list tab content view navigation title" = "Contact List";
 "contact list tab item title" = "Contacts";
+"contact search bar placeholder" = "Search contact with character or phone";
 
 // dial
 "dial tab item title" = "Keypad";

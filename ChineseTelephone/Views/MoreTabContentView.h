@@ -1,5 +1,5 @@
 //
-//  CallRecordHistoryListTabContentViewController.h
+//  MoreTabContentView.h
 //  ChineseTelephone
 //
 //  Created by Ares on 13-5-24.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CallRecordHistoryListTabContentViewController : UIViewController
+@interface MoreTabContentView : UIView
 
 @end
