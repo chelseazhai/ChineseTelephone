@@ -14,11 +14,11 @@
 		DC6300D8174C78FD00C132C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6300D7174C78FD00C132C2 /* AppDelegate.m */; };
 		DC630126174CA2A300C132C2 /* CommonToolkitBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC63011E174CA2A300C132C2 /* CommonToolkitBundle.bundle */; };
 		DC630127174CA2A300C132C2 /* Pinyin4jBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC63011F174CA2A300C132C2 /* Pinyin4jBundle.bundle */; };
-		DC630128174CA2A300C132C2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC630123174CA2A300C132C2 /* Default-568h@2x.png */; };
-		DC630129174CA2A300C132C2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC630124174CA2A300C132C2 /* Default.png */; };
-		DC63012A174CA2A300C132C2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC630125174CA2A300C132C2 /* Default@2x.png */; };
 		DC63013C174CA64800C132C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC630138174CA64800C132C2 /* InfoPlist.strings */; };
 		DC63013D174CA64800C132C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC63013A174CA64800C132C2 /* Localizable.strings */; };
+		DC756B871752EE4000F287FA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC756B841752EE4000F287FA /* Default-568h@2x.png */; };
+		DC756B881752EE4000F287FA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC756B851752EE4000F287FA /* Default.png */; };
+		DC756B891752EE4000F287FA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC756B861752EE4000F287FA /* Default@2x.png */; };
 		DC857517174E10E0008D8B76 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC857516174E10E0008D8B76 /* AddressBook.framework */; };
 		DC857519174E10E9008D8B76 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC857518174E10E9008D8B76 /* CFNetwork.framework */; };
 		DC85751B174E10F1008D8B76 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC85751A174E10F1008D8B76 /* SystemConfiguration.framework */; };
@@ -55,15 +55,15 @@
 		DC6300D7174C78FD00C132C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		DC63011E174CA2A300C132C2 /* CommonToolkitBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CommonToolkitBundle.bundle; sourceTree = "<group>"; };
 		DC63011F174CA2A300C132C2 /* Pinyin4jBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Pinyin4jBundle.bundle; sourceTree = "<group>"; };
-		DC630123174CA2A300C132C2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		DC630124174CA2A300C132C2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		DC630125174CA2A300C132C2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		DC630139174CA64800C132C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/Internationalization/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DC63013B174CA64800C132C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/Internationalization/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DC63013E174CA65100C132C2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Resources/Internationalization/zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		DC63013F174CA65100C132C2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Resources/Internationalization/zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DC630140174CA65F00C132C2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Resources/Internationalization/zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		DC630141174CA65F00C132C2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Resources/Internationalization/zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		DC756B841752EE4000F287FA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "ChineseTelephone/Resources/Splashes/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
+		DC756B851752EE4000F287FA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ChineseTelephone/Resources/Splashes/Default.png; sourceTree = SOURCE_ROOT; };
+		DC756B861752EE4000F287FA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "ChineseTelephone/Resources/Splashes/Default@2x.png"; sourceTree = SOURCE_ROOT; };
 		DC857516174E10E0008D8B76 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		DC857518174E10E9008D8B76 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		DC85751A174E10F1008D8B76 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -180,7 +180,7 @@
 				DC63011D174CA2A300C132C2 /* Bundles */,
 				DC630120174CA2A300C132C2 /* Icons */,
 				DC630121174CA2A300C132C2 /* Images */,
-				DC630122174CA2A300C132C2 /* Splash */,
+				DC630122174CA2A300C132C2 /* Splashes */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -217,13 +217,14 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		DC630122174CA2A300C132C2 /* Splash */ = {
+		DC630122174CA2A300C132C2 /* Splashes */ = {
 			isa = PBXGroup;
 			children = (
-				DC630123174CA2A300C132C2 /* Default-568h@2x.png */,
-				DC630124174CA2A300C132C2 /* Default.png */,
-				DC630125174CA2A300C132C2 /* Default@2x.png */,
+				DC756B841752EE4000F287FA /* Default-568h@2x.png */,
+				DC756B851752EE4000F287FA /* Default.png */,
+				DC756B861752EE4000F287FA /* Default@2x.png */,
 			);
+			name = Splashes;
 			path = Splash;
 			sourceTree = "<group>";
 		};
@@ -363,9 +364,6 @@
 			files = (
 				DC630126174CA2A300C132C2 /* CommonToolkitBundle.bundle in Resources */,
 				DC630127174CA2A300C132C2 /* Pinyin4jBundle.bundle in Resources */,
-				DC630128174CA2A300C132C2 /* Default-568h@2x.png in Resources */,
-				DC630129174CA2A300C132C2 /* Default.png in Resources */,
-				DC63012A174CA2A300C132C2 /* Default@2x.png in Resources */,
 				DC63013C174CA64800C132C2 /* InfoPlist.strings in Resources */,
 				DC63013D174CA64800C132C2 /* Localizable.strings in Resources */,
 				DC953B72174F138B006F5AB0 /* img_tab_callrecord.png in Resources */,
@@ -377,6 +375,9 @@
 				DC953B78174F138B006F5AB0 /* img_tab_more.png in Resources */,
 				DC953B79174F138B006F5AB0 /* img_tab_more@2x.png in Resources */,
 				DC953B8E174F5228006F5AB0 /* img_default_avatar.png in Resources */,
+				DC756B871752EE4000F287FA /* Default-568h@2x.png in Resources */,
+				DC756B881752EE4000F287FA /* Default.png in Resources */,
+				DC756B891752EE4000F287FA /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
