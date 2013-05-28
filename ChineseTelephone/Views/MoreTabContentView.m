@@ -8,7 +8,7 @@
 
 #import "MoreTabContentView.h"
 
-#import "CommonToolkit/CommonToolkit.h"
+#import <CommonToolkit/CommonToolkit.h>
 
 @implementation MoreTabContentView
 
@@ -24,7 +24,7 @@
         self.title = NSLocalizedString(@"more tab content view navigation title", nil);
         
         // set tab bar item with title, image and tag
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"more tab item title", nil) image:[UIImage imageNamed:@"img_tab_more.png"] tag:3];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemMore tag:3];
         
         //
     }

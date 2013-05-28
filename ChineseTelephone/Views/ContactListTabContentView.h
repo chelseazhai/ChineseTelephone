@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "CommonToolkit/CommonToolkit.h"
+#import <CommonToolkit/CommonToolkit.h>
 
 @interface ContactListTabContentView : UITableView <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, AddressBookChangedDelegate> {
     // all contacts info array in addressBook reference

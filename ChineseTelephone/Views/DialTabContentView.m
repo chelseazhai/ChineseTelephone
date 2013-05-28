@@ -8,7 +8,7 @@
 
 #import "DialTabContentView.h"
 
-#import "CommonToolkit/CommonToolkit.h"
+#import <CommonToolkit/CommonToolkit.h>
 
 @implementation DialTabContentView
 
@@ -18,7 +18,7 @@
     if (self) {
         // Initialization code
         // set tab bar item with title, image and tag
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"dial tab item title", nil) image:[UIImage imageNamed:@"img_tab_dial.png"] tag:1];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"dial tab item title", nil) image:[UIImage imageNamed:@"img_tab_dial"] tag:1];
         
         //
     }

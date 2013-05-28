@@ -33,7 +33,7 @@
         self.title = NSLocalizedString(@"contact list tab content view navigation title", nil);
         
         // set tab bar item with title, image and tag
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"contact list tab item title", nil) image:[UIImage imageNamed:@"img_tab_contactlist.png"] tag:2];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"contact list tab item title", nil) image:[UIImage imageNamed:@"img_tab_contactlist"] tag:2];
         
         // create and init contact search bar
         _mContactSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(self.bounds.origin.x, self.bounds.origin.y, self.bounds.size.width, CONTACTSEARCHBAR_HEIGHT)];

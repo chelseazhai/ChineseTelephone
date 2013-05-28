@@ -8,7 +8,7 @@
 
 #import "CallRecordHistoryListTabContentView.h"
 
-#import "CommonToolkit/CommonToolkit.h"
+#import <CommonToolkit/CommonToolkit.h>
 
 @implementation CallRecordHistoryListTabContentView
 
@@ -21,7 +21,7 @@
         self.title = NSLocalizedString(@"call record history list tab content view navigation title", nil);
         
         // set tab bar item with title, image and tag
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"call record history list tab item title", nil) image:[UIImage imageNamed:@"img_tab_callrecord.png"] tag:0];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"call record history list tab item title", nil) image:[UIImage imageNamed:@"img_tab_callrecord"] tag:0];
         
         //
     }

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "CommonToolkit/CommonToolkit.h"
+#import <CommonToolkit/CommonToolkit.h>
 
 #import "CallRecordHistoryListTabContentView.h"
 #import "DialTabContentView.h"

@@ -33,8 +33,6 @@
 		DC953B75174F138B006F5AB0 /* img_tab_contactlist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC953B6D174F138B006F5AB0 /* img_tab_contactlist@2x.png */; };
 		DC953B76174F138B006F5AB0 /* img_tab_dial.png in Resources */ = {isa = PBXBuildFile; fileRef = DC953B6E174F138B006F5AB0 /* img_tab_dial.png */; };
 		DC953B77174F138B006F5AB0 /* img_tab_dial@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC953B6F174F138B006F5AB0 /* img_tab_dial@2x.png */; };
-		DC953B78174F138B006F5AB0 /* img_tab_more.png in Resources */ = {isa = PBXBuildFile; fileRef = DC953B70174F138B006F5AB0 /* img_tab_more.png */; };
-		DC953B79174F138B006F5AB0 /* img_tab_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC953B71174F138B006F5AB0 /* img_tab_more@2x.png */; };
 		DC953B7D174F3488006F5AB0 /* ContactListTabContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC953B7C174F3488006F5AB0 /* ContactListTabContentView.m */; };
 		DC953B81174F3A4A006F5AB0 /* CallRecordHistoryListTabContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC953B80174F3A4A006F5AB0 /* CallRecordHistoryListTabContentView.m */; };
 		DC953B85174F4361006F5AB0 /* MoreTabContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC953B84174F4361006F5AB0 /* MoreTabContentView.m */; };
@@ -78,8 +76,6 @@
 		DC953B6D174F138B006F5AB0 /* img_tab_contactlist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_tab_contactlist@2x.png"; sourceTree = "<group>"; };
 		DC953B6E174F138B006F5AB0 /* img_tab_dial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_tab_dial.png; sourceTree = "<group>"; };
 		DC953B6F174F138B006F5AB0 /* img_tab_dial@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_tab_dial@2x.png"; sourceTree = "<group>"; };
-		DC953B70174F138B006F5AB0 /* img_tab_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_tab_more.png; sourceTree = "<group>"; };
-		DC953B71174F138B006F5AB0 /* img_tab_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_tab_more@2x.png"; sourceTree = "<group>"; };
 		DC953B7B174F3488006F5AB0 /* ContactListTabContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactListTabContentView.h; path = Views/ContactListTabContentView.h; sourceTree = "<group>"; };
 		DC953B7C174F3488006F5AB0 /* ContactListTabContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactListTabContentView.m; path = Views/ContactListTabContentView.m; sourceTree = "<group>"; };
 		DC953B7F174F3A4A006F5AB0 /* CallRecordHistoryListTabContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallRecordHistoryListTabContentView.h; path = Views/CallRecordHistoryListTabContentView.h; sourceTree = "<group>"; };
@@ -211,8 +207,6 @@
 				DC953B6D174F138B006F5AB0 /* img_tab_contactlist@2x.png */,
 				DC953B6E174F138B006F5AB0 /* img_tab_dial.png */,
 				DC953B6F174F138B006F5AB0 /* img_tab_dial@2x.png */,
-				DC953B70174F138B006F5AB0 /* img_tab_more.png */,
-				DC953B71174F138B006F5AB0 /* img_tab_more@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -372,8 +366,6 @@
 				DC953B75174F138B006F5AB0 /* img_tab_contactlist@2x.png in Resources */,
 				DC953B76174F138B006F5AB0 /* img_tab_dial.png in Resources */,
 				DC953B77174F138B006F5AB0 /* img_tab_dial@2x.png in Resources */,
-				DC953B78174F138B006F5AB0 /* img_tab_more.png in Resources */,
-				DC953B79174F138B006F5AB0 /* img_tab_more@2x.png in Resources */,
 				DC953B8E174F5228006F5AB0 /* img_default_avatar.png in Resources */,
 				DC756B871752EE4000F287FA /* Default-568h@2x.png in Resources */,
 				DC756B881752EE4000F287FA /* Default.png in Resources */,

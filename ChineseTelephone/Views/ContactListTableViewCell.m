@@ -11,7 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 // contact default photo
-#define CONTACTDEFAULTPHOTO [UIImage imageNamed:@"img_default_avatar.png"]
+#define CONTACTDEFAULTPHOTO [UIImage imageNamed:@"img_default_avatar"]
 
 // tableViewCell margin
 #define MARGIN  8.0

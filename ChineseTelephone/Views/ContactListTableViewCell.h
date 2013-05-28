@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "CommonToolkit/CommonToolkit.h"
+#import <CommonToolkit/CommonToolkit.h>
 
 @interface ContactListTableViewCell : UITableViewCell {
     // contact photo imageView photo image
