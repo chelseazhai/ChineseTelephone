@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DialTabContentView : UIView
+@interface DialTabContentView : UIView {
+    // present subviews
+    // subview dial number label
+    UILabel *_mDialNumberLabel;
+    // subview dial number ownnership label
+    UILabel *_mDialNumberOwnnershipLabel;
+    
+    // subview dial button grid view
+    UIView *_mDialButtonGridView;
+    // subview controller view
+    UIView *_mControllerView;
+}
 
 @end

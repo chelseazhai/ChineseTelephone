@@ -17,7 +17,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        // set background color
+        // set background color for test by ares
         self.backgroundColor = [UIColor whiteColor];
         
         // set title

@@ -27,6 +27,12 @@
 		DC857521174E1110008D8B76 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC857520174E1110008D8B76 /* libicucore.dylib */; };
 		DC857523174E111B008D8B76 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC857522174E111B008D8B76 /* CoreText.framework */; };
 		DC857525174E112E008D8B76 /* CommonToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC857524174E112E008D8B76 /* CommonToolkit.framework */; };
+		DC8A52D017558C5F00B22630 /* MoreTabContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8A52CF17558C5F00B22630 /* MoreTabContentViewController.m */; };
+		DC8A52D317558C7C00B22630 /* DialTabContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8A52D217558C7C00B22630 /* DialTabContentViewController.m */; };
+		DC8A52D617558CA100B22630 /* CallRecordHistoryListTabContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8A52D517558CA100B22630 /* CallRecordHistoryListTabContentViewController.m */; };
+		DC8A52D917558CBD00B22630 /* ContactListTabContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8A52D817558CBD00B22630 /* ContactListTabContentViewController.m */; };
+		DC8A52DE175600E900B22630 /* img_dialnumberlabel_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A52DB175600E900B22630 /* img_dialnumberlabel_bg.png */; };
+		DC8A52DF175600E900B22630 /* img_dialnumberlabel_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A52DC175600E900B22630 /* img_dialnumberlabel_bg@2x.png */; };
 		DC953B72174F138B006F5AB0 /* img_tab_callrecord.png in Resources */ = {isa = PBXBuildFile; fileRef = DC953B6A174F138B006F5AB0 /* img_tab_callrecord.png */; };
 		DC953B73174F138B006F5AB0 /* img_tab_callrecord@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC953B6B174F138B006F5AB0 /* img_tab_callrecord@2x.png */; };
 		DC953B74174F138B006F5AB0 /* img_tab_contactlist.png in Resources */ = {isa = PBXBuildFile; fileRef = DC953B6C174F138B006F5AB0 /* img_tab_contactlist.png */; };
@@ -39,6 +45,7 @@
 		DC953B89174F4580006F5AB0 /* DialTabContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC953B88174F4580006F5AB0 /* DialTabContentView.m */; };
 		DC953B8C174F4C19006F5AB0 /* ContactListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC953B8B174F4C19006F5AB0 /* ContactListTableViewCell.m */; };
 		DC953B8E174F5228006F5AB0 /* img_default_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = DC953B8D174F5228006F5AB0 /* img_default_avatar.png */; };
+		DCEF2E32175642B50004E52F /* img_dialnumberlabel_bg-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DCEF2E31175642B50004E52F /* img_dialnumberlabel_bg-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +77,16 @@
 		DC857520174E1110008D8B76 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		DC857522174E111B008D8B76 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		DC857524174E112E008D8B76 /* CommonToolkit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonToolkit.framework; path = ChineseTelephone/OtherFrameworks/CommonToolkit.framework; sourceTree = "<group>"; };
+		DC8A52CE17558C5F00B22630 /* MoreTabContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoreTabContentViewController.h; path = ViewControllers/MoreTabContentViewController.h; sourceTree = "<group>"; };
+		DC8A52CF17558C5F00B22630 /* MoreTabContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoreTabContentViewController.m; path = ViewControllers/MoreTabContentViewController.m; sourceTree = "<group>"; };
+		DC8A52D117558C7C00B22630 /* DialTabContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialTabContentViewController.h; path = ViewControllers/DialTabContentViewController.h; sourceTree = "<group>"; };
+		DC8A52D217558C7C00B22630 /* DialTabContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DialTabContentViewController.m; path = ViewControllers/DialTabContentViewController.m; sourceTree = "<group>"; };
+		DC8A52D417558CA100B22630 /* CallRecordHistoryListTabContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallRecordHistoryListTabContentViewController.h; path = ViewControllers/CallRecordHistoryListTabContentViewController.h; sourceTree = "<group>"; };
+		DC8A52D517558CA100B22630 /* CallRecordHistoryListTabContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CallRecordHistoryListTabContentViewController.m; path = ViewControllers/CallRecordHistoryListTabContentViewController.m; sourceTree = "<group>"; };
+		DC8A52D717558CBD00B22630 /* ContactListTabContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactListTabContentViewController.h; path = ViewControllers/ContactListTabContentViewController.h; sourceTree = "<group>"; };
+		DC8A52D817558CBD00B22630 /* ContactListTabContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactListTabContentViewController.m; path = ViewControllers/ContactListTabContentViewController.m; sourceTree = "<group>"; };
+		DC8A52DB175600E900B22630 /* img_dialnumberlabel_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_dialnumberlabel_bg.png; sourceTree = "<group>"; };
+		DC8A52DC175600E900B22630 /* img_dialnumberlabel_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dialnumberlabel_bg@2x.png"; sourceTree = "<group>"; };
 		DC953B6A174F138B006F5AB0 /* img_tab_callrecord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_tab_callrecord.png; sourceTree = "<group>"; };
 		DC953B6B174F138B006F5AB0 /* img_tab_callrecord@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_tab_callrecord@2x.png"; sourceTree = "<group>"; };
 		DC953B6C174F138B006F5AB0 /* img_tab_contactlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_tab_contactlist.png; sourceTree = "<group>"; };
@@ -87,6 +104,7 @@
 		DC953B8A174F4C18006F5AB0 /* ContactListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactListTableViewCell.h; path = Views/ContactListTableViewCell.h; sourceTree = "<group>"; };
 		DC953B8B174F4C19006F5AB0 /* ContactListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactListTableViewCell.m; path = Views/ContactListTableViewCell.m; sourceTree = "<group>"; };
 		DC953B8D174F5228006F5AB0 /* img_default_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_default_avatar.png; sourceTree = "<group>"; };
+		DCEF2E31175642B50004E52F /* img_dialnumberlabel_bg-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dialnumberlabel_bg-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +219,9 @@
 			isa = PBXGroup;
 			children = (
 				DC953B8D174F5228006F5AB0 /* img_default_avatar.png */,
+				DCEF2E31175642B50004E52F /* img_dialnumberlabel_bg-568h@2x.png */,
+				DC8A52DB175600E900B22630 /* img_dialnumberlabel_bg.png */,
+				DC8A52DC175600E900B22630 /* img_dialnumberlabel_bg@2x.png */,
 				DC953B6A174F138B006F5AB0 /* img_tab_callrecord.png */,
 				DC953B6B174F138B006F5AB0 /* img_tab_callrecord@2x.png */,
 				DC953B6C174F138B006F5AB0 /* img_tab_contactlist.png */,
@@ -270,6 +291,8 @@
 			children = (
 				DC953B7B174F3488006F5AB0 /* ContactListTabContentView.h */,
 				DC953B7C174F3488006F5AB0 /* ContactListTabContentView.m */,
+				DC8A52D717558CBD00B22630 /* ContactListTabContentViewController.h */,
+				DC8A52D817558CBD00B22630 /* ContactListTabContentViewController.m */,
 				DC953B8A174F4C18006F5AB0 /* ContactListTableViewCell.h */,
 				DC953B8B174F4C19006F5AB0 /* ContactListTableViewCell.m */,
 			);
@@ -281,6 +304,8 @@
 			children = (
 				DC953B7F174F3A4A006F5AB0 /* CallRecordHistoryListTabContentView.h */,
 				DC953B80174F3A4A006F5AB0 /* CallRecordHistoryListTabContentView.m */,
+				DC8A52D417558CA100B22630 /* CallRecordHistoryListTabContentViewController.h */,
+				DC8A52D517558CA100B22630 /* CallRecordHistoryListTabContentViewController.m */,
 			);
 			name = CallRecords;
 			sourceTree = "<group>";
@@ -290,6 +315,8 @@
 			children = (
 				DC953B83174F4361006F5AB0 /* MoreTabContentView.h */,
 				DC953B84174F4361006F5AB0 /* MoreTabContentView.m */,
+				DC8A52CE17558C5F00B22630 /* MoreTabContentViewController.h */,
+				DC8A52CF17558C5F00B22630 /* MoreTabContentViewController.m */,
 			);
 			name = More;
 			sourceTree = "<group>";
@@ -299,6 +326,8 @@
 			children = (
 				DC953B87174F4580006F5AB0 /* DialTabContentView.h */,
 				DC953B88174F4580006F5AB0 /* DialTabContentView.m */,
+				DC8A52D117558C7C00B22630 /* DialTabContentViewController.h */,
+				DC8A52D217558C7C00B22630 /* DialTabContentViewController.m */,
 			);
 			name = Keypad;
 			sourceTree = "<group>";
@@ -370,6 +399,9 @@
 				DC756B871752EE4000F287FA /* Default-568h@2x.png in Resources */,
 				DC756B881752EE4000F287FA /* Default.png in Resources */,
 				DC756B891752EE4000F287FA /* Default@2x.png in Resources */,
+				DC8A52DE175600E900B22630 /* img_dialnumberlabel_bg.png in Resources */,
+				DC8A52DF175600E900B22630 /* img_dialnumberlabel_bg@2x.png in Resources */,
+				DCEF2E32175642B50004E52F /* img_dialnumberlabel_bg-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +419,10 @@
 				DC953B85174F4361006F5AB0 /* MoreTabContentView.m in Sources */,
 				DC953B89174F4580006F5AB0 /* DialTabContentView.m in Sources */,
 				DC953B8C174F4C19006F5AB0 /* ContactListTableViewCell.m in Sources */,
+				DC8A52D017558C5F00B22630 /* MoreTabContentViewController.m in Sources */,
+				DC8A52D317558C7C00B22630 /* DialTabContentViewController.m in Sources */,
+				DC8A52D617558CA100B22630 /* CallRecordHistoryListTabContentViewController.m in Sources */,
+				DC8A52D917558CBD00B22630 /* ContactListTabContentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

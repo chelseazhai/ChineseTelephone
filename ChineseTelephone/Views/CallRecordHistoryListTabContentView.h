@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CallRecordHistoryListTabContentView : UITableView
+@interface CallRecordHistoryListTabContentView : UITableView <UITableViewDataSource, UITableViewDelegate>
 
 @end

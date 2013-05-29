@@ -18,6 +18,13 @@
 // contact search bar height
 #define CONTACTSEARCHBAR_HEIGHT 46.0
 
+@interface ContactListTabContentView ()
+
+// add new contact to address book
+- (void)addNewContact2AB;
+
+@end
+
 @implementation ContactListTabContentView
 
 @synthesize allContactsInfoArrayInABRef = _mAllContactsInfoArrayInABRef;
@@ -32,6 +39,9 @@
         // set title
         self.title = NSLocalizedString(@"contact list tab content view navigation title", nil);
         
+        // set add new contact as right bar button item
+        self.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewContact2AB)];
+        
         // set tab bar item with title, image and tag
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"contact list tab item title", nil) image:[UIImage imageNamed:@"img_tab_contactlist"] tag:2];
         
@@ -43,10 +53,10 @@
         _mContactSearchBar.keyboardType = UIKeyboardTypeASCIICapable;
         _mContactSearchBar.placeholder = NSLocalizedString(@"contact search bar placeholder", nil);
         
-        // set contact search delegate
+        // set contact search bar delegate
         _mContactSearchBar.delegate = self;
         
-        // set contact search bar as contact list view header view
+        // set contact search bar as contact list table view's header view
         self.tableHeaderView = _mContactSearchBar;
         
         // get all contacts info array from addressBook
@@ -56,7 +66,7 @@
             [_contact.extensionDic removeAllObjects];
         }
         
-        // set table view dataSource and delegate
+        // set contact list table view dataSource and delegate
         self.dataSource = self;
         self.delegate = self;
         
@@ -75,13 +85,14 @@
 }
 */
 
+// UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     // Return the number of rows in the section.
     return [_mPresentContactsInfoArrayRef count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellIdentifier = @"Cell";
+    static NSString *cellIdentifier = @"AB Contact cell";
     
     // get contact list table view cell
     ContactListTableViewCell *_cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -178,6 +189,7 @@
     return -1;
 }
 
+// UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     // Return the height for row at indexPath.
     return [ContactListTableViewCell cellHeightWithContact:[_mPresentContactsInfoArrayRef objectAtIndex:indexPath.row]];
@@ -197,14 +209,21 @@
     [_mContactSearchBar resignFirstResponder];
 }
 
+// UISearchBarDelegate
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     NSLog(@"search bar = %@ and searched text = %@", searchBar, searchText);
     
     //
 }
 
+// AddressBookChangedDelegate
 - (void)addressBookChanged:(ABAddressBookRef)pAddressBook info:(NSDictionary *)pInfo observer:(id)pObserver{
     //
+}
+
+// inner extension
+- (void)addNewContact2AB{
+    NSLog(@"Add new contact to address book");
 }
 
 @end
