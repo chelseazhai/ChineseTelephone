@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC620BA61757349F00FEEC5A /* img_cleardialphone_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BA41757349F00FEEC5A /* img_cleardialphone_btn.png */; };
+		DC620BA71757349F00FEEC5A /* img_newcontact_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BA51757349F00FEEC5A /* img_newcontact_btn.png */; };
+		DC620BAA1757391A00FEEC5A /* img_dialbtn_highlighted_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BA81757391A00FEEC5A /* img_dialbtn_highlighted_bg.png */; };
+		DC620BAB1757391A00FEEC5A /* img_addnewcontact6cleardialnumber_btn_normal_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BA91757391A00FEEC5A /* img_addnewcontact6cleardialnumber_btn_normal_bg.png */; };
+		DC620BAD17573D3E00FEEC5A /* img_callbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BAC17573D3E00FEEC5A /* img_callbtn.png */; };
+		DC620BAF17573DFC00FEEC5A /* img_dialbtn_normal_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BAE17573DFC00FEEC5A /* img_dialbtn_normal_bg.png */; };
+		DC620BB21757402F00FEEC5A /* img_callbtn_highlighted_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BB01757402F00FEEC5A /* img_callbtn_highlighted_bg.png */; };
+		DC620BB31757402F00FEEC5A /* img_callbtn_normal_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BB11757402F00FEEC5A /* img_callbtn_normal_bg.png */; };
+		DC620BC0175745CC00FEEC5A /* img_dial_0_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BB4175745CA00FEEC5A /* img_dial_0_btn.png */; };
+		DC620BC1175745CC00FEEC5A /* img_dial_1_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BB5175745CA00FEEC5A /* img_dial_1_btn.png */; };
+		DC620BC2175745CC00FEEC5A /* img_dial_2_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BB6175745CA00FEEC5A /* img_dial_2_btn.png */; };
+		DC620BC3175745CC00FEEC5A /* img_dial_3_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BB7175745CB00FEEC5A /* img_dial_3_btn.png */; };
+		DC620BC4175745CC00FEEC5A /* img_dial_4_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BB8175745CB00FEEC5A /* img_dial_4_btn.png */; };
+		DC620BC5175745CC00FEEC5A /* img_dial_5_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BB9175745CB00FEEC5A /* img_dial_5_btn.png */; };
+		DC620BC6175745CC00FEEC5A /* img_dial_6_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BBA175745CB00FEEC5A /* img_dial_6_btn.png */; };
+		DC620BC7175745CC00FEEC5A /* img_dial_7_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BBB175745CB00FEEC5A /* img_dial_7_btn.png */; };
+		DC620BC8175745CC00FEEC5A /* img_dial_8_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BBC175745CB00FEEC5A /* img_dial_8_btn.png */; };
+		DC620BC9175745CC00FEEC5A /* img_dial_9_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BBD175745CC00FEEC5A /* img_dial_9_btn.png */; };
+		DC620BCA175745CC00FEEC5A /* img_dial_pound_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BBE175745CC00FEEC5A /* img_dial_pound_btn.png */; };
+		DC620BCB175745CC00FEEC5A /* img_dial_star_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BBF175745CC00FEEC5A /* img_dial_star_btn.png */; };
 		DC6300C8174C78FD00C132C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6300C7174C78FD00C132C2 /* UIKit.framework */; };
 		DC6300CA174C78FD00C132C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6300C9174C78FD00C132C2 /* Foundation.framework */; };
 		DC6300CC174C78FD00C132C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6300CB174C78FD00C132C2 /* CoreGraphics.framework */; };
@@ -49,6 +69,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC620BA41757349F00FEEC5A /* img_cleardialphone_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_cleardialphone_btn.png; sourceTree = "<group>"; };
+		DC620BA51757349F00FEEC5A /* img_newcontact_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_newcontact_btn.png; sourceTree = "<group>"; };
+		DC620BA81757391A00FEEC5A /* img_dialbtn_highlighted_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_dialbtn_highlighted_bg.png; sourceTree = "<group>"; };
+		DC620BA91757391A00FEEC5A /* img_addnewcontact6cleardialnumber_btn_normal_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_addnewcontact6cleardialnumber_btn_normal_bg.png; sourceTree = "<group>"; };
+		DC620BAC17573D3E00FEEC5A /* img_callbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_callbtn.png; sourceTree = "<group>"; };
+		DC620BAE17573DFC00FEEC5A /* img_dialbtn_normal_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_dialbtn_normal_bg.png; sourceTree = "<group>"; };
+		DC620BB01757402F00FEEC5A /* img_callbtn_highlighted_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_callbtn_highlighted_bg.png; sourceTree = "<group>"; };
+		DC620BB11757402F00FEEC5A /* img_callbtn_normal_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_callbtn_normal_bg.png; sourceTree = "<group>"; };
+		DC620BB4175745CA00FEEC5A /* img_dial_0_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_dial_0_btn.png; sourceTree = "<group>"; };
+		DC620BB5175745CA00FEEC5A /* img_dial_1_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_dial_1_btn.png; sourceTree = "<group>"; };
+		DC620BB6175745CA00FEEC5A /* img_dial_2_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_dial_2_btn.png; sourceTree = "<group>"; };
+		DC620BB7175745CB00FEEC5A /* img_dial_3_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_dial_3_btn.png; sourceTree = "<group>"; };
+		DC620BB8175745CB00FEEC5A /* img_dial_4_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_dial_4_btn.png; sourceTree = "<group>"; };
+		DC620BB9175745CB00FEEC5A /* img_dial_5_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_dial_5_btn.png; sourceTree = "<group>"; };
+		DC620BBA175745CB00FEEC5A /* img_dial_6_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_dial_6_btn.png; sourceTree = "<group>"; };
+		DC620BBB175745CB00FEEC5A /* img_dial_7_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_dial_7_btn.png; sourceTree = "<group>"; };
+		DC620BBC175745CB00FEEC5A /* img_dial_8_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_dial_8_btn.png; sourceTree = "<group>"; };
+		DC620BBD175745CC00FEEC5A /* img_dial_9_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_dial_9_btn.png; sourceTree = "<group>"; };
+		DC620BBE175745CC00FEEC5A /* img_dial_pound_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_dial_pound_btn.png; sourceTree = "<group>"; };
+		DC620BBF175745CC00FEEC5A /* img_dial_star_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_dial_star_btn.png; sourceTree = "<group>"; };
 		DC6300C4174C78FD00C132C2 /* ChineseTelephone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChineseTelephone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6300C7174C78FD00C132C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DC6300C9174C78FD00C132C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -218,10 +258,30 @@
 		DC630121174CA2A300C132C2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DC620BA91757391A00FEEC5A /* img_addnewcontact6cleardialnumber_btn_normal_bg.png */,
+				DC620BAC17573D3E00FEEC5A /* img_callbtn.png */,
+				DC620BB01757402F00FEEC5A /* img_callbtn_highlighted_bg.png */,
+				DC620BB11757402F00FEEC5A /* img_callbtn_normal_bg.png */,
+				DC620BA41757349F00FEEC5A /* img_cleardialphone_btn.png */,
 				DC953B8D174F5228006F5AB0 /* img_default_avatar.png */,
+				DC620BB4175745CA00FEEC5A /* img_dial_0_btn.png */,
+				DC620BB5175745CA00FEEC5A /* img_dial_1_btn.png */,
+				DC620BB6175745CA00FEEC5A /* img_dial_2_btn.png */,
+				DC620BB7175745CB00FEEC5A /* img_dial_3_btn.png */,
+				DC620BB8175745CB00FEEC5A /* img_dial_4_btn.png */,
+				DC620BB9175745CB00FEEC5A /* img_dial_5_btn.png */,
+				DC620BBA175745CB00FEEC5A /* img_dial_6_btn.png */,
+				DC620BBB175745CB00FEEC5A /* img_dial_7_btn.png */,
+				DC620BBC175745CB00FEEC5A /* img_dial_8_btn.png */,
+				DC620BBD175745CC00FEEC5A /* img_dial_9_btn.png */,
+				DC620BBE175745CC00FEEC5A /* img_dial_pound_btn.png */,
+				DC620BBF175745CC00FEEC5A /* img_dial_star_btn.png */,
+				DC620BA81757391A00FEEC5A /* img_dialbtn_highlighted_bg.png */,
+				DC620BAE17573DFC00FEEC5A /* img_dialbtn_normal_bg.png */,
 				DCEF2E31175642B50004E52F /* img_dialnumberlabel_bg-568h@2x.png */,
 				DC8A52DB175600E900B22630 /* img_dialnumberlabel_bg.png */,
 				DC8A52DC175600E900B22630 /* img_dialnumberlabel_bg@2x.png */,
+				DC620BA51757349F00FEEC5A /* img_newcontact_btn.png */,
 				DC953B6A174F138B006F5AB0 /* img_tab_callrecord.png */,
 				DC953B6B174F138B006F5AB0 /* img_tab_callrecord@2x.png */,
 				DC953B6C174F138B006F5AB0 /* img_tab_contactlist.png */,
@@ -402,6 +462,26 @@
 				DC8A52DE175600E900B22630 /* img_dialnumberlabel_bg.png in Resources */,
 				DC8A52DF175600E900B22630 /* img_dialnumberlabel_bg@2x.png in Resources */,
 				DCEF2E32175642B50004E52F /* img_dialnumberlabel_bg-568h@2x.png in Resources */,
+				DC620BA61757349F00FEEC5A /* img_cleardialphone_btn.png in Resources */,
+				DC620BA71757349F00FEEC5A /* img_newcontact_btn.png in Resources */,
+				DC620BAA1757391A00FEEC5A /* img_dialbtn_highlighted_bg.png in Resources */,
+				DC620BAB1757391A00FEEC5A /* img_addnewcontact6cleardialnumber_btn_normal_bg.png in Resources */,
+				DC620BAD17573D3E00FEEC5A /* img_callbtn.png in Resources */,
+				DC620BAF17573DFC00FEEC5A /* img_dialbtn_normal_bg.png in Resources */,
+				DC620BB21757402F00FEEC5A /* img_callbtn_highlighted_bg.png in Resources */,
+				DC620BB31757402F00FEEC5A /* img_callbtn_normal_bg.png in Resources */,
+				DC620BC0175745CC00FEEC5A /* img_dial_0_btn.png in Resources */,
+				DC620BC1175745CC00FEEC5A /* img_dial_1_btn.png in Resources */,
+				DC620BC2175745CC00FEEC5A /* img_dial_2_btn.png in Resources */,
+				DC620BC3175745CC00FEEC5A /* img_dial_3_btn.png in Resources */,
+				DC620BC4175745CC00FEEC5A /* img_dial_4_btn.png in Resources */,
+				DC620BC5175745CC00FEEC5A /* img_dial_5_btn.png in Resources */,
+				DC620BC6175745CC00FEEC5A /* img_dial_6_btn.png in Resources */,
+				DC620BC7175745CC00FEEC5A /* img_dial_7_btn.png in Resources */,
+				DC620BC8175745CC00FEEC5A /* img_dial_8_btn.png in Resources */,
+				DC620BC9175745CC00FEEC5A /* img_dial_9_btn.png in Resources */,
+				DC620BCA175745CC00FEEC5A /* img_dial_pound_btn.png in Resources */,
+				DC620BCB175745CC00FEEC5A /* img_dial_star_btn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
