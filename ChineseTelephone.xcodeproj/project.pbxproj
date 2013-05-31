@@ -7,6 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC5ED29B17587BE4002B5B81 /* img_newcontact_btn-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED29917587BE4002B5B81 /* img_newcontact_btn-568h@2x.png */; };
+		DC5ED29C17587BE4002B5B81 /* img_newcontact_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED29A17587BE4002B5B81 /* img_newcontact_btn@2x.png */; };
+		DC5ED2A117587C8D002B5B81 /* img_callbtn-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED29D17587C8D002B5B81 /* img_callbtn-568h@2x.png */; };
+		DC5ED2A217587C8D002B5B81 /* img_callbtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED29E17587C8D002B5B81 /* img_callbtn@2x.png */; };
+		DC5ED2A317587C8D002B5B81 /* img_cleardialphone_btn-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED29F17587C8D002B5B81 /* img_cleardialphone_btn-568h@2x.png */; };
+		DC5ED2A417587C8D002B5B81 /* img_cleardialphone_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2A017587C8D002B5B81 /* img_cleardialphone_btn@2x.png */; };
+		DC5ED2A717587E78002B5B81 /* img_dial_0_btn-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2A517587E78002B5B81 /* img_dial_0_btn-568h@2x.png */; };
+		DC5ED2A817587E78002B5B81 /* img_dial_0_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2A617587E78002B5B81 /* img_dial_0_btn@2x.png */; };
+		DC5ED2BF1758A670002B5B81 /* img_dial_1_btn-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2A91758A670002B5B81 /* img_dial_1_btn-568h@2x.png */; };
+		DC5ED2C01758A670002B5B81 /* img_dial_1_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2AA1758A670002B5B81 /* img_dial_1_btn@2x.png */; };
+		DC5ED2C11758A670002B5B81 /* img_dial_2_btn-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2AB1758A670002B5B81 /* img_dial_2_btn-568h@2x.png */; };
+		DC5ED2C21758A670002B5B81 /* img_dial_2_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2AC1758A670002B5B81 /* img_dial_2_btn@2x.png */; };
+		DC5ED2C31758A670002B5B81 /* img_dial_3_btn-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2AD1758A670002B5B81 /* img_dial_3_btn-568h@2x.png */; };
+		DC5ED2C41758A670002B5B81 /* img_dial_3_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2AE1758A670002B5B81 /* img_dial_3_btn@2x.png */; };
+		DC5ED2C51758A670002B5B81 /* img_dial_4_btn-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2AF1758A670002B5B81 /* img_dial_4_btn-568h@2x.png */; };
+		DC5ED2C61758A670002B5B81 /* img_dial_4_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2B01758A670002B5B81 /* img_dial_4_btn@2x.png */; };
+		DC5ED2C71758A670002B5B81 /* img_dial_5_btn-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2B11758A670002B5B81 /* img_dial_5_btn-568h@2x.png */; };
+		DC5ED2C81758A670002B5B81 /* img_dial_5_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2B21758A670002B5B81 /* img_dial_5_btn@2x.png */; };
+		DC5ED2C91758A670002B5B81 /* img_dial_6_btn-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2B31758A670002B5B81 /* img_dial_6_btn-568h@2x.png */; };
+		DC5ED2CA1758A670002B5B81 /* img_dial_6_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2B41758A670002B5B81 /* img_dial_6_btn@2x.png */; };
+		DC5ED2CB1758A670002B5B81 /* img_dial_7_btn-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2B51758A670002B5B81 /* img_dial_7_btn-568h@2x.png */; };
+		DC5ED2CC1758A670002B5B81 /* img_dial_7_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2B61758A670002B5B81 /* img_dial_7_btn@2x.png */; };
+		DC5ED2CD1758A670002B5B81 /* img_dial_8_btn-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2B71758A670002B5B81 /* img_dial_8_btn-568h@2x.png */; };
+		DC5ED2CE1758A670002B5B81 /* img_dial_8_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2B81758A670002B5B81 /* img_dial_8_btn@2x.png */; };
+		DC5ED2CF1758A670002B5B81 /* img_dial_9_btn-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2B91758A670002B5B81 /* img_dial_9_btn-568h@2x.png */; };
+		DC5ED2D01758A670002B5B81 /* img_dial_9_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2BA1758A670002B5B81 /* img_dial_9_btn@2x.png */; };
+		DC5ED2D11758A670002B5B81 /* img_dial_pound_btn-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2BB1758A670002B5B81 /* img_dial_pound_btn-568h@2x.png */; };
+		DC5ED2D21758A670002B5B81 /* img_dial_pound_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2BC1758A670002B5B81 /* img_dial_pound_btn@2x.png */; };
+		DC5ED2D31758A670002B5B81 /* img_dial_star_btn-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2BD1758A670002B5B81 /* img_dial_star_btn-568h@2x.png */; };
+		DC5ED2D41758A670002B5B81 /* img_dial_star_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED2BE1758A670002B5B81 /* img_dial_star_btn@2x.png */; };
 		DC620BA61757349F00FEEC5A /* img_cleardialphone_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BA41757349F00FEEC5A /* img_cleardialphone_btn.png */; };
 		DC620BA71757349F00FEEC5A /* img_newcontact_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BA51757349F00FEEC5A /* img_newcontact_btn.png */; };
 		DC620BAA1757391A00FEEC5A /* img_dialbtn_highlighted_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC620BA81757391A00FEEC5A /* img_dialbtn_highlighted_bg.png */; };
@@ -69,6 +99,36 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC5ED29917587BE4002B5B81 /* img_newcontact_btn-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_newcontact_btn-568h@2x.png"; sourceTree = "<group>"; };
+		DC5ED29A17587BE4002B5B81 /* img_newcontact_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_newcontact_btn@2x.png"; sourceTree = "<group>"; };
+		DC5ED29D17587C8D002B5B81 /* img_callbtn-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_callbtn-568h@2x.png"; sourceTree = "<group>"; };
+		DC5ED29E17587C8D002B5B81 /* img_callbtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_callbtn@2x.png"; sourceTree = "<group>"; };
+		DC5ED29F17587C8D002B5B81 /* img_cleardialphone_btn-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_cleardialphone_btn-568h@2x.png"; sourceTree = "<group>"; };
+		DC5ED2A017587C8D002B5B81 /* img_cleardialphone_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_cleardialphone_btn@2x.png"; sourceTree = "<group>"; };
+		DC5ED2A517587E78002B5B81 /* img_dial_0_btn-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_0_btn-568h@2x.png"; sourceTree = "<group>"; };
+		DC5ED2A617587E78002B5B81 /* img_dial_0_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_0_btn@2x.png"; sourceTree = "<group>"; };
+		DC5ED2A91758A670002B5B81 /* img_dial_1_btn-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_1_btn-568h@2x.png"; sourceTree = "<group>"; };
+		DC5ED2AA1758A670002B5B81 /* img_dial_1_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_1_btn@2x.png"; sourceTree = "<group>"; };
+		DC5ED2AB1758A670002B5B81 /* img_dial_2_btn-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_2_btn-568h@2x.png"; sourceTree = "<group>"; };
+		DC5ED2AC1758A670002B5B81 /* img_dial_2_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_2_btn@2x.png"; sourceTree = "<group>"; };
+		DC5ED2AD1758A670002B5B81 /* img_dial_3_btn-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_3_btn-568h@2x.png"; sourceTree = "<group>"; };
+		DC5ED2AE1758A670002B5B81 /* img_dial_3_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_3_btn@2x.png"; sourceTree = "<group>"; };
+		DC5ED2AF1758A670002B5B81 /* img_dial_4_btn-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_4_btn-568h@2x.png"; sourceTree = "<group>"; };
+		DC5ED2B01758A670002B5B81 /* img_dial_4_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_4_btn@2x.png"; sourceTree = "<group>"; };
+		DC5ED2B11758A670002B5B81 /* img_dial_5_btn-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_5_btn-568h@2x.png"; sourceTree = "<group>"; };
+		DC5ED2B21758A670002B5B81 /* img_dial_5_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_5_btn@2x.png"; sourceTree = "<group>"; };
+		DC5ED2B31758A670002B5B81 /* img_dial_6_btn-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_6_btn-568h@2x.png"; sourceTree = "<group>"; };
+		DC5ED2B41758A670002B5B81 /* img_dial_6_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_6_btn@2x.png"; sourceTree = "<group>"; };
+		DC5ED2B51758A670002B5B81 /* img_dial_7_btn-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_7_btn-568h@2x.png"; sourceTree = "<group>"; };
+		DC5ED2B61758A670002B5B81 /* img_dial_7_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_7_btn@2x.png"; sourceTree = "<group>"; };
+		DC5ED2B71758A670002B5B81 /* img_dial_8_btn-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_8_btn-568h@2x.png"; sourceTree = "<group>"; };
+		DC5ED2B81758A670002B5B81 /* img_dial_8_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_8_btn@2x.png"; sourceTree = "<group>"; };
+		DC5ED2B91758A670002B5B81 /* img_dial_9_btn-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_9_btn-568h@2x.png"; sourceTree = "<group>"; };
+		DC5ED2BA1758A670002B5B81 /* img_dial_9_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_9_btn@2x.png"; sourceTree = "<group>"; };
+		DC5ED2BB1758A670002B5B81 /* img_dial_pound_btn-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_pound_btn-568h@2x.png"; sourceTree = "<group>"; };
+		DC5ED2BC1758A670002B5B81 /* img_dial_pound_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_pound_btn@2x.png"; sourceTree = "<group>"; };
+		DC5ED2BD1758A670002B5B81 /* img_dial_star_btn-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_star_btn-568h@2x.png"; sourceTree = "<group>"; };
+		DC5ED2BE1758A670002B5B81 /* img_dial_star_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dial_star_btn@2x.png"; sourceTree = "<group>"; };
 		DC620BA41757349F00FEEC5A /* img_cleardialphone_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_cleardialphone_btn.png; sourceTree = "<group>"; };
 		DC620BA51757349F00FEEC5A /* img_newcontact_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_newcontact_btn.png; sourceTree = "<group>"; };
 		DC620BA81757391A00FEEC5A /* img_dialbtn_highlighted_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_dialbtn_highlighted_bg.png; sourceTree = "<group>"; };
@@ -259,29 +319,59 @@
 			isa = PBXGroup;
 			children = (
 				DC620BA91757391A00FEEC5A /* img_addnewcontact6cleardialnumber_btn_normal_bg.png */,
+				DC5ED29D17587C8D002B5B81 /* img_callbtn-568h@2x.png */,
 				DC620BAC17573D3E00FEEC5A /* img_callbtn.png */,
+				DC5ED29E17587C8D002B5B81 /* img_callbtn@2x.png */,
 				DC620BB01757402F00FEEC5A /* img_callbtn_highlighted_bg.png */,
 				DC620BB11757402F00FEEC5A /* img_callbtn_normal_bg.png */,
+				DC5ED29F17587C8D002B5B81 /* img_cleardialphone_btn-568h@2x.png */,
 				DC620BA41757349F00FEEC5A /* img_cleardialphone_btn.png */,
+				DC5ED2A017587C8D002B5B81 /* img_cleardialphone_btn@2x.png */,
 				DC953B8D174F5228006F5AB0 /* img_default_avatar.png */,
+				DC5ED2A517587E78002B5B81 /* img_dial_0_btn-568h@2x.png */,
 				DC620BB4175745CA00FEEC5A /* img_dial_0_btn.png */,
+				DC5ED2A617587E78002B5B81 /* img_dial_0_btn@2x.png */,
+				DC5ED2A91758A670002B5B81 /* img_dial_1_btn-568h@2x.png */,
 				DC620BB5175745CA00FEEC5A /* img_dial_1_btn.png */,
+				DC5ED2AA1758A670002B5B81 /* img_dial_1_btn@2x.png */,
+				DC5ED2AB1758A670002B5B81 /* img_dial_2_btn-568h@2x.png */,
 				DC620BB6175745CA00FEEC5A /* img_dial_2_btn.png */,
+				DC5ED2AC1758A670002B5B81 /* img_dial_2_btn@2x.png */,
+				DC5ED2AD1758A670002B5B81 /* img_dial_3_btn-568h@2x.png */,
 				DC620BB7175745CB00FEEC5A /* img_dial_3_btn.png */,
+				DC5ED2AE1758A670002B5B81 /* img_dial_3_btn@2x.png */,
+				DC5ED2AF1758A670002B5B81 /* img_dial_4_btn-568h@2x.png */,
 				DC620BB8175745CB00FEEC5A /* img_dial_4_btn.png */,
+				DC5ED2B01758A670002B5B81 /* img_dial_4_btn@2x.png */,
+				DC5ED2B11758A670002B5B81 /* img_dial_5_btn-568h@2x.png */,
 				DC620BB9175745CB00FEEC5A /* img_dial_5_btn.png */,
+				DC5ED2B21758A670002B5B81 /* img_dial_5_btn@2x.png */,
+				DC5ED2B31758A670002B5B81 /* img_dial_6_btn-568h@2x.png */,
 				DC620BBA175745CB00FEEC5A /* img_dial_6_btn.png */,
+				DC5ED2B41758A670002B5B81 /* img_dial_6_btn@2x.png */,
+				DC5ED2B51758A670002B5B81 /* img_dial_7_btn-568h@2x.png */,
 				DC620BBB175745CB00FEEC5A /* img_dial_7_btn.png */,
+				DC5ED2B61758A670002B5B81 /* img_dial_7_btn@2x.png */,
+				DC5ED2B71758A670002B5B81 /* img_dial_8_btn-568h@2x.png */,
 				DC620BBC175745CB00FEEC5A /* img_dial_8_btn.png */,
+				DC5ED2B81758A670002B5B81 /* img_dial_8_btn@2x.png */,
+				DC5ED2B91758A670002B5B81 /* img_dial_9_btn-568h@2x.png */,
 				DC620BBD175745CC00FEEC5A /* img_dial_9_btn.png */,
+				DC5ED2BA1758A670002B5B81 /* img_dial_9_btn@2x.png */,
+				DC5ED2BB1758A670002B5B81 /* img_dial_pound_btn-568h@2x.png */,
 				DC620BBE175745CC00FEEC5A /* img_dial_pound_btn.png */,
+				DC5ED2BC1758A670002B5B81 /* img_dial_pound_btn@2x.png */,
+				DC5ED2BD1758A670002B5B81 /* img_dial_star_btn-568h@2x.png */,
 				DC620BBF175745CC00FEEC5A /* img_dial_star_btn.png */,
+				DC5ED2BE1758A670002B5B81 /* img_dial_star_btn@2x.png */,
 				DC620BA81757391A00FEEC5A /* img_dialbtn_highlighted_bg.png */,
 				DC620BAE17573DFC00FEEC5A /* img_dialbtn_normal_bg.png */,
 				DCEF2E31175642B50004E52F /* img_dialnumberlabel_bg-568h@2x.png */,
 				DC8A52DB175600E900B22630 /* img_dialnumberlabel_bg.png */,
 				DC8A52DC175600E900B22630 /* img_dialnumberlabel_bg@2x.png */,
+				DC5ED29917587BE4002B5B81 /* img_newcontact_btn-568h@2x.png */,
 				DC620BA51757349F00FEEC5A /* img_newcontact_btn.png */,
+				DC5ED29A17587BE4002B5B81 /* img_newcontact_btn@2x.png */,
 				DC953B6A174F138B006F5AB0 /* img_tab_callrecord.png */,
 				DC953B6B174F138B006F5AB0 /* img_tab_callrecord@2x.png */,
 				DC953B6C174F138B006F5AB0 /* img_tab_contactlist.png */,
@@ -482,6 +572,36 @@
 				DC620BC9175745CC00FEEC5A /* img_dial_9_btn.png in Resources */,
 				DC620BCA175745CC00FEEC5A /* img_dial_pound_btn.png in Resources */,
 				DC620BCB175745CC00FEEC5A /* img_dial_star_btn.png in Resources */,
+				DC5ED29B17587BE4002B5B81 /* img_newcontact_btn-568h@2x.png in Resources */,
+				DC5ED29C17587BE4002B5B81 /* img_newcontact_btn@2x.png in Resources */,
+				DC5ED2A117587C8D002B5B81 /* img_callbtn-568h@2x.png in Resources */,
+				DC5ED2A217587C8D002B5B81 /* img_callbtn@2x.png in Resources */,
+				DC5ED2A317587C8D002B5B81 /* img_cleardialphone_btn-568h@2x.png in Resources */,
+				DC5ED2A417587C8D002B5B81 /* img_cleardialphone_btn@2x.png in Resources */,
+				DC5ED2A717587E78002B5B81 /* img_dial_0_btn-568h@2x.png in Resources */,
+				DC5ED2A817587E78002B5B81 /* img_dial_0_btn@2x.png in Resources */,
+				DC5ED2BF1758A670002B5B81 /* img_dial_1_btn-568h@2x.png in Resources */,
+				DC5ED2C01758A670002B5B81 /* img_dial_1_btn@2x.png in Resources */,
+				DC5ED2C11758A670002B5B81 /* img_dial_2_btn-568h@2x.png in Resources */,
+				DC5ED2C21758A670002B5B81 /* img_dial_2_btn@2x.png in Resources */,
+				DC5ED2C31758A670002B5B81 /* img_dial_3_btn-568h@2x.png in Resources */,
+				DC5ED2C41758A670002B5B81 /* img_dial_3_btn@2x.png in Resources */,
+				DC5ED2C51758A670002B5B81 /* img_dial_4_btn-568h@2x.png in Resources */,
+				DC5ED2C61758A670002B5B81 /* img_dial_4_btn@2x.png in Resources */,
+				DC5ED2C71758A670002B5B81 /* img_dial_5_btn-568h@2x.png in Resources */,
+				DC5ED2C81758A670002B5B81 /* img_dial_5_btn@2x.png in Resources */,
+				DC5ED2C91758A670002B5B81 /* img_dial_6_btn-568h@2x.png in Resources */,
+				DC5ED2CA1758A670002B5B81 /* img_dial_6_btn@2x.png in Resources */,
+				DC5ED2CB1758A670002B5B81 /* img_dial_7_btn-568h@2x.png in Resources */,
+				DC5ED2CC1758A670002B5B81 /* img_dial_7_btn@2x.png in Resources */,
+				DC5ED2CD1758A670002B5B81 /* img_dial_8_btn-568h@2x.png in Resources */,
+				DC5ED2CE1758A670002B5B81 /* img_dial_8_btn@2x.png in Resources */,
+				DC5ED2CF1758A670002B5B81 /* img_dial_9_btn-568h@2x.png in Resources */,
+				DC5ED2D01758A670002B5B81 /* img_dial_9_btn@2x.png in Resources */,
+				DC5ED2D11758A670002B5B81 /* img_dial_pound_btn-568h@2x.png in Resources */,
+				DC5ED2D21758A670002B5B81 /* img_dial_pound_btn@2x.png in Resources */,
+				DC5ED2D31758A670002B5B81 /* img_dial_star_btn-568h@2x.png in Resources */,
+				DC5ED2D41758A670002B5B81 /* img_dial_star_btn@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
