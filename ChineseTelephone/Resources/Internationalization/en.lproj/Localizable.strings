@@ -18,6 +18,7 @@
 
 // dial
 "dial tab item title" = "Keypad";
+"dial number label placeholder" = "Please add area code header when dial fixed line telephone";
 
 // more
 "more tab content view navigation title" = "More settings";

@@ -18,6 +18,7 @@
 
 // dial
 "dial tab item title" = "拨号";
+"dial number label placeholder" = "拨打固话前请加拨区号";
 
 // more
 "more tab content view navigation title" = "更多设置";
