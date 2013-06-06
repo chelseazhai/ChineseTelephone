@@ -8,6 +8,8 @@
 
 #import "DialTabContentView.h"
 
+#import "OutgoingCallViewController.h"
+
 // subview weight and total sum weight
 #define DIALNUMBERLABEL_WEIGHT  6
 #define DIALBUTTONGRIDVIEW_WEIGHT   20
@@ -36,12 +38,13 @@
 // zero dial button tag
 #define ZERODIALBUTTON_TAG  10
 
-// dial button values and images
+// dial button values
 #define DIALBUTTON_VALUES   [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"*", @"0", @"#", nil]
 
 // zero dial button shift value
 #define ZERODIALBUTTON_SHIFTVALUE   @"+"
 
+// dial button images
 #define DIALBUTTON_IMAGES   [NSArray arrayWithObjects:[UIImage imageNamed:@"img_dial_1_btn"], [UIImage imageNamed:@"img_dial_2_btn"], [UIImage imageNamed:@"img_dial_3_btn"], [UIImage imageNamed:@"img_dial_4_btn"], [UIImage imageNamed:@"img_dial_5_btn"], [UIImage imageNamed:@"img_dial_6_btn"], [UIImage imageNamed:@"img_dial_7_btn"], [UIImage imageNamed:@"img_dial_8_btn"], [UIImage imageNamed:@"img_dial_9_btn"], [UIImage imageNamed:@"img_dial_star_btn"], [UIImage imageNamed:@"img_dial_0_btn"], [UIImage imageNamed:@"img_dial_pound_btn"], nil]
 
 // controller view sum weight
@@ -87,6 +90,9 @@ typedef NS_ENUM(NSInteger, DialNumberLabelTextUpdateMode){
         // init dial number and its ownnership view
         UIView *_dialNumber7OwnnershipView = [[UIView alloc] initWithFrame:CGRectMake(self.bounds.origin.x, self.bounds.origin.y, FILL_PARENT, FILL_PARENT * (DIALNUMBERLABEL_WEIGHT / TOTALSUMWEIGHT))];
         
+        // set dial number and ownnership view background image
+        _dialNumber7OwnnershipView.backgroundImg = [UIImage compatibleImageNamed:@"img_dialnumber7ownnershiplabel_bg"];
+        
         // init dial number label
         _mDialNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(_dialNumber7OwnnershipView.bounds.origin.x, _dialNumber7OwnnershipView.bounds.origin.y, FILL_PARENT, FILL_PARENT)];
         
@@ -96,7 +102,7 @@ typedef NS_ENUM(NSInteger, DialNumberLabelTextUpdateMode){
         _mDialNumberLabel.adjustsFontSizeToFitWidth = YES;
         _mDialNumberLabel.text = NSLocalizedString(@"dial number label placeholder", nil);
         _mDialNumberLabel.font = [UIFont boldSystemFontOfSize:DIALNUMBERLABEL_PLACEHOLDER_FONTSIZE];
-        _mDialNumberLabel.backgroundImg = [UIImage compatibleImageNamed:@"img_dialnumberlabel_bg"];
+        _mDialNumberLabel.backgroundColor = [UIColor clearColor];
         
         // add observer for key "text"
         [_mDialNumberLabel addObserver:self forKeyPath:DIALNUMBERLABEL_OBSERVER_TEXT_KEY options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
@@ -333,7 +339,18 @@ typedef NS_ENUM(NSInteger, DialNumberLabelTextUpdateMode){
 }
 
 - (void)callWithDialNumber{
-    NSLog(@"Call with dial number = %@", self.dialNumber);
+    // get and check dial number
+    NSString *_dialNumber = self.dialNumber;
+    if (nil != _dialNumber && ![@"" isEqualToString:_dialNumber]) {
+        // create and init outgoing call view controller
+        OutgoingCallViewController *_outgoingCallViewController = [[OutgoingCallViewController alloc] init];
+        
+        // set outgoing call sip call mode, phone and its ownnership
+        [_outgoingCallViewController setCallMode:DIRECT_CALL phone:_dialNumber ownnership:_mDialNumberOwnnershipLabel.text];
+        
+        // goto outgoing call view controller
+        [self.viewControllerRef presentModalViewController:_outgoingCallViewController animated:YES];
+    }
 }
 
 - (void)clearDialNumber{

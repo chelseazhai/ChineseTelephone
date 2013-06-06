@@ -13,6 +13,9 @@
 // UIView width or height param
 #define FILL_PARENT USHRT_MAX
 
+// UIView width or height param string
+#define FILL_PARENT_STRING  "FILL_PARENT"
+
 // UIView UI category
 @interface UIView (UI)
 
@@ -41,6 +44,12 @@
 
 // UIView draw category
 @interface UIView (Draw)
+
+// set corner radius
+- (void)setCornerRadius:(CGFloat)cornerRadius;
+
+// set border with width and color
+- (void)setBorderWithWidth:(CGFloat)borderWidth andColor:(UIColor *)borderColor;
 
 // resize all subviews, call when layoutSubviews be called
 - (void)resizesSubviews;

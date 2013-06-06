@@ -22,3 +22,10 @@
 
 // more
 "more tab content view navigation title" = "More settings";
+
+// outgoing call
+"outgoing call calling status" = "Calling ...";
+"outgoing call call controller contacts button title" = "Contacts";
+"outgoing call call controller keyboard button title" = "Keypad";
+"outgoing call call controller mute button title" = "Mute";
+"outgoing call call controller speaker button title" = "Speaker";

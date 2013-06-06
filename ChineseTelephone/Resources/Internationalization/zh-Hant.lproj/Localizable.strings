@@ -22,3 +22,10 @@
 
 // more
 "more tab content view navigation title" = "更多设置";
+
+// outgoing call
+"outgoing call calling status" = "正在呼叫 ...";
+"outgoing call call controller contacts button title" = "联系人";
+"outgoing call call controller keyboard button title" = "键盘";
+"outgoing call call controller mute button title" = "静音";
+"outgoing call call controller speaker button title" = "扬声器";

@@ -43,7 +43,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        // init contentView subViews
+        // init contentView subviews
         // contact photo image view
         _mPhotoImgView = [[UIImageView alloc] initWithFrame:CGRectMake(MARGIN, MARGIN, PHOTOIMGVIEW_WIDTH7HEIGHT, PHOTOIMGVIEW_WIDTH7HEIGHT)];
         
