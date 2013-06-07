@@ -8,7 +8,7 @@
 
 #import "DialTabContentView.h"
 
-#import "OutgoingCallViewController.h"
+#import "OutgoingCallGenerator.h"
 
 // subview weight and total sum weight
 #define DIALNUMBERLABEL_WEIGHT  6
@@ -342,14 +342,8 @@ typedef NS_ENUM(NSInteger, DialNumberLabelTextUpdateMode){
     // get and check dial number
     NSString *_dialNumber = self.dialNumber;
     if (nil != _dialNumber && ![@"" isEqualToString:_dialNumber]) {
-        // create and init outgoing call view controller
-        OutgoingCallViewController *_outgoingCallViewController = [[OutgoingCallViewController alloc] init];
-        
-        // set outgoing call sip call mode, phone and its ownnership
-        [_outgoingCallViewController setCallMode:CALLBACK phone:_dialNumber ownnership:_mDialNumberOwnnershipLabel.text];
-        
-        // goto outgoing call view controller
-        [self.viewControllerRef presentModalViewController:_outgoingCallViewController animated:YES];
+        // generate new outgoing call with contact
+        [[[OutgoingCallGenerator alloc] initWithDependentViewController:self.viewControllerRef] generateNewOutgoingCall:_mDialNumberOwnnershipLabel.text phones:[NSArray arrayWithObject:_dialNumber]];
     }
 }
 
