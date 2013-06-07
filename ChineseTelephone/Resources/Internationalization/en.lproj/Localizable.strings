@@ -29,3 +29,7 @@
 "outgoing call call controller keyboard button title" = "Keypad";
 "outgoing call call controller mute button title" = "Mute";
 "outgoing call call controller speaker button title" = "Speaker";
+
+"outgoing call direct dial dial mode" = "Direct dial";
+"outgoing call callback dial mode" = "Callback";
+"outgoing call phone call dial mode" = "Phone";

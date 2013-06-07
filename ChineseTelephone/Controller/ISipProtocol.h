@@ -18,8 +18,8 @@
 
 @required
 
-// make sip voice call
-- (void)makeSipVoiceCall:(NSString *)callee phone:(NSString *)phone callMode:(SipCallMode)callMode;
+// make sip voice call from view controller
+- (void)makeSipVoiceCall:(NSString *)callee phone:(NSString *)phone callMode:(SipCallMode)callMode fromViewController:(UIViewController *)sponsorViewController;
 
 // hangup current sip voice call
 - (BOOL)hangupSipVoiceCall:(long)callDuration;

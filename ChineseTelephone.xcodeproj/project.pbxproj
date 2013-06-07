@@ -90,7 +90,7 @@
 		DC63F4851761CCCE00229C43 /* SipBaseImplementation.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63F4841761CCCE00229C43 /* SipBaseImplementation.m */; };
 		DC63F4881761CD0B00229C43 /* PJSipImplementation.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63F4871761CD0B00229C43 /* PJSipImplementation.m */; };
 		DC63F48D1761D30100229C43 /* SipRegistrationBean.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63F48C1761D2FE00229C43 /* SipRegistrationBean.m */; };
-		DC63F4911761DC8C00229C43 /* SipCallModeSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63F4901761DC8C00229C43 /* SipCallModeSelector.m */; };
+		DC63F4911761DC8C00229C43 /* SipCallDialModeSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63F4901761DC8C00229C43 /* SipCallDialModeSelector.m */; };
 		DC756B871752EE4000F287FA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC756B841752EE4000F287FA /* Default-568h@2x.png */; };
 		DC756B881752EE4000F287FA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC756B851752EE4000F287FA /* Default.png */; };
 		DC756B891752EE4000F287FA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC756B861752EE4000F287FA /* Default@2x.png */; };
@@ -248,8 +248,8 @@
 		DC63F48A1761CDAA00229C43 /* SipRegistrationStateChangedProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SipRegistrationStateChangedProtocol.h; path = Controller/SipRegistrationStateChangedProtocol.h; sourceTree = "<group>"; };
 		DC63F48B1761D2FD00229C43 /* SipRegistrationBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SipRegistrationBean.h; path = Data/SipRegistrationBean.h; sourceTree = "<group>"; };
 		DC63F48C1761D2FE00229C43 /* SipRegistrationBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SipRegistrationBean.m; path = Data/SipRegistrationBean.m; sourceTree = "<group>"; };
-		DC63F48F1761DC8C00229C43 /* SipCallModeSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SipCallModeSelector.h; path = Controller/SipCallModeSelector.h; sourceTree = "<group>"; };
-		DC63F4901761DC8C00229C43 /* SipCallModeSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SipCallModeSelector.m; path = Controller/SipCallModeSelector.m; sourceTree = "<group>"; };
+		DC63F48F1761DC8C00229C43 /* SipCallDialModeSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SipCallDialModeSelector.h; path = Controller/SipCallDialModeSelector.h; sourceTree = "<group>"; };
+		DC63F4901761DC8C00229C43 /* SipCallDialModeSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SipCallDialModeSelector.m; path = Controller/SipCallDialModeSelector.m; sourceTree = "<group>"; };
 		DC756B841752EE4000F287FA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "ChineseTelephone/Resources/Splashes/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
 		DC756B851752EE4000F287FA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ChineseTelephone/Resources/Splashes/Default.png; sourceTree = SOURCE_ROOT; };
 		DC756B861752EE4000F287FA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "ChineseTelephone/Resources/Splashes/Default@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -621,9 +621,9 @@
 				DC8F3D581758EB8600EF6F78 /* OutgoingCallView.m */,
 				DC8F3D541758EB5800EF6F78 /* OutgoingCallViewController.h */,
 				DC8F3D551758EB5800EF6F78 /* OutgoingCallViewController.m */,
+				DC63F48F1761DC8C00229C43 /* SipCallDialModeSelector.h */,
+				DC63F4901761DC8C00229C43 /* SipCallDialModeSelector.m */,
 				DC75F5ED175F16B500A17B5A /* SipCallMode.h */,
-				DC63F48F1761DC8C00229C43 /* SipCallModeSelector.h */,
-				DC63F4901761DC8C00229C43 /* SipCallModeSelector.m */,
 			);
 			name = OutgoingCall;
 			sourceTree = "<group>";
@@ -910,7 +910,7 @@
 				DC63F4851761CCCE00229C43 /* SipBaseImplementation.m in Sources */,
 				DC63F4881761CD0B00229C43 /* PJSipImplementation.m in Sources */,
 				DC63F48D1761D30100229C43 /* SipRegistrationBean.m in Sources */,
-				DC63F4911761DC8C00229C43 /* SipCallModeSelector.m in Sources */,
+				DC63F4911761DC8C00229C43 /* SipCallDialModeSelector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

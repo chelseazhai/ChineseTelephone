@@ -8,16 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@interface OutgoingCallGenerator : NSObject {
-    // generate an new outgoing call operation dependent view controller
+@interface OutgoingCallGenerator : NSObject <UIActionSheetDelegate> {
+    // generate an new outgoing call operation dependent view and view controller
+    UIView *_mGenNewOutgoingCallOperationDependentView;
 	UIViewController *_mGenNewOutgoingCallOperationDependentViewController;
+    
+    // contact info: display name and phone numbers
+	NSString *_mContactName;
+	NSArray *_mContactPhones;
 }
 
-// init with generate an new outgoing call operation dependent view controller
-- (id)initWithDependentViewController:(UIViewController *)dependentViewController;
-
-// set generate an new outgoing call operation dependent view controller
-- (void)setDependentViewController:(UIViewController *)dependentViewController;
+// init with generate an new outgoing call operation dependent view and view controller
+- (id)initWithDependentView:(UIView *)dependentView andViewController:(UIViewController *)dependentViewController;
 
 // generate an new outgoing call with contact
 - (void)generateNewOutgoingCall:(NSString *)contactName phones:(NSArray *)contactPhones;

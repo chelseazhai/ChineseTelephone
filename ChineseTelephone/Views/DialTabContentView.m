@@ -66,7 +66,7 @@ typedef NS_ENUM(NSInteger, DialNumberLabelTextUpdateMode){
 - (void)addNewContact2ABWithPhoneNumber;
 
 // call with dial number
-- (void)callWithDialNumber;
+- (void)callWithDialNumber:(UIButton *)dialButton;
 
 // clear dial number
 - (void)clearDialNumber;
@@ -194,7 +194,7 @@ typedef NS_ENUM(NSInteger, DialNumberLabelTextUpdateMode){
         [_callWithDialNumberButton setImage:[UIImage compatibleImageWithLanguageNamed:@"img_callbtn"]];
         
         // add action selector and its response target for event
-        [_callWithDialNumberButton addTarget:self action:@selector(callWithDialNumber) forControlEvents:UIControlEventTouchUpInside];
+        [_callWithDialNumberButton addTarget:self action:@selector(callWithDialNumber:) forControlEvents:UIControlEventTouchUpInside];
         
         // init clear dial number button
         _mClearDialNumberButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -338,12 +338,12 @@ typedef NS_ENUM(NSInteger, DialNumberLabelTextUpdateMode){
     NSLog(@"Add new contact with phone number = %@ to address book", self.dialNumber);
 }
 
-- (void)callWithDialNumber{
+- (void)callWithDialNumber:(UIButton *)dialButton{
     // get and check dial number
     NSString *_dialNumber = self.dialNumber;
     if (nil != _dialNumber && ![@"" isEqualToString:_dialNumber]) {
         // generate new outgoing call with contact
-        [[[OutgoingCallGenerator alloc] initWithDependentViewController:self.viewControllerRef] generateNewOutgoingCall:_mDialNumberOwnnershipLabel.text phones:[NSArray arrayWithObject:_dialNumber]];
+        [[[OutgoingCallGenerator alloc] initWithDependentView:dialButton andViewController:self.viewControllerRef] generateNewOutgoingCall:_mDialNumberOwnnershipLabel.text phones:[NSArray arrayWithObject:_dialNumber]];
     }
 }
 

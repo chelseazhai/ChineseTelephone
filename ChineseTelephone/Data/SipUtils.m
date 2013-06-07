@@ -34,8 +34,8 @@ static id<ISipProtocol> sipImplementation;
     [[self getSipImplementation] unregisterSipAccount:stateChangedProtocolImpl];
 }
 
-+(void)makeSipVoiceCall:(NSString *)callee phone:(NSString *)phone callMode:(SipCallMode)callMode{
-    [[self getSipImplementation] makeSipVoiceCall:callee phone:phone callMode:callMode];
++(void)makeSipVoiceCall:(NSString *)callee phone:(NSString *)phone callMode:(SipCallMode)callMode fromViewController:(UIViewController *)sponsorViewController{
+    [[self getSipImplementation] makeSipVoiceCall:callee phone:phone callMode:callMode fromViewController:sponsorViewController];
 }
 
 +(void)destroySipEngine{

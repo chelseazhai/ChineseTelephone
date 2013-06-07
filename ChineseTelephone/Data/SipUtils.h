@@ -29,8 +29,8 @@
 // unregister sip account
 + (void)unregisterSipAccount:(id<SipRegistrationStateChangedProtocol>)stateChangedProtocolImpl;
 
-// make sip voice call
-+ (void)makeSipVoiceCall:(NSString *)callee phone:(NSString *)phone callMode:(SipCallMode)callMode;
+// make sip voice call from view controller
++ (void)makeSipVoiceCall:(NSString *)callee phone:(NSString *)phone callMode:(SipCallMode)callMode fromViewController:(UIViewController *)sponsorViewController;
 
 // destroy sip engine
 + (void)destroySipEngine;

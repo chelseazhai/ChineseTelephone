@@ -29,3 +29,7 @@
 "outgoing call call controller keyboard button title" = "键盘";
 "outgoing call call controller mute button title" = "静音";
 "outgoing call call controller speaker button title" = "扬声器";
+
+"outgoing call direct dial dial mode" = "直拨";
+"outgoing call callback dial mode" = "回拨";
+"outgoing call phone call dial mode" = "手机呼叫";
