@@ -191,7 +191,7 @@ typedef NS_ENUM(NSInteger, DialNumberLabelTextUpdateMode){
         // set background image, image for normal and highlighted state
         [_callWithDialNumberButton setBackgroundImage:[UIImage imageNamed:@"img_callbtn_normal_bg"] forState:UIControlStateNormal];
         [_callWithDialNumberButton setBackgroundImage:[UIImage imageNamed:@"img_callbtn_highlighted_bg"] forState:UIControlStateHighlighted];
-        [_callWithDialNumberButton setImage:[UIImage imageNamed:@"img_callbtn"]];
+        [_callWithDialNumberButton setImage:[UIImage compatibleImageWithLanguageNamed:@"img_callbtn"]];
         
         // add action selector and its response target for event
         [_callWithDialNumberButton addTarget:self action:@selector(callWithDialNumber) forControlEvents:UIControlEventTouchUpInside];
@@ -346,7 +346,7 @@ typedef NS_ENUM(NSInteger, DialNumberLabelTextUpdateMode){
         OutgoingCallViewController *_outgoingCallViewController = [[OutgoingCallViewController alloc] init];
         
         // set outgoing call sip call mode, phone and its ownnership
-        [_outgoingCallViewController setCallMode:DIRECT_CALL phone:_dialNumber ownnership:_mDialNumberOwnnershipLabel.text];
+        [_outgoingCallViewController setCallMode:CALLBACK phone:_dialNumber ownnership:_mDialNumberOwnnershipLabel.text];
         
         // goto outgoing call view controller
         [self.viewControllerRef presentModalViewController:_outgoingCallViewController animated:YES];

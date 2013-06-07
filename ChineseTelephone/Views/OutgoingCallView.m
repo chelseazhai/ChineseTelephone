@@ -47,10 +47,19 @@
 #define KEYBOARDGRIDVIEW_WEIGHT 10
 #define KEYBOARDGRIDVIEW_TOTALSUMWEIGHT 12.0
 
-// call back view width, height weight and sum weight
+// callback view width, height weight and sum weight
 #define CALLBACKVIEW_WIDTHWEIGHT    7
 #define CALLBACKVIEW_HEIGHTWEIGHT   8
 #define CALLBACKVIEW_TOTALSUMWEIGHT 10.0
+
+// callback call request result image view, label width and height weight and sum weight
+#define CALLBACKVIEW_REQUESTRESULTIMAGEVIEW_WEIGHT 8
+#define CALLBACKVIEW_REQUESTRESULTLABEL_HEIGHTWEIGHT   12
+#define CALLBACKVIEW_REQUESTRESULTLABEL_WIDTHWEIGHT    18
+#define CALLBACKVIEW_REQUESTRESULT_TOTALSUMWEIGHT   20.0
+
+// callback call request result label font size
+#define CALLBACKVIEW_REQUESTRESULTLABEL_FONTSIZE   18.0
 
 // footer view's hangup, hide keyboard button width, height weight and sum weight
 #define FOOTERVIEW_HANGUPLONGBUTTON_WIDTHWEIGHT 28
@@ -79,11 +88,17 @@
 // get hangup button background image
 - (UIImage *)getHangupButtonBackgroundImg;
 
+// get hangup button image
+- (UIImage *)getHangupButtonImg;
+
 // hangup current outgoing sip call
 - (void)hangup;
 
 // hide keyboard grid view
 - (void)hideKeyboard;
+
+// back for waiting callback call
+- (void)back4waitingCallbackCall;
 
 @end
 
@@ -166,12 +181,36 @@
         // hidden first
         _mKeyboardGridView.hidden = YES;
         
-        // init call back view
+        // init callback view
         _mCallbackView = [[UIView alloc] initWithFrame:CGRectMake(_centerView.bounds.origin.x + FILL_PARENT * ((CALLBACKVIEW_TOTALSUMWEIGHT - CALLBACKVIEW_WIDTHWEIGHT) / (2 * CALLBACKVIEW_TOTALSUMWEIGHT)), _centerView.bounds.origin.y + FILL_PARENT * ((CALLBACKVIEW_TOTALSUMWEIGHT - CALLBACKVIEW_HEIGHTWEIGHT) / (2 * CALLBACKVIEW_TOTALSUMWEIGHT)), FILL_PARENT * (CALLBACKVIEW_WIDTHWEIGHT / CALLBACKVIEW_TOTALSUMWEIGHT), FILL_PARENT * (CALLBACKVIEW_HEIGHTWEIGHT / CALLBACKVIEW_TOTALSUMWEIGHT))];
         
-        _mCallbackView.backgroundColor = [UIColor purpleColor];
+        // set background image
+        // test by ares
+        _mCallbackView.backgroundColor = [UIColor blackColor];
         
-        // add call controller, keyboard grid view and call back view as subviews of center view
+        // init callback call request result image view
+        UIImageView *_callbackCallRequestResultImageView = [[UIImageView alloc] initWithFrame:CGRectMake(_mCallbackView.bounds.origin.x, _mCallbackView.bounds.origin.y, FILL_PARENT, FILL_PARENT * (CALLBACKVIEW_REQUESTRESULTIMAGEVIEW_WEIGHT / CALLBACKVIEW_REQUESTRESULT_TOTALSUMWEIGHT))];
+        
+        // set content mode
+        _callbackCallRequestResultImageView.contentMode = UIViewContentModeScaleAspectFit;
+        
+        // init callback call request result label
+        UILabel *_callbackCallRequestResultLabel = [[UILabel alloc] initWithFrame:CGRectMake(_mCallbackView.bounds.origin.x + FILL_PARENT * ((CALLBACKVIEW_REQUESTRESULT_TOTALSUMWEIGHT - CALLBACKVIEW_REQUESTRESULTLABEL_WIDTHWEIGHT) / (2 * CALLBACKVIEW_REQUESTRESULT_TOTALSUMWEIGHT)), _mCallbackView.bounds.origin.y + _callbackCallRequestResultImageView.bounds.size.height, FILL_PARENT * (CALLBACKVIEW_REQUESTRESULTLABEL_WIDTHWEIGHT / CALLBACKVIEW_REQUESTRESULT_TOTALSUMWEIGHT), FILL_PARENT * (CALLBACKVIEW_REQUESTRESULTLABEL_HEIGHTWEIGHT / CALLBACKVIEW_REQUESTRESULT_TOTALSUMWEIGHT))];
+        
+        // set its attributes
+        _callbackCallRequestResultLabel.textColor = [UIColor whiteColor];
+        _callbackCallRequestResultLabel.textAlignment = NSTextAlignmentCenter;
+        _callbackCallRequestResultLabel.font = [UIFont systemFontOfSize:CALLBACKVIEW_REQUESTRESULTLABEL_FONTSIZE];
+        _callbackCallRequestResultLabel.backgroundColor = [UIColor clearColor];
+        
+        // add callback call request result image view and label as subviews of callback view
+        [_mCallbackView addSubview:_callbackCallRequestResultImageView];
+        [_mCallbackView addSubview:_callbackCallRequestResultLabel];
+        
+        // hidden first
+        _mCallbackView.hidden = YES;
+        
+        // add call controller, keyboard grid view and callback view as subviews of center view
         [_centerView addSubview:_mCallControllerGridView];
         [_centerView addSubview:_mKeyboardGridView];
         [_centerView addSubview:_mCallbackView];
@@ -208,6 +247,9 @@
         // set background image for normal state
         [_mHangupButton setBackgroundImage:[self getHangupButtonBackgroundImg] forState:UIControlStateNormal];
         
+        // set image for normal and highlighted state
+        [_mHangupButton setImage:[self getHangupButtonImg]];
+        
         // add action selector and its response target for event
         [_mHangupButton addTarget:self action:@selector(hangup) forControlEvents:UIControlEventTouchUpInside];
         
@@ -221,15 +263,34 @@
         [_mHideKeyboardButton setBackgroundImage:[UIImage imageNamed:@"img_hidekeyboardbtn_normal_bg"] forState:UIControlStateNormal];
         [_mHideKeyboardButton setBackgroundImage:[UIImage imageNamed:@"img_hidekeyboardbtn_highlighted_bg"] forState:UIControlStateHighlighted];
         
+        // set image for normal and highlighted state
+        [_mHideKeyboardButton setImage:[UIImage ImageWithLanguageNamed:@"img_hidekeyboardbtn"]];
+        
         // add action selector and its response target for event
         [_mHideKeyboardButton addTarget:self action:@selector(hideKeyboard) forControlEvents:UIControlEventTouchUpInside];
         
         // hidden first
         _mHideKeyboardButton.hidden = YES;
         
-        // add hangup and hide keyboard button as subviews of footer view
+        // init back for waiting callback call button
+        _mBack4waitingCallbackCallButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        // set its frame
+        [_mBack4waitingCallbackCallButton setFrame:_mHangupButton.frame];
+        
+        // set background image for normal state
+        [_mBack4waitingCallbackCallButton setBackgroundImage:[UIImage imageNamed:@"img_back4waitingcallbackcallbtn_bg"] forState:UIControlStateNormal];
+        
+        // set image for normal and highlighted state
+        [_mBack4waitingCallbackCallButton setImage:[UIImage ImageWithLanguageNamed:@"img_back4waitingcallbackcallbtn"]];
+        
+        // add action selector and its response target for event
+        [_mBack4waitingCallbackCallButton addTarget:self action:@selector(back4waitingCallbackCall) forControlEvents:UIControlEventTouchUpInside];
+        
+        // add hangup, hide keyboard and back for waiting callback call button as subviews of footer view
         [_mFooterView addSubview:_mHangupButton];
         [_mFooterView addSubview:_mHideKeyboardButton];
+        [_mFooterView addSubview:_mBack4waitingCallbackCallButton];
         
         // add header, center and footer view as subviews of outgoing call view
         [self addSubview:_headerView];
@@ -262,23 +323,33 @@
     // check call mode and show correct center view
     switch (callMode) {
         case CALLBACK:
-            // hide call controller grid view and show call back view
+            // hide call controller grid view
             if (![_mCallControllerGridView isHidden]) {
                 _mCallControllerGridView.hidden = YES;
             }
-            if ([_mCallbackView isHidden]) {
-                _mCallbackView.hidden = NO;
+            
+            // hide hangup current outgoing call button and show back for waiting callback call button
+            if (![_mHangupButton isHidden]) {
+                _mHangupButton.hidden = YES;
+            }
+            if ([_mBack4waitingCallbackCallButton isHidden]) {
+                _mBack4waitingCallbackCallButton.hidden = NO;
             }
             break;
             
         case DIRECT_CALL:
         default:
-            // show call controller grid view and hide call back view
+            // show call controller grid view
             if ([_mCallControllerGridView isHidden]) {
                 _mCallControllerGridView.hidden = NO;
             }
-            if (![_mCallbackView isHidden]) {
-                _mCallbackView.hidden = YES;
+            
+            // show hangup current outgoing call button and hide back for waiting callback call button
+            if ([_mHangupButton isHidden]) {
+                _mHangupButton.hidden = NO;
+            }
+            if (![_mBack4waitingCallbackCallButton isHidden]) {
+                _mBack4waitingCallbackCallButton.hidden = YES;
             }
             break;
     }
@@ -300,9 +371,10 @@
     // show hide keyboard button
     _mHideKeyboardButton.hidden = NO;
     
-    // update hangup button frame and background image for normal state
+    // update hangup button frame, background image and image for normal state
     [_mHangupButton setFrame:[self genHangupButtonDrawRect:YES]];
     [_mHangupButton setBackgroundImage:[self getHangupButtonBackgroundImg] forState:UIControlStateNormal];
+    [_mHangupButton setImage:[self getHangupButtonImg]];
 }
 
 - (void)mute{
@@ -334,13 +406,14 @@
 }
 
 - (UIImage *)getHangupButtonBackgroundImg{
-    return [UIImage imageNamed:nil == _mHideKeyboardButton || [_mHideKeyboardButton isHidden] ? @"img_hangup_longbtn_normal_bg" : @"img_hangup_shortbtn_normal_bg"];
+    return [UIImage imageNamed:nil == _mHideKeyboardButton || [_mHideKeyboardButton isHidden] ? @"img_hangup_longbtn_bg" : @"img_hangup_shortbtn_bg"];
+}
+
+- (UIImage *)getHangupButtonImg{
+    return [UIImage ImageWithLanguageNamed:nil == _mHideKeyboardButton || [_mHideKeyboardButton isHidden] ? @"img_hangup_longbtn" : @"img_hangup_shortbtn"];
 }
 
 - (void)hangup{
-    // test by ares
-    NSLog(@"system current setting language = %@", [DeviceUtils systemSettingLanguage]);
-    
     // dismiss outgoing call view
     [self.viewControllerRef dismissModalViewControllerAnimated:YES];
 }
@@ -353,9 +426,15 @@
     // hide hide keyboard button
     _mHideKeyboardButton.hidden = YES;
     
-    // update hangup button frame and background image for normal state
+    // update hangup button frame, background image and image for normal state
     [_mHangupButton setFrame:[self genHangupButtonDrawRect:YES]];
     [_mHangupButton setBackgroundImage:[self getHangupButtonBackgroundImg] forState:UIControlStateNormal];
+    [_mHangupButton setImage:[self getHangupButtonImg]];
+}
+
+- (void)back4waitingCallbackCall{
+    // dismiss outgoing call view
+    [self.viewControllerRef dismissModalViewControllerAnimated:YES];
 }
 
 @end

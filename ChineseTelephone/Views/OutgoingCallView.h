@@ -29,7 +29,7 @@
     UIView *_mCallControllerGridView;
     // keyboard grid view
     UIView *_mKeyboardGridView;
-    // call back view
+    // callback view
     UIView *_mCallbackView;
     
     // footer view
@@ -39,6 +39,8 @@
     UIButton *_mHangupButton;
     // hide keyboard button
     UIButton *_mHideKeyboardButton;
+    // back for waiting callback call button
+    UIButton *_mBack4waitingCallbackCallButton;
 }
 
 // set outgoing call sip call mode and callee
