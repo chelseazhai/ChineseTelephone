@@ -10,7 +10,9 @@
 
 #import "SipCallMode.h"
 
-@interface OutgoingCallView : UIView {
+#import "SipInviteStateChangedProtocol.h"
+
+@interface OutgoingCallView : UIView <SipInviteStateChangedProtocol> {
     // sip call phone
     NSString *_mSipCallPhone;
     

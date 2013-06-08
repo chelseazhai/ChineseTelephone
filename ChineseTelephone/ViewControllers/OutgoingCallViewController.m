@@ -48,6 +48,10 @@
     [((OutgoingCallView *)self.view) setCallMode:callMode callee:nil != ownnership && ![@"" isEqualToString:ownnership] ? ownnership : phone phone:phone];
 }
 
+- (id<SipInviteStateChangedProtocol>)getSipInviteStateChangedImplementation{
+    return (OutgoingCallView *)self.view;
+}
+
 - (id)getCallbackSipVoiceCallRequestProcessor{
     return (OutgoingCallView *)self.view;
 }

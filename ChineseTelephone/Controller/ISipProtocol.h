@@ -45,7 +45,7 @@
 - (void)unmuteSipVoiceCall;
 
 // send dtmf
-- (void)sentDTMF:(NSString *)dtmfCode;
+- (void)sendDTMF:(NSString *)dtmfCode;
 
 // destroy sip engine
 - (void)destroySipEngine;

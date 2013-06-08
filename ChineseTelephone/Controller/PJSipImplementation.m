@@ -13,13 +13,23 @@
 - (id)init{
     self = [super init];
     if (self) {
-        // init sip implementation using self
-        _mSipImpl = self;
+        // init sip implementation protocol implementation using self
+        _mSipImplementationProtocolImpl = self;
     }
     return self;
 }
 
-- (BOOL)makeSipVoiceCall:(NSString *)calleeName phone:(NSString *)calleePhone{
+- (void)registerSipAccount:(SipRegistrationBean *)sipAccount stateChangedProtocolImpl:(id<SipRegistrationStateChangedProtocol>)sipRegistrationStateChangedProtocolImpl{
+    //
+}
+
+- (void)unregisterSipAccount:(id<SipRegistrationStateChangedProtocol>)sipRegistrationStateChangedProtocolImpl{
+    //
+}
+
+- (BOOL)makeSipVoiceCall:(NSString *)calleeName phone:(NSString *)calleePhone stateChangedProtocolImpl:(id<SipInviteStateChangedProtocol>)stateChangedProtocolImpl{
+    NSLog(@"sip invite state changed protocol implementation = %@", stateChangedProtocolImpl);
+    
     //
     
     return YES;
@@ -29,6 +39,22 @@
     //
     
     return YES;
+}
+
+- (void)muteSipVoiceCall{
+    //
+}
+
+- (void)unmuteSipVoiceCall{
+    //
+}
+
+- (void)sendDTMF:(NSString *)dtmfCode{
+    //
+}
+
+- (void)destroySipEngine{
+    //
 }
 
 @end

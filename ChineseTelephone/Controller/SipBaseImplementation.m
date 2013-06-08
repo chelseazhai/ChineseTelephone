@@ -44,7 +44,7 @@
         case DIRECT_CALL:
         default:
             // make a sip voice call using sip implementation
-            _makeSipVoiceCallResult = [_mSipImpl makeSipVoiceCall:callee phone:phone];
+            _makeSipVoiceCallResult = [_mSipImplementationProtocolImpl makeSipVoiceCall:callee phone:phone stateChangedProtocolImpl:[((OutgoingCallViewController *)_outgoingCallViewController) getSipInviteStateChangedImplementation]];
             break;
     }
     
