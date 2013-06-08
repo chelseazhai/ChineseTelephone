@@ -10,9 +10,16 @@
 #define ChineseTelephone_SipCallMode_h
 
 // sip call mode
-typedef enum {
+typedef enum{
     // direct dial and callback
 	DIRECT_CALL, CALLBACK
 } SipCallMode;
+
+// outgoing call call mode
+typedef enum{
+    OUTGOINGCALL_DIRECT_CALL = DIRECT_CALL,
+    OUTGOINGCALL_CALLBACK = CALLBACK,
+    OUTGOINGCALL_Phone_CALL
+} OutgoingCallCallMode;
 
 #endif

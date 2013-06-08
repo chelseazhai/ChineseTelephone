@@ -10,4 +10,25 @@
 
 @implementation PJSipImplementation
 
+- (id)init{
+    self = [super init];
+    if (self) {
+        // init sip implementation using self
+        _mSipImpl = self;
+    }
+    return self;
+}
+
+- (BOOL)makeSipVoiceCall:(NSString *)calleeName phone:(NSString *)calleePhone{
+    //
+    
+    return YES;
+}
+
+- (BOOL)hangupSipVoiceCall{
+    //
+    
+    return YES;
+}
+
 @end

@@ -15,4 +15,7 @@
 // set outgoing call sip call mode, phone and its ownnership
 - (void)setCallMode:(SipCallMode)callMode phone:(NSString *)phone ownnership:(NSString *)ownnership;
 
+// get callback sip voice call request processor
+- (id)getCallbackSipVoiceCallRequestProcessor;
+
 @end

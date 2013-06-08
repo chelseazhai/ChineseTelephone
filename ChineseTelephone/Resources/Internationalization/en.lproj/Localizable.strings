@@ -25,11 +25,21 @@
 
 // outgoing call
 "outgoing call calling status" = "Calling ...";
+"outgoing call callback succeed status" = "Callback request has be submitted";
+"outgoing call callback failed status" = "Callback request failed";
 "outgoing call call controller contacts button title" = "Contacts";
 "outgoing call call controller keyboard button title" = "Keypad";
 "outgoing call call controller mute button title" = "Mute";
 "outgoing call call controller speaker button title" = "Speaker";
 
-"outgoing call direct dial dial mode" = "Direct dial";
-"outgoing call callback dial mode" = "Callback";
-"outgoing call phone call dial mode" = "Phone";
+"outgoing call call mode select title string format" = "Select dial mode for connecting %@";
+"outgoing call direct call call mode string format" = "Direct dial(%@)";
+"outgoing call callback call mode string format" = "Callback(%@)";
+"outgoing call phone call call mode string format" = "Phone call(%@)";
+"outgoing call call mode phones for selecting string format" = "%d phones for selecting";
+"outgoing call contact phone numbers select title format" = "Select phones of %@ for %@";
+"outgoing call direct call call mode string" = "Direct dial";
+"outgoing call callback call mode string" = "Callback";
+"outgoing call phone call call mode string" = "Phone call";
+"outgoing call callback succeed comment format string" = "Callback request submit succeed, your phone(%@) will be ring later, accept first and then system will connect phone %@ for you";
+"outgoing call callback failed comment" = "Callback request submit failed, please try again later";

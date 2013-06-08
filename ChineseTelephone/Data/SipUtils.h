@@ -20,9 +20,6 @@
 
 @interface SipUtils : NSObject
 
-// get sip implementation
-+ (id<ISipProtocol>)getSipImplementation;
-
 // register sip account
 + (void)registerSipAccount:(SipRegistrationBean *)sipAccount stateChangedProtocolImpl:(id<SipRegistrationStateChangedProtocol>)stateChangedProtocolImpl;
 

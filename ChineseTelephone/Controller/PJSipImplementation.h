@@ -8,6 +8,6 @@
 
 #import "SipBaseImplementation.h"
 
-@interface PJSipImplementation : SipBaseImplementation <ISipProtocol>
+@interface PJSipImplementation : SipBaseImplementation <ISipProtocol, SipImplementationProtocol>
 
 @end

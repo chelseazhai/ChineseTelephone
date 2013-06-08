@@ -11,11 +11,12 @@
 #import "SipCallMode.h"
 
 @interface OutgoingCallView : UIView {
-    // sip call mode
-    SipCallMode _mSipCallMode;
+    // sip call phone
+    NSString *_mSipCallPhone;
     
-    // sip callee
-    NSString *_mSipCallee;
+    // callback sip voice call http request finished and failed response selector
+    SEL _mCallbackSipVoiceCallHttpReqFinishedRespSelector;
+    SEL _mCallbackSipVoiceCallHttpReqFailedRespSelector;
     
     // present subviews
     // header view
@@ -43,7 +44,10 @@
     UIButton *_mBack4waitingCallbackCallButton;
 }
 
+@property (nonatomic, readonly) SEL callbackSipVoiceCallHttpReqFinishedRespSelector;
+@property (nonatomic, readonly) SEL CallbackSipVoiceCallHttpReqFailedRespSelector;
+
 // set outgoing call sip call mode and callee
-- (void)setCallMode:(SipCallMode)callMode callee:(NSString *)callee;
+- (void)setCallMode:(SipCallMode)callMode callee:(NSString *)callee phone:(NSString *)phone;
 
 @end

@@ -14,16 +14,21 @@
 
 #import "SipCallDialModeSelector.h"
 
-// outgoing call dial mode strings
-#define OUTGOINGCALL_DAILMODE_STRINGS   [NSArray arrayWithObjects:NSLocalizedString(@"outgoing call direct dial dial mode", nil), NSLocalizedString(@"outgoing call callback dial mode", nil), NSLocalizedString(@"outgoing call phone call dial mode", nil), nil]
+#import "SipUtils.h"
 
 @interface OutgoingCallGenerator ()
 
 // check contact for generating an new outgoing call
-- (void)checkContact4GenNewOutgongCall:(SipCallMode)callMode dialModeselectPattern:(SipCallDialModeSelectPattern)dialModeSelectPattern;
+- (void)checkContact4GenNewOutgongCall:(OutgoingCallCallMode)callMode;
 
-// dial mode select action sheet button clicked event selector
-- (void)dialModeSelectActionSheet:(UIActionSheet *)pActionSheet clickedButtonAtIndex:(NSInteger)pButtonIndex;
+// new outgoing call call select action sheet button clicked event selector
+- (void)newOutgoingCallCallModeSelectActionSheet:(UIActionSheet *)pActionSheet clickedButtonAtIndex:(NSInteger)pButtonIndex;
+
+// contact phone numbers select action sheet button clicked event selector
+- (void)contactPhonesSelectActionSheet:(UIActionSheet *)pActionSheet clickedButtonAtIndex:(NSInteger)pButtonIndex;
+
+// generate an new outgoing call with phone and call mode
+- (void)generateNewOutgoingCall:(NSString *)phone callMode:(OutgoingCallCallMode)callMode;
 
 @end
 
@@ -52,22 +57,22 @@
         // get and check sip call dial mode select pattern
         switch ([SipCallDialModeSelector getSipCallDialModeSelectPattern]) {
             case DIRECT_DIAL_DEFAULT:
-                [self checkContact4GenNewOutgongCall:DIRECT_CALL dialModeselectPattern:DIRECT_DIAL_DEFAULT];
+                [self checkContact4GenNewOutgongCall:OUTGOINGCALL_DIRECT_CALL];
                 break;
                 
             case CALLBACK_DEFAULT:
-                [self checkContact4GenNewOutgongCall:CALLBACK dialModeselectPattern:CALLBACK_DEFAULT];
+                [self checkContact4GenNewOutgongCall:OUTGOINGCALL_CALLBACK];
                 break;
                 
             case AUTO_SELECT:
                 // get and check current reachability network status
                 switch ([_reachabilityForInternetConnection currentReachabilityStatus]) {
                     case ReachableViaWWAN:
-                        [self checkContact4GenNewOutgongCall:CALLBACK dialModeselectPattern:AUTO_SELECT];
+                        [self checkContact4GenNewOutgongCall:OUTGOINGCALL_CALLBACK];
                         break;
                         
                     case ReachableViaWiFi:
-                        [self checkContact4GenNewOutgongCall:DIRECT_CALL dialModeselectPattern:AUTO_SELECT];
+                        [self checkContact4GenNewOutgongCall:OUTGOINGCALL_DIRECT_CALL];
                         break;
                         
                     case NotReachable:
@@ -80,54 +85,120 @@
             case MANUAL_SELECT:
             default:
                 {
-                    // define contact phone dial mode select action and show it
-                    UIActionSheet *_dialModeSelectActionSheet = [[UIActionSheet alloc] initWithContent:OUTGOINGCALL_DAILMODE_STRINGS andTitleFormat:@"123"];
+                    // define outgoing call call mode select phones for selecting string
+                    NSString *_phones4selectingString;
+                    
+                    // check contact phone array and generate phones for selecting string
+                    if (1 == contactPhones.count) {
+                        _phones4selectingString = [contactPhones objectAtIndex:0];
+                        
+                        // check and update contact name
+                        if (nil == contactName) {
+                            contactName = _phones4selectingString;
+                        }
+                    }
+                    else {
+                        _phones4selectingString = [NSString stringWithFormat:NSLocalizedString(@"outgoing call call mode phones for selecting string format", nil), contactPhones.count];
+                    }
+                    
+                    // define new outgoing call call mode select action and show it
+                    UIActionSheet *_newOutgoingCallCallModeSelectActionSheet = [[UIActionSheet alloc] initWithContent:[NSArray arrayWithObjects:[NSString stringWithFormat:NSLocalizedString(@"outgoing call direct call call mode string format", nil), _phones4selectingString], [NSString stringWithFormat:NSLocalizedString(@"outgoing call callback call mode string format", nil), _phones4selectingString], [NSString stringWithFormat:NSLocalizedString(@"outgoing call phone call call mode string format", nil), _phones4selectingString], nil] andTitleFormat:NSLocalizedString(@"outgoing call call mode select title string format", nil), contactName];
                     
                     // set actionSheet processor and button clicked event selector
-                    _dialModeSelectActionSheet.processor = self;
-                    _dialModeSelectActionSheet.buttonClickedEventSelector = @selector(dialModeSelectActionSheet:clickedButtonAtIndex:);
+                    _newOutgoingCallCallModeSelectActionSheet.processor = self;
+                    _newOutgoingCallCallModeSelectActionSheet.buttonClickedEventSelector = @selector(newOutgoingCallCallModeSelectActionSheet:clickedButtonAtIndex:);
                     
                     // show actionSheet
-                    [_dialModeSelectActionSheet showInView:_mGenNewOutgoingCallOperationDependentView];
+                    [_newOutgoingCallCallModeSelectActionSheet showInView:_mGenNewOutgoingCallOperationDependentView];
                 }
                 break;
         }
     }
     else {
         NSLog(@"Not reachable");
+        
+        // show there is no active and available network currently
+        // ??
     }
-    
-//    // test by ares
-//    // create and init outgoing call view controller
-//    OutgoingCallViewController *_outgoingCallViewController = [[OutgoingCallViewController alloc] init];
-//    
-//    // set outgoing call sip call mode, phone and its ownnership
-//    [_outgoingCallViewController setCallMode:CALLBACK phone:[contactPhones objectAtIndex:0] ownnership:contactName];
-//    
-//    // goto outgoing call view controller
-//    [_mGenNewOutgoingCallOperationDependentViewController presentModalViewController:_outgoingCallViewController animated:YES];
 }
 
 // inner extension
-- (void)checkContact4GenNewOutgongCall:(SipCallMode)callMode dialModeselectPattern:(SipCallDialModeSelectPattern)dialModeSelectPattern{
-    //
+- (void)checkContact4GenNewOutgongCall:(OutgoingCallCallMode)callMode{
+    // check contact phone array
+    if (1 == _mContactPhones.count) {
+        // generate an new outgoing call with phone and call mode
+        [self generateNewOutgoingCall:[_mContactPhones objectAtIndex:0] callMode:callMode];
+    }
+    else {
+        // define contact phone call mode string
+        NSString *_contactPhoneCallModeString;
+        
+        // check call mode and generate contact phone call mode string
+        switch (callMode) {
+            case OUTGOINGCALL_CALLBACK:
+                _contactPhoneCallModeString = NSLocalizedString(@"outgoing call callback call mode string", nil);
+                break;
+                
+            case OUTGOINGCALL_Phone_CALL:
+                _contactPhoneCallModeString = NSLocalizedString(@"outgoing call phone call call mode string", nil);
+                break;
+                
+            case OUTGOINGCALL_DIRECT_CALL:
+            default:
+                _contactPhoneCallModeString = NSLocalizedString(@"outgoing call direct call call mode string", nil);
+                break;
+        }
+        
+        // define contact phone numbers select action sheet and show it
+        UIActionSheet *_contactPhonesSelectActionSheet = [[UIActionSheet alloc] initWithContent:_mContactPhones andTitleFormat:[NSString stringWithFormat:NSLocalizedString(@"outgoing call contact phone numbers select title format", nil), _mContactName, _contactPhoneCallModeString]];
+        
+        // set actionSheet processor and button clicked event selector
+        _contactPhonesSelectActionSheet.processor = self;
+        _contactPhonesSelectActionSheet.buttonClickedEventSelector = @selector(contactPhonesSelectActionSheet:clickedButtonAtIndex:);
+        
+        // set outgoing call mode as tag
+        _contactPhonesSelectActionSheet.tag = callMode;
+        
+        // show actionSheet
+        [_contactPhonesSelectActionSheet showInView:_mGenNewOutgoingCallOperationDependentView];
+    }
 }
 
-- (void)dialModeSelectActionSheet:(UIActionSheet *)pActionSheet clickedButtonAtIndex:(NSInteger)pButtonIndex{
+- (void)newOutgoingCallCallModeSelectActionSheet:(UIActionSheet *)pActionSheet clickedButtonAtIndex:(NSInteger)pButtonIndex{
     // check select button index
     switch (pButtonIndex) {
         case 1:
-            NSLog(@"callback");
+            // check contact for generating an new outgoing call: manual callback
+            [self checkContact4GenNewOutgongCall:OUTGOINGCALL_CALLBACK];
             break;
             
         case 2:
-            NSLog(@"phone call");
+            // check contact for generating an new outgoing call: manual phone call
+            [self checkContact4GenNewOutgongCall:OUTGOINGCALL_Phone_CALL];
             break;
         
         case 0:
         default:
-            NSLog(@"direct dial");
+            // check contact for generating an new outgoing call: manual direct dial
+            [self checkContact4GenNewOutgongCall:OUTGOINGCALL_DIRECT_CALL];
             break;
+    }
+}
+
+- (void)contactPhonesSelectActionSheet:(UIActionSheet *)pActionSheet clickedButtonAtIndex:(NSInteger)pButtonIndex{
+    // generate an new outgoing call with phone and call mode
+    [self generateNewOutgoingCall:[_mContactPhones objectAtIndex:pButtonIndex] callMode:(OutgoingCallCallMode)pActionSheet.tag];
+}
+
+- (void)generateNewOutgoingCall:(NSString *)phone callMode:(OutgoingCallCallMode)callMode{
+    // check outgoing call call mode
+    if (OUTGOINGCALL_Phone_CALL == callMode) {
+        // phone call
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@", phone]]];
+    }
+    else {
+        // make sip voice call
+        [SipUtils makeSipVoiceCall:_mContactName phone:phone callMode:(SipCallMode)callMode fromViewController:_mGenNewOutgoingCallOperationDependentViewController];
     }
 }
 

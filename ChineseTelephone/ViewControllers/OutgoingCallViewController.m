@@ -45,7 +45,11 @@
 
 - (void)setCallMode:(SipCallMode)callMode phone:(NSString *)phone ownnership:(NSString *)ownnership{
     // set outgoing call sip call mode and callee
-    [((OutgoingCallView *)self.view) setCallMode:callMode callee:nil != ownnership && ![@"" isEqualToString:ownnership] ? ownnership : phone];
+    [((OutgoingCallView *)self.view) setCallMode:callMode callee:nil != ownnership && ![@"" isEqualToString:ownnership] ? ownnership : phone phone:phone];
+}
+
+- (id)getCallbackSipVoiceCallRequestProcessor{
+    return (OutgoingCallView *)self.view;
 }
 
 @end

@@ -100,6 +100,15 @@
 // back for waiting callback call
 - (void)back4waitingCallbackCall;
 
+// send callback sip voice call successful
+- (void)sendCallbackSipVoiceCallSuccessful;
+
+// send callback sip voice call failure
+- (void)sendCallbackSipVoiceCallFailure;
+
+// show callback view and update callback call request result label text and image view image with response result
+- (void)showCallbackViewAndUpdateSubviews:(BOOL)isSucceed;
+
 @end
 
 @implementation OutgoingCallView
@@ -319,7 +328,18 @@
 //    }
 }
 
-- (void)setCallMode:(SipCallMode)callMode callee:(NSString *)callee{
+- (SEL)callbackSipVoiceCallHttpReqFinishedRespSelector{
+    return @selector(sendCallbackSipVoiceCallSuccessful);
+}
+
+- (SEL)CallbackSipVoiceCallHttpReqFailedRespSelector{
+    return @selector(sendCallbackSipVoiceCallFailure);
+}
+
+- (void)setCallMode:(SipCallMode)callMode callee:(NSString *)callee phone:(NSString *)phone{
+    // save sip call phone
+    _mSipCallPhone = phone;
+    
     // check call mode and show correct center view
     switch (callMode) {
         case CALLBACK:
@@ -435,6 +455,53 @@
 - (void)back4waitingCallbackCall{
     // dismiss outgoing call view
     [self.viewControllerRef dismissModalViewControllerAnimated:YES];
+}
+
+- (void)sendCallbackSipVoiceCallSuccessful{
+    // show callback view and update its subviews
+    [self showCallbackViewAndUpdateSubviews:YES];
+}
+
+- (void)sendCallbackSipVoiceCallFailure{
+    // show callback view and update its subviews
+    [self showCallbackViewAndUpdateSubviews:NO];
+}
+
+- (void)showCallbackViewAndUpdateSubviews:(BOOL)isSucceed{
+    // update call status label text
+    _mCallStatusLabel.text = isSucceed ? NSLocalizedString(@"outgoing call callback succeed status", nil) : NSLocalizedString(@"outgoing call callback failed status", nil);
+    
+    // get and check callback view all subviews
+    NSArray *_callbackViewSubviews = [_mCallbackView subviews];
+    if (nil != _callbackViewSubviews) {
+        // process each subview
+        for (int i = 0; i < _callbackViewSubviews.count; i++) {
+            // get and check callback view subview
+            UIView *_callbackViewSubview = [_callbackViewSubviews objectAtIndex:i];
+            if ([_callbackViewSubview isKindOfClass:[UILabel class]]) {
+                // get callback call request response result label
+                UILabel *_callbackCallReqRespLabel = (UILabel *)_callbackViewSubview;
+                
+                // update callback call request response result label text
+                _callbackCallReqRespLabel.text = isSucceed ? [NSString stringWithFormat:NSLocalizedString(@"outgoing call callback succeed comment format string", nil), @"8618001582338", _mSipCallPhone] : NSLocalizedString(@"outgoing call callback failed comment", nil);
+                
+                // get number of lines float
+                float _numberOfLinesFloat = [_callbackCallReqRespLabel.text stringPixelLengthByFontSize:CALLBACKVIEW_REQUESTRESULTLABEL_FONTSIZE andIsBold:NO] / _callbackCallReqRespLabel.bounds.size.width;
+                
+                // update callback call request response result label number of lines
+                _callbackCallReqRespLabel.numberOfLines = (int)_numberOfLinesFloat < _numberOfLinesFloat ? (int)_numberOfLinesFloat + 1 : (int)_numberOfLinesFloat;
+            }
+            else if ([_callbackViewSubview isKindOfClass:[UIImageView class]]) {
+                // update callback call request response result image view image
+                ((UIImageView *)_callbackViewSubview).image = isSucceed ? [UIImage imageNamed:@"img_sendcallbackcall_succeed"] : [UIImage imageNamed:@"img_sendcallbackcall_failed"];
+            }
+        }
+        
+        // show callback view
+        if ([_mCallbackView isHidden]) {
+            _mCallbackView.hidden = NO;
+        }
+    }
 }
 
 @end

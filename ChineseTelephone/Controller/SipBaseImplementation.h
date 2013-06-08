@@ -10,6 +10,25 @@
 
 #import "ISipProtocol.h"
 
-@interface SipBaseImplementation : NSObject <ISipProtocol>
+// sip implementation protocol
+@protocol SipImplementationProtocol <NSObject>
+
+@required
+
+// make a sip voice call
+- (BOOL)makeSipVoiceCall:(NSString *)calleeName phone:(NSString *)calleePhone;
+
+// hangup current sip voice call
+- (BOOL)hangupSipVoiceCall;
+
+@end
+
+
+
+
+@interface SipBaseImplementation : NSObject <ISipProtocol> {
+    // sip implementation
+    id<SipImplementationProtocol> _mSipImpl;
+}
 
 @end

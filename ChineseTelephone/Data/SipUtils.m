@@ -11,20 +11,14 @@
 // static singleton instance, sip protocol implementation object
 static id<ISipProtocol> sipImplementation;
 
-@implementation SipUtils
+@interface SipUtils ()
 
-+ (id<ISipProtocol>)getSipImplementation{
-    if (nil == sipImplementation) {
-        @synchronized(self){
-            if (nil == sipImplementation) {
-                // use pjsip to implement voip
-                sipImplementation = [[PJSipImplementation alloc] init];
-            }
-        }
-    }
-    
-    return sipImplementation;
-}
+// get sip implementation
++ (id<ISipProtocol>)getSipImplementation;
+
+@end
+
+@implementation SipUtils
 
 + (void)registerSipAccount:(SipRegistrationBean *)sipAccount stateChangedProtocolImpl:(id<SipRegistrationStateChangedProtocol>)stateChangedProtocolImpl{
     [[self getSipImplementation] registerSipAccount:sipAccount stateChangedProtocolImpl:stateChangedProtocolImpl];
@@ -40,6 +34,20 @@ static id<ISipProtocol> sipImplementation;
 
 +(void)destroySipEngine{
     [[self getSipImplementation] destroySipEngine];
+}
+
+// inner extension
++ (id<ISipProtocol>)getSipImplementation{
+    if (nil == sipImplementation) {
+        @synchronized(self){
+            if (nil == sipImplementation) {
+                // use pjsip to implement voip
+                sipImplementation = [[PJSipImplementation alloc] init];
+            }
+        }
+    }
+    
+    return sipImplementation;
 }
 
 @end
