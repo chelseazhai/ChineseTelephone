@@ -47,7 +47,7 @@
 }
 
 @property (nonatomic, readonly) SEL callbackSipVoiceCallHttpReqFinishedRespSelector;
-@property (nonatomic, readonly) SEL CallbackSipVoiceCallHttpReqFailedRespSelector;
+@property (nonatomic, readonly) SEL callbackSipVoiceCallHttpReqFailedRespSelector;
 
 // set outgoing call sip call mode and callee
 - (void)setCallMode:(SipCallMode)callMode callee:(NSString *)callee phone:(NSString *)phone;

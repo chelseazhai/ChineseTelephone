@@ -378,6 +378,35 @@
     _mCalleeLabel.text = callee;
 }
 
+// SipInviteStateChangedProtocol
+- (void)onCallInitializing{
+    //
+}
+
+- (void)onCallEarlyMedia{
+    //
+}
+
+- (void)onCallRemoteRinging{
+    //
+}
+
+- (void)onCallSpeaking{
+    //
+}
+
+- (void)onCallFailed{
+    //
+}
+
+- (void)onCallTerminating{
+    //
+}
+
+- (void)onCallTerminated{
+    //
+}
+
 // inner extension
 - (void)showContactList{
     NSLog(@"show contacts list not implementation");

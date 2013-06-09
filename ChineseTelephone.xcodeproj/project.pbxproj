@@ -148,6 +148,7 @@
 		DCEB1CAA17607E3500A603F7 /* img_hangup_shortbtn_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DCEB1CA617607E3200A603F7 /* img_hangup_shortbtn_bg.png */; };
 		DCEB1CAB17607E3500A603F7 /* img_hidekeyboardbtn_highlighted_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DCEB1CA717607E3300A603F7 /* img_hidekeyboardbtn_highlighted_bg.png */; };
 		DCEB1CAC17607E3500A603F7 /* img_hidekeyboardbtn_normal_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DCEB1CA817607E3400A603F7 /* img_hidekeyboardbtn_normal_bg.png */; };
+		DCEBDFD817631DCA00F5D518 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCEBDFD717631DCA00F5D518 /* AddressBookUI.framework */; };
 		DCEF2E32175642B50004E52F /* img_dialnumber7ownnershiplabel_bg-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DCEF2E31175642B50004E52F /* img_dialnumber7ownnershiplabel_bg-568h@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -325,6 +326,7 @@
 		DCEB1CA617607E3200A603F7 /* img_hangup_shortbtn_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_hangup_shortbtn_bg.png; sourceTree = "<group>"; };
 		DCEB1CA717607E3300A603F7 /* img_hidekeyboardbtn_highlighted_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_hidekeyboardbtn_highlighted_bg.png; sourceTree = "<group>"; };
 		DCEB1CA817607E3400A603F7 /* img_hidekeyboardbtn_normal_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_hidekeyboardbtn_normal_bg.png; sourceTree = "<group>"; };
+		DCEBDFD717631DCA00F5D518 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		DCEF2E31175642B50004E52F /* img_dialnumber7ownnershiplabel_bg-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_dialnumber7ownnershiplabel_bg-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -333,6 +335,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCEBDFD817631DCA00F5D518 /* AddressBookUI.framework in Frameworks */,
 				DC857525174E112E008D8B76 /* CommonToolkit.framework in Frameworks */,
 				DC857523174E111B008D8B76 /* CoreText.framework in Frameworks */,
 				DC857521174E1110008D8B76 /* libicucore.dylib in Frameworks */,
@@ -373,6 +376,7 @@
 				DC857520174E1110008D8B76 /* libicucore.dylib */,
 				DC85751E174E1106008D8B76 /* libz.dylib */,
 				DC857516174E10E0008D8B76 /* AddressBook.framework */,
+				DCEBDFD717631DCA00F5D518 /* AddressBookUI.framework */,
 				DC857518174E10E9008D8B76 /* CFNetwork.framework */,
 				DC857524174E112E008D8B76 /* CommonToolkit.framework */,
 				DC6300CB174C78FD00C132C2 /* CoreGraphics.framework */,

@@ -27,15 +27,12 @@
     // traversal addressBook
     [[AddressBookManager shareAddressBookManager] traversalAddressBook];
     
-    // tab content navigation bar tint color
-    UIColor *_tabContentNavigationBatTintColor = [UIColor colorWithIntegerRed:39 integerGreen:39 integerBlue:39 alpha:1.0];
-    
     // create, init tab bar controller and its all content view controller
     UITabBarController *_tabBarController = [[UITabBarController alloc] init];
-    UINavigationController *_callRecordHistoryListTabContentViewController = [[UINavigationController alloc] initWithRootViewController:[[CallRecordHistoryListTabContentViewController alloc] init] andBarTintColor:_tabContentNavigationBatTintColor];
+    UINavigationController *_callRecordHistoryListTabContentViewController = [[UINavigationController alloc] initWithRootViewController:[[CallRecordHistoryListTabContentViewController alloc] init] andBarTintColor:NAVIGATIONBAR_TINTCOLOR];
     UIViewController *_dialTabContentViewController = [[DialTabContentViewController alloc] init];
-    UINavigationController *_contactListTabContentViewController = [[UINavigationController alloc] initWithRootViewController:[[ContactListTabContentViewController alloc] init] andBarTintColor:_tabContentNavigationBatTintColor];
-    UINavigationController *_moreTabContentViewController = [[UINavigationController alloc] initWithRootViewController:[[MoreTabContentViewController alloc] init] andBarTintColor:_tabContentNavigationBatTintColor];
+    UINavigationController *_contactListTabContentViewController = [[UINavigationController alloc] initWithRootViewController:[[ContactListTabContentViewController alloc] init] andBarTintColor:NAVIGATIONBAR_TINTCOLOR];
+    UINavigationController *_moreTabContentViewController = [[UINavigationController alloc] initWithRootViewController:[[MoreTabContentViewController alloc] init] andBarTintColor:NAVIGATIONBAR_TINTCOLOR];
     
     // set tab content view controller
     _tabBarController.viewControllers = [NSArray arrayWithObjects:_callRecordHistoryListTabContentViewController, _dialTabContentViewController, _contactListTabContentViewController, _moreTabContentViewController, nil];

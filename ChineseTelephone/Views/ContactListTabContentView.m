@@ -12,6 +12,8 @@
 
 #import <CommonToolkit/CommonToolkit.h>
 
+#import "OutgoingCallGenerator.h"
+
 // phonetics indication string
 #define PHONETICSINDIACATION_STRING  @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#"
 
@@ -199,9 +201,21 @@
     // dismiss soft input keyboard
     [_mContactSearchBar resignFirstResponder];
     
-    NSLog(@"did selected contact in table view = %@ and index path = %@", tableView, indexPath);
+    // get the select contact contactBean
+    ContactBean *_selectContactBean = [_mPresentContactsInfoArrayRef objectAtIndex:indexPath.row];
     
-    //
+    // check select contact phone number array
+    if (nil == _selectContactBean.phoneNumbers || 0 == [_selectContactBean.phoneNumbers count]) {
+        // show contact has no phone number alertView
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"contact has no phone number alertView title", nil) message:_selectContactBean.displayName delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"contact has no phone number alertView button title", nil), nil] show];
+    }
+    else {
+        // generate new outgoing call with contact
+        [[[OutgoingCallGenerator alloc] initWithDependentView:[tableView cellForRowAtIndexPath:indexPath] andViewController:self.viewControllerRef] generateNewOutgoingCall:_selectContactBean.displayName phones:_selectContactBean.phoneNumbers];
+    }
+    
+    // deselect the selected row
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
@@ -221,9 +235,28 @@
     //
 }
 
+// ABNewPersonViewControllerDelegate
+- (void)newPersonViewController:(ABNewPersonViewController *)newPersonView didCompleteWithNewPerson:(ABRecordRef)person{
+    // check person
+    if (NULL != person) {
+        // clear address book new person view controller
+        [[AddressBookUIUtils shareAddressBookUIUtils] clearABNewPersonViewController];
+    }
+    
+    // dismiss new person view controller
+    [self.viewControllerRef dismissModalViewControllerAnimated:YES];
+}
+
 // inner extension
 - (void)addNewContact2AB{
-    NSLog(@"Add new contact to address book");
+    // get address book new person view controller
+    ABNewPersonViewController *_addressBookNewPersonViewController = [AddressBookUIUtils shareAddressBookUIUtils].addressBookNewPersonViewController;    
+    
+    // set its new person view delegate
+    _addressBookNewPersonViewController.newPersonViewDelegate = self;
+    
+    // show add new contact to address book view controller
+    [self.viewControllerRef presentModalViewController:[[UINavigationController alloc] initWithRootViewController:_addressBookNewPersonViewController andBarTintColor:NAVIGATIONBAR_TINTCOLOR] animated:YES];
 }
 
 @end

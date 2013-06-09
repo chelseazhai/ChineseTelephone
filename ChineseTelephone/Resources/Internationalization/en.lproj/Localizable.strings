@@ -15,10 +15,15 @@
 "contact list tab content view navigation title" = "Contact List";
 "contact list tab item title" = "Contacts";
 "contact search bar placeholder" = "Search contact with character or phone";
+"contact has no phone number alertView title" = "The contact has no phone number";
+"contact has no phone number alertView button title" = "Reselect again";
 
 // dial
 "dial tab item title" = "Keypad";
 "dial number label placeholder" = "Please add area code header when dial fixed line telephone";
+"dial numbers add to new or existed contact select title format" = "Add phone number %@ to ?";
+"dial numbers add to new contact button title" = "Add to new contact";
+"dial numbers add to existed contact button title" = "Add to existed contact";
 
 // more
 "more tab content view navigation title" = "More settings";

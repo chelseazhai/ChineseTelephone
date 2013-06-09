@@ -10,7 +10,7 @@
 
 #import <CommonToolkit/CommonToolkit.h>
 
-@interface ContactListTabContentView : UITableView <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, AddressBookChangedDelegate> {
+@interface ContactListTabContentView : UITableView <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, AddressBookChangedDelegate, ABNewPersonViewControllerDelegate> {
     // all contacts info array in addressBook reference
     NSMutableArray *_mAllContactsInfoArrayInABRef;
     

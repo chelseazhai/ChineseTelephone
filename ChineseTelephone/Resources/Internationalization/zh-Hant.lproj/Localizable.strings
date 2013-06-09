@@ -15,10 +15,15 @@
 "contact list tab content view navigation title" = "联系人";
 "contact list tab item title" = "联系人";
 "contact search bar placeholder" = "搜索联系人，可使用字母或号码";
+"contact has no phone number alertView title" = "此联系人没有号码";
+"contact has no phone number alertView button title" = "重新选择";
 
 // dial
 "dial tab item title" = "拨号";
 "dial number label placeholder" = "拨打固话前请加拨区号";
+"dial numbers add to new or existed contact select title format" = "将号码 %@ 添加到？";
+"dial numbers add to new contact button title" = "添加到新建联系人";
+"dial numbers add to existed contact button title" = "添加到已有联系人";
 
 // more
 "more tab content view navigation title" = "更多设置";

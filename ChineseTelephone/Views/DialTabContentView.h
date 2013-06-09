@@ -10,7 +10,7 @@
 
 #import <CommonToolkit/CommonToolkit.h>
 
-@interface DialTabContentView : UIView <UIViewGestureRecognizerDelegate> {
+@interface DialTabContentView : UIView <UIViewGestureRecognizerDelegate, ABNewPersonViewControllerDelegate, ABPeoplePickerNavigationControllerDelegate> {
     // present subviews
     // dial number and its ownnership label
     // subview dial number label

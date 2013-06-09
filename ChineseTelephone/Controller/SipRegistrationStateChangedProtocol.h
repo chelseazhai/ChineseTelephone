@@ -10,4 +10,23 @@
 
 @protocol SipRegistrationStateChangedProtocol <NSObject>
 
+@required
+
+// register success
+- (void)onRegisterSuccess;
+
+// register failed
+- (void)onRegisterFailed;
+
+// unregister success
+- (void)onUnRegisterSuccess;
+
+// unregister failed
+- (void)onUnRegisterFailed;
+
+@optional
+
+// registering
+- (void)onRegistering;
+
 @end

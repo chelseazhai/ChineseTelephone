@@ -85,7 +85,7 @@
     id _callbackSipVoiceCallHttpReqProcessor = [(OutgoingCallViewController *)processorViewController getCallbackSipVoiceCallRequestProcessor];
     
     // send callback sip voice call http request
-    [HttpUtil postRequestWithUrl:@"www.baidu.com" andPostFormat:urlEncoded andParameter:nil andUserInfo:nil andRequestType:asynchronous andProcessor:_callbackSipVoiceCallHttpReqProcessor andFinishedRespSelector:((OutgoingCallView *)_callbackSipVoiceCallHttpReqProcessor).callbackSipVoiceCallHttpReqFinishedRespSelector andFailedRespSelector:((OutgoingCallView *)_callbackSipVoiceCallHttpReqProcessor).CallbackSipVoiceCallHttpReqFailedRespSelector];
+    [HttpUtils postRequestWithUrl:@"www.baidu.com" andPostFormat:urlEncoded andParameter:nil andUserInfo:nil andRequestType:asynchronous andProcessor:_callbackSipVoiceCallHttpReqProcessor andFinishedRespSelector:((OutgoingCallView *)_callbackSipVoiceCallHttpReqProcessor).callbackSipVoiceCallHttpReqFinishedRespSelector andFailedRespSelector:((OutgoingCallView *)_callbackSipVoiceCallHttpReqProcessor).callbackSipVoiceCallHttpReqFailedRespSelector];
     
     return YES;
 }

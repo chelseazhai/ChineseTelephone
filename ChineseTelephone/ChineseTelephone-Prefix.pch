@@ -11,4 +11,8 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+    // tab content navigation bar tint color
+#define NAVIGATIONBAR_TINTCOLOR [UIColor colorWithIntegerRed:39 integerGreen:39 integerBlue:39 alpha:1.0]
+
 #endif

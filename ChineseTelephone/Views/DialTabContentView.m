@@ -55,6 +55,11 @@ typedef NS_ENUM(NSInteger, DialNumberLabelTextUpdateMode){
     TEXT_APPEND, TEXT_SUB
 };
 
+// add dial phone to contact in address book mode
+typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
+    NEW_ADDED, APPEND_EXISTED
+};
+
 @interface DialTabContentView ()
 
 @property (nonatomic, readonly) NSString *dialNumber;
@@ -63,7 +68,13 @@ typedef NS_ENUM(NSInteger, DialNumberLabelTextUpdateMode){
 - (void)dialButtonClicked:(UIButton *)dialButton;
 
 // add new contact with phone number to address book
-- (void)addNewContact2ABWithPhoneNumber;
+- (void)addNewContact2ABWithPhoneNumber:(UIButton *)addNewContact2ABWithPhoneNumberButton;
+
+// dial numbers add to new or existed contact select action sheet button clicked event selector
+- (void)dialNumberAdd2NewOrExistedContactSelectActionSheet:(UIActionSheet *)pActionSheet clickedButtonAtIndex:(NSInteger)pButtonIndex;
+
+// show address book new person view controller with added phone, mode and appended person if has
+- (void)showABNewPersonViewController:(NSString *)phone addedMode:(AddDialPhone2ContactMode)mode appendedPerson:(ABRecordRef)appendedPerson;
 
 // call with dial number
 - (void)callWithDialNumber:(UIButton *)dialButton;
@@ -180,7 +191,7 @@ typedef NS_ENUM(NSInteger, DialNumberLabelTextUpdateMode){
         [_addNewContactWithPhone2ABButton setImage:[UIImage imageNamed:@"img_newcontact_btn"]];
         
         // add action selector and its response target for event
-        [_addNewContactWithPhone2ABButton addTarget:self action:@selector(addNewContact2ABWithPhoneNumber) forControlEvents:UIControlEventTouchUpInside];
+        [_addNewContactWithPhone2ABButton addTarget:self action:@selector(addNewContact2ABWithPhoneNumber:) forControlEvents:UIControlEventTouchUpInside];
         
         // init call with dial number button
         UIButton *_callWithDialNumberButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -267,6 +278,40 @@ typedef NS_ENUM(NSInteger, DialNumberLabelTextUpdateMode){
     }
 }
 
+// ABNewPersonViewControllerDelegate
+- (void)newPersonViewController:(ABNewPersonViewController *)newPersonView didCompleteWithNewPerson:(ABRecordRef)person{
+    // check new person view controller
+    if (NULL != newPersonView && NULL != newPersonView.displayedPerson) {
+        // clear address book new person view controller
+        [[AddressBookUIUtils shareAddressBookUIUtils] clearABNewPersonViewController];
+    }
+    
+    // dismiss new person view controller
+    [self.viewControllerRef dismissModalViewControllerAnimated:YES];
+}
+
+// ABPeoplePickerNavigationControllerDelegate
+- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker{
+    // dismiss people picker navigation view controller
+    [self.viewControllerRef dismissModalViewControllerAnimated:YES];
+}
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person{
+    // dismiss people picker navigation view controller
+    [self.viewControllerRef dismissModalViewControllerAnimated:NO];
+    
+    // show address book new person view controller with dial phone and append person
+    [self showABNewPersonViewController:self.dialNumber addedMode:APPEND_EXISTED appendedPerson:person];
+    
+    return NO;
+}
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier{
+    // nothing to do
+    
+    return NO;
+}
+
 // observer
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     // check key and object
@@ -334,8 +379,104 @@ typedef NS_ENUM(NSInteger, DialNumberLabelTextUpdateMode){
     [self updateDialNumberLabelTextWithUpdateType:TEXT_APPEND string:[DIALBUTTON_VALUES objectAtIndex:dialButton.tag]];
 }
 
-- (void)addNewContact2ABWithPhoneNumber{
-    NSLog(@"Add new contact with phone number = %@ to address book", self.dialNumber);
+- (void)addNewContact2ABWithPhoneNumber:(UIButton *)addNewContact2ABWithPhoneNumberButton{
+    // check dial number
+    if (nil == self.dialNumber || [@"" isEqualToString:self.dialNumber]) {
+        // show address book new person view controller
+        [self showABNewPersonViewController:nil addedMode:NEW_ADDED appendedPerson:NULL];
+    }
+    else {
+        // define dial numbers add to new or existed contact select action sheet and show it
+        UIActionSheet *_dialNumberAdd2NewOrExistedContactSelectActionSheet = [[UIActionSheet alloc] initWithContent:[NSArray arrayWithObjects:NSLocalizedString(@"dial numbers add to new contact button title", nil), NSLocalizedString(@"dial numbers add to existed contact button title", nil), nil] andTitleFormat:NSLocalizedString(@"dial numbers add to new or existed contact select title format", nil), self.dialNumber];
+        
+        // set actionSheet processor and button clicked event selector
+        _dialNumberAdd2NewOrExistedContactSelectActionSheet.processor = self;
+        _dialNumberAdd2NewOrExistedContactSelectActionSheet.buttonClickedEventSelector = @selector(dialNumberAdd2NewOrExistedContactSelectActionSheet:clickedButtonAtIndex:);
+        
+        // show actionSheet
+        [_dialNumberAdd2NewOrExistedContactSelectActionSheet showInView:addNewContact2ABWithPhoneNumberButton];
+    }
+}
+
+- (void)dialNumberAdd2NewOrExistedContactSelectActionSheet:(UIActionSheet *)pActionSheet clickedButtonAtIndex:(NSInteger)pButtonIndex{
+    // check select button index
+    switch (pButtonIndex) {
+        case 1:
+            {
+                // get address book people picker navigation view controller
+                ABPeoplePickerNavigationController *_addressBookPeoplePickerNavigationViewController = [AddressBookUIUtils shareAddressBookUIUtils].addressBookPeoplePickerNavigationViewController;
+                
+                // set its people picker delegate
+                _addressBookPeoplePickerNavigationViewController.peoplePickerDelegate = self;
+                
+                // show contact from address book picker navigation view controller
+                [self.viewControllerRef presentModalViewController:_addressBookPeoplePickerNavigationViewController animated:YES];
+            }
+            break;
+            
+        case 0:
+        default:
+            // show address book new person view controller with dial phone
+            [self showABNewPersonViewController:self.dialNumber addedMode:NEW_ADDED appendedPerson:NULL];
+            break;
+    }
+}
+
+- (void)showABNewPersonViewController:(NSString *)phone addedMode:(AddDialPhone2ContactMode)mode appendedPerson:(ABRecordRef)appendedPerson{
+    // get address book new person view controller
+    ABNewPersonViewController *_addressBookNewPersonViewController = [AddressBookUIUtils shareAddressBookUIUtils].addressBookNewPersonViewController;
+    
+    // error
+    CFErrorRef error = NULL;
+    
+    // check added mode
+    switch (mode) {
+        case APPEND_EXISTED:
+            // check added phone and appended person
+            if (nil != phone && ![@"" isEqualToString:phone] && NULL != appendedPerson) {
+                return;
+                
+//                // create appended person phone number array copy
+//                ABMultiValueRef _appendedPersonPhonesRef = ABMultiValueCreateMutableCopy(ABRecordCopyValue(appendedPerson, kABPersonPhoneProperty));
+//                
+//                // add the need added phone to phone array with mobile phone label
+//                if (ABMultiValueAddValueAndLabel(_appendedPersonPhonesRef, (__bridge CFTypeRef)(phone), kABPersonPhoneMobileLabel, NULL)) {
+//                    // add new phone array to the appended contact
+//                    ABRecordSetValue(_appendedPersonPhonesRef, kABPersonPhoneProperty, _appendedPersonPhonesRef, &error);
+//                }
+//                
+//                // set displayed person
+//                _addressBookNewPersonViewController.displayedPerson = appendedPerson;
+            }
+            break;
+            
+        case NEW_ADDED:
+        default:
+            // check phone
+            if (nil != phone && ![@"" isEqualToString:phone]) {
+                // create new person
+                ABRecordRef _newPerson = ABPersonCreate();
+                
+                // create new added phone array
+                ABMultiValueRef _phones = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+                
+                // add the need added phone to phone array with mobile phone label
+                if (ABMultiValueAddValueAndLabel(_phones, (__bridge CFTypeRef)(phone), kABPersonPhoneMobileLabel, NULL)) {
+                    // add phone array to new contact
+                    ABRecordSetValue(_newPerson, kABPersonPhoneProperty, _phones, &error);
+                }
+                
+                // set displayed person
+                _addressBookNewPersonViewController.displayedPerson = _newPerson;
+            }
+            break;
+    }
+    
+    // set its new person view delegate
+    _addressBookNewPersonViewController.newPersonViewDelegate = self;
+    
+    // show add new contact to address book view controller
+    [self.viewControllerRef presentModalViewController:[[UINavigationController alloc] initWithRootViewController:_addressBookNewPersonViewController andBarTintColor:NAVIGATIONBAR_TINTCOLOR] animated:YES];
 }
 
 - (void)callWithDialNumber:(UIButton *)dialButton{

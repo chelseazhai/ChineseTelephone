@@ -28,8 +28,6 @@
 }
 
 - (BOOL)makeSipVoiceCall:(NSString *)calleeName phone:(NSString *)calleePhone stateChangedProtocolImpl:(id<SipInviteStateChangedProtocol>)stateChangedProtocolImpl{
-    NSLog(@"sip invite state changed protocol implementation = %@", stateChangedProtocolImpl);
-    
     //
     
     return YES;
