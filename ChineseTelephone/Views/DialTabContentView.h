@@ -18,9 +18,9 @@
     // subview dial number ownnership label
     UILabel *_mDialNumberOwnnershipLabel;
     
-    // dial button grid view
-    // subview zero dial button
-    UIButton *_mZeroDialButton;
+    // dial number button grid view
+    // subview zero dial number button
+    UIButton *_mZeroDialNumberButton;
     
     // controller view
     // subview clear dial number button

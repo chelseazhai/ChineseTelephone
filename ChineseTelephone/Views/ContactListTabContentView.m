@@ -237,14 +237,11 @@
 
 // ABNewPersonViewControllerDelegate
 - (void)newPersonViewController:(ABNewPersonViewController *)newPersonView didCompleteWithNewPerson:(ABRecordRef)person{
-    // check person
-    if (NULL != person) {
-        // clear address book new person view controller
-        [[AddressBookUIUtils shareAddressBookUIUtils] clearABNewPersonViewController];
-    }
+    // clear address book new person view controller
+    [[AddressBookUIUtils shareAddressBookUIUtils] clearABNewPersonViewController];
     
     // dismiss new person view controller
-    [self.viewControllerRef dismissModalViewControllerAnimated:YES];
+    [self.viewControllerRef.navigationController popToRootViewControllerAnimated:YES];
 }
 
 // inner extension
@@ -255,8 +252,11 @@
     // set its new person view delegate
     _addressBookNewPersonViewController.newPersonViewDelegate = self;
     
+    // hide bottom bar when address book new person view controller pushed in
+    _addressBookNewPersonViewController.hidesBottomBarWhenPushed = YES;
+    
     // show add new contact to address book view controller
-    [self.viewControllerRef presentModalViewController:[[UINavigationController alloc] initWithRootViewController:_addressBookNewPersonViewController andBarTintColor:NAVIGATIONBAR_TINTCOLOR] animated:YES];
+    [self.viewControllerRef.navigationController pushViewController:_addressBookNewPersonViewController animated:YES];
 }
 
 @end

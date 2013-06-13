@@ -12,7 +12,7 @@
 
 // subview weight and total sum weight
 #define DIALNUMBERLABEL_WEIGHT  6
-#define DIALBUTTONGRIDVIEW_WEIGHT   20
+#define DIALNUMBERBUTTONGRIDVIEW_WEIGHT 20
 #define CONTROLLERVIEW_WEIGHT   5
 #define TOTALSUMWEIGHT  31.0
 
@@ -31,21 +31,20 @@
 // dial number ownnership weight
 #define DIALNUMBEROWNNERSHIPLABEL_WEIGHT    1 / 4.0
 
-// dial button group row and column
-#define DIALBUTTONGROUP_ROW 4
-#define DIALBUTTONGROUP_COLUMN  3
+// dial number button group row and column
+#define DIALNUMBERBUTTONGROUP_ROW 4
+#define DIALNUMBERBUTTONGROUP_COLUMN  3
 
-// zero dial button tag
-#define ZERODIALBUTTON_TAG  10
+// zero dial number button tag and shift value
+#define ZERODIALNUMBERBUTTON_TAG  10
+#define ZERODIALNUMBERBUTTON_SHIFTVALUE   @"+"
 
-// dial button values
-#define DIALBUTTON_VALUES   [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"*", @"0", @"#", nil]
+// dial number button value and image key
+#define DIALNUMBERBUTTON_VALUE_KEY  @"value"
+#define DIALNUMBERBUTTON_IMAGE_KEY  @"image"
 
-// zero dial button shift value
-#define ZERODIALBUTTON_SHIFTVALUE   @"+"
-
-// dial button images
-#define DIALBUTTON_IMAGES   [NSArray arrayWithObjects:[UIImage imageNamed:@"img_dial_1_btn"], [UIImage imageNamed:@"img_dial_2_btn"], [UIImage imageNamed:@"img_dial_3_btn"], [UIImage imageNamed:@"img_dial_4_btn"], [UIImage imageNamed:@"img_dial_5_btn"], [UIImage imageNamed:@"img_dial_6_btn"], [UIImage imageNamed:@"img_dial_7_btn"], [UIImage imageNamed:@"img_dial_8_btn"], [UIImage imageNamed:@"img_dial_9_btn"], [UIImage imageNamed:@"img_dial_star_btn"], [UIImage imageNamed:@"img_dial_0_btn"], [UIImage imageNamed:@"img_dial_pound_btn"], nil]
+// dial number button values and images array
+#define DIALNUMBERBUTTON_VALUES7IMAGES  [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"1", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_1_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"2", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_2_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"3", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_3_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"4", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_4_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"5", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_5_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"6", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_6_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"7", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_7_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"8", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_8_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"9", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_9_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"*", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_star_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"0", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_0_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"#", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_pound_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], nil]
 
 // controller view sum weight
 #define CONTROLLERVIEW_SUMWEIGHT    3.0
@@ -64,8 +63,8 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
 
 @property (nonatomic, readonly) NSString *dialNumber;
 
-// dial button clicked
-- (void)dialButtonClicked:(UIButton *)dialButton;
+// dial number button clicked
+- (void)dialNumberButtonClicked:(UIButton *)dialNumberButton;
 
 // add new contact with phone number to address book
 - (void)addNewContact2ABWithPhoneNumber:(UIButton *)addNewContact2ABWithPhoneNumberButton;
@@ -134,47 +133,47 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
         [_dialNumber7OwnnershipView addSubview:_mDialNumberLabel];
         [_dialNumber7OwnnershipView addSubview:_mDialNumberOwnnershipLabel];
         
-        // get dial button background normal and highlighted image
+        // get dial number button background normal and highlighted image
         UIImage *_dialBtnBgNormalImg = [UIImage imageNamed:@"img_dialbtn_normal_bg"];
         UIImage *_dialBtnBgHighlightedImg = [UIImage imageNamed:@"img_dialbtn_highlighted_bg"];
         
-        // init dial button grid view
-        UIView *_dialButtonGridView = [[UIView alloc] initWithFrame:CGRectMake(self.bounds.origin.x, self.bounds.origin.y + _dialNumber7OwnnershipView.bounds.size.height, FILL_PARENT, FILL_PARENT * (DIALBUTTONGRIDVIEW_WEIGHT / TOTALSUMWEIGHT))];
+        // init dial number button grid view
+        UIView *_dialNumberButtonGridView = [[UIView alloc] initWithFrame:CGRectMake(self.bounds.origin.x, self.bounds.origin.y + _dialNumber7OwnnershipView.bounds.size.height, FILL_PARENT, FILL_PARENT * (DIALNUMBERBUTTONGRIDVIEW_WEIGHT / TOTALSUMWEIGHT))];
         
-        // init each dial button
-        for (int i = 0; i < [DIALBUTTON_IMAGES count]; i++) {
-            // init dial button
-            UIButton *_dialButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        // init each dial number button
+        for (int i = 0; i < [DIALNUMBERBUTTON_VALUES7IMAGES count]; i++) {
+            // init dial number button
+            UIButton *_dialNumberButton = [UIButton buttonWithType:UIButtonTypeCustom];
             
             // set its frame
-            _dialButton.frame = CGRectMake(_dialButtonGridView.bounds.origin.x + (i % DIALBUTTONGROUP_COLUMN) * (FILL_PARENT / DIALBUTTONGROUP_COLUMN), _dialButtonGridView.bounds.origin.y + (i / DIALBUTTONGROUP_COLUMN) * (FILL_PARENT / DIALBUTTONGROUP_ROW), FILL_PARENT / DIALBUTTONGROUP_COLUMN, FILL_PARENT / DIALBUTTONGROUP_ROW);
+            _dialNumberButton.frame = CGRectMake(_dialNumberButtonGridView.bounds.origin.x + (i % DIALNUMBERBUTTONGROUP_COLUMN) * (FILL_PARENT / DIALNUMBERBUTTONGROUP_COLUMN), _dialNumberButtonGridView.bounds.origin.y + (i / DIALNUMBERBUTTONGROUP_COLUMN) * (FILL_PARENT / DIALNUMBERBUTTONGROUP_ROW), FILL_PARENT / DIALNUMBERBUTTONGROUP_COLUMN, FILL_PARENT / DIALNUMBERBUTTONGROUP_ROW);
             
             // set background image, image for normal and highlighted state
-            [_dialButton setBackgroundImage:_dialBtnBgNormalImg forState:UIControlStateNormal];
-            [_dialButton setBackgroundImage:_dialBtnBgHighlightedImg forState:UIControlStateHighlighted];
-            [_dialButton setImage:[DIALBUTTON_IMAGES objectAtIndex:i]];
+            [_dialNumberButton setBackgroundImage:_dialBtnBgNormalImg forState:UIControlStateNormal];
+            [_dialNumberButton setBackgroundImage:_dialBtnBgHighlightedImg forState:UIControlStateHighlighted];
+            [_dialNumberButton setImage:[[DIALNUMBERBUTTON_VALUES7IMAGES objectAtIndex:i] objectForKey:DIALNUMBERBUTTON_IMAGE_KEY]];
             
             // set tag
-            _dialButton.tag = i;
+            _dialNumberButton.tag = i;
             
             // add action selector and its response target for event
-            [_dialButton addTarget:self action:@selector(dialButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            [_dialNumberButton addTarget:self action:@selector(dialNumberButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
             
-            // add long press gesture for zero dial button
-            if (ZERODIALBUTTON_TAG == i) {
-                // set zero dial button
-                _mZeroDialButton = _dialButton;
+            // add long press gesture for zero dial number button
+            if (ZERODIALNUMBERBUTTON_TAG == i) {
+                // set zero dial number button
+                _mZeroDialNumberButton = _dialNumberButton;
                 
-                // set zero dial button long press gesture recognizer
-                _mZeroDialButton.viewGestureRecognizerDelegate = self;
+                // set zero dial number button long press gesture recognizer
+                _mZeroDialNumberButton.viewGestureRecognizerDelegate = self;
             }
             
-            // add dial button as subviews of dial button group view
-            [_dialButtonGridView addSubview:_dialButton];
+            // add dial number button as subviews of dial number button group view
+            [_dialNumberButtonGridView addSubview:_dialNumberButton];
         }
         
         // init controller view
-        UIView *_controllerView = [[UIView alloc] initWithFrame:CGRectMake(self.bounds.origin.x, self.bounds.origin.y + _dialNumber7OwnnershipView.bounds.size.height + _dialButtonGridView.bounds.size.height, FILL_PARENT, FILL_PARENT * (CONTROLLERVIEW_WEIGHT / TOTALSUMWEIGHT))];
+        UIView *_controllerView = [[UIView alloc] initWithFrame:CGRectMake(self.bounds.origin.x, self.bounds.origin.y + _dialNumber7OwnnershipView.bounds.size.height + _dialNumberButtonGridView.bounds.size.height, FILL_PARENT, FILL_PARENT * (CONTROLLERVIEW_WEIGHT / TOTALSUMWEIGHT))];
         
         // get add new contact and clear dial number button background normal image
         UIImage *_addNewContact6clearDialNumberBtnBgNormalImg = [UIImage imageNamed:@"img_addnewcontact6cleardialnumber_btn_normal_bg"];
@@ -229,9 +228,9 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
         [_controllerView addSubview:_callWithDialNumberButton];
         [_controllerView addSubview:_mClearDialNumberButton];
         
-        // add dial phone and its ownnership view, dial button grid view and controller view as subviews
+        // add dial phone and its ownnership view, dial number button grid view and controller view as subviews
         [self addSubview:_dialNumber7OwnnershipView];
-        [self addSubview:_dialButtonGridView];
+        [self addSubview:_dialNumberButtonGridView];
         [self addSubview:_controllerView];
     }
     return self;
@@ -255,8 +254,8 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
 - (GestureType)supportedGestureInView:(UIView *)pView{
     GestureType _ret = longPress;
     
-    // check view if it is or not zero dial or clar dial number button
-    if (_mZeroDialButton == pView || _mClearDialNumberButton == pView) {
+    // check view if it is or not zero dial number button or clar dial number button
+    if (_mZeroDialNumberButton == pView || _mClearDialNumberButton == pView) {
         _ret = longPress;
     }
     else {
@@ -268,9 +267,9 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
 
 - (void)view:(UIView *)pView longPressAtPoint:(CGPoint)pPoint andFingerMode:(LongPressFingerMode)pFingerMode{
     // check view
-    if (_mZeroDialButton == pView) {
+    if (_mZeroDialNumberButton == pView) {
         // update dial number label text
-        [self updateDialNumberLabelTextWithUpdateType:TEXT_APPEND string:ZERODIALBUTTON_SHIFTVALUE];
+        [self updateDialNumberLabelTextWithUpdateType:TEXT_APPEND string:ZERODIALNUMBERBUTTON_SHIFTVALUE];
     }
     else if (_mClearDialNumberButton == pView) {
         // clear dial number label text
@@ -280,11 +279,15 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
 
 // ABNewPersonViewControllerDelegate
 - (void)newPersonViewController:(ABNewPersonViewController *)newPersonView didCompleteWithNewPerson:(ABRecordRef)person{
-    // check new person view controller
-    if (NULL != newPersonView && NULL != newPersonView.displayedPerson) {
-        // clear address book new person view controller
-        [[AddressBookUIUtils shareAddressBookUIUtils] clearABNewPersonViewController];
+    // check person
+    if (NULL == person) {
+        NSLog(@"CFGetRetainCount(_displayedPerson) = %ld", CFGetRetainCount(newPersonView.displayedPerson));
+        NSLog(@"person = %@ and displayed person = %@", person, newPersonView.displayedPerson);
+        //CFRelease(_displayedPerson);
     }
+    
+    // clear address book new person view controller
+    [[AddressBookUIUtils shareAddressBookUIUtils] clearABNewPersonViewController];
     
     // dismiss new person view controller
     [self.viewControllerRef dismissModalViewControllerAnimated:YES];
@@ -307,8 +310,7 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
 }
 
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier{
-    // nothing to do
-    
+    // required method that is never called in the perple-only-picking
     return NO;
 }
 
@@ -374,9 +376,9 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
     return _dialNumber;
 }
 
-- (void)dialButtonClicked:(UIButton *)dialButton{
+- (void)dialNumberButtonClicked:(UIButton *)dialNumberButton{
     // update dial number label text
-    [self updateDialNumberLabelTextWithUpdateType:TEXT_APPEND string:[DIALBUTTON_VALUES objectAtIndex:dialButton.tag]];
+    [self updateDialNumberLabelTextWithUpdateType:TEXT_APPEND string:[[DIALNUMBERBUTTON_VALUES7IMAGES objectAtIndex:dialNumberButton.tag] objectForKey:DIALNUMBERBUTTON_VALUE_KEY]];
 }
 
 - (void)addNewContact2ABWithPhoneNumber:(UIButton *)addNewContact2ABWithPhoneNumberButton{
@@ -434,7 +436,7 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
         case APPEND_EXISTED:
             // check added phone and appended person
             if (nil != phone && ![@"" isEqualToString:phone] && NULL != appendedPerson) {
-                return;
+                //return;
                 
 //                // create appended person phone number array copy
 //                ABMultiValueRef _appendedPersonPhonesRef = ABMultiValueCreateMutableCopy(ABRecordCopyValue(appendedPerson, kABPersonPhoneProperty));
@@ -444,9 +446,14 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
 //                    // add new phone array to the appended contact
 //                    ABRecordSetValue(_appendedPersonPhonesRef, kABPersonPhoneProperty, _appendedPersonPhonesRef, &error);
 //                }
-//                
-//                // set displayed person
-//                _addressBookNewPersonViewController.displayedPerson = appendedPerson;
+                
+                // set displayed person
+                _addressBookNewPersonViewController.displayedPerson = appendedPerson;
+                
+//                //
+//                if (NULL != appendedPerson) {
+//                    CFRelease(appendedPerson);
+//                }
             }
             break;
             
