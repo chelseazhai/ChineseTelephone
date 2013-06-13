@@ -115,10 +115,20 @@
         }
     }
     else {
-        NSLog(@"Not reachable");
+        NSLog(@"There is no active and available reachable network");
         
-        // show there is no active and available network currently
-        // ??
+        // show there is no active and available network currently alertView
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"no active and available network currently alertView title", nil) message:NSLocalizedString(@"no active and available network currently alertView message", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"no active and available network currently alertView cancel button title", nil) otherButtonTitles:NSLocalizedString(@"no active and available network currently alertView setting button title", nil), nil] show];
+    }
+}
+
+// UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    // check cancel button index
+    if (alertView.cancelButtonIndex != buttonIndex) {
+        NSLog(@"network setting");
+        
+        //
     }
 }
 

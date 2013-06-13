@@ -29,6 +29,11 @@
 "more tab content view navigation title" = "More settings";
 
 // outgoing call
+"no active and available network currently alertView title" = "Network unavailable";
+"no active and available network currently alertView message" = "There is no active and available network currently, setting immediately?";
+"no active and available network currently alertView cancel button title" = "Remind later";
+"no active and available network currently alertView setting button title" = "Setting";
+
 "outgoing call calling status" = "Calling ...";
 "outgoing call callback succeed status" = "Callback request has be submitted";
 "outgoing call callback failed status" = "Callback request failed";

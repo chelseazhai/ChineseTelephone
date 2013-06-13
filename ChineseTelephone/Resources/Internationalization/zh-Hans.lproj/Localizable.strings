@@ -29,6 +29,11 @@
 "more tab content view navigation title" = "更多设置";
 
 // outgoing call
+"no active and available network currently alertView title" = "网络不可达";
+"no active and available network currently alertView message" = "当前没有可用的网络，是否立即设置？";
+"no active and available network currently alertView cancel button title" = "以后再说";
+"no active and available network currently alertView setting button title" = "设置";
+
 "outgoing call calling status" = "正在呼叫 ...";
 "outgoing call callback succeed status" = "回拨请求已提交";
 "outgoing call callback failed status" = "回拨请求提交失败";

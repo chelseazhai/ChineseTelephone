@@ -279,12 +279,12 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
 
 // ABNewPersonViewControllerDelegate
 - (void)newPersonViewController:(ABNewPersonViewController *)newPersonView didCompleteWithNewPerson:(ABRecordRef)person{
-    // check person
-    if (NULL == person) {
-        NSLog(@"CFGetRetainCount(_displayedPerson) = %ld", CFGetRetainCount(newPersonView.displayedPerson));
-        NSLog(@"person = %@ and displayed person = %@", person, newPersonView.displayedPerson);
-        //CFRelease(_displayedPerson);
-    }
+//    // check person
+//    if (NULL == person) {
+//        NSLog(@"CFGetRetainCount(_displayedPerson) = %ld", CFGetRetainCount(newPersonView.displayedPerson));
+//        NSLog(@"person = %@ and displayed person = %@", person, newPersonView.displayedPerson);
+//        CFRetain(newPersonView.displayedPerson);
+//    }
     
     // clear address book new person view controller
     [[AddressBookUIUtils shareAddressBookUIUtils] clearABNewPersonViewController];
@@ -436,7 +436,7 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
         case APPEND_EXISTED:
             // check added phone and appended person
             if (nil != phone && ![@"" isEqualToString:phone] && NULL != appendedPerson) {
-                //return;
+                return;
                 
 //                // create appended person phone number array copy
 //                ABMultiValueRef _appendedPersonPhonesRef = ABMultiValueCreateMutableCopy(ABRecordCopyValue(appendedPerson, kABPersonPhoneProperty));
@@ -446,14 +446,9 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
 //                    // add new phone array to the appended contact
 //                    ABRecordSetValue(_appendedPersonPhonesRef, kABPersonPhoneProperty, _appendedPersonPhonesRef, &error);
 //                }
-                
-                // set displayed person
-                _addressBookNewPersonViewController.displayedPerson = appendedPerson;
-                
-//                //
-//                if (NULL != appendedPerson) {
-//                    CFRelease(appendedPerson);
-//                }
+//                
+//                // set displayed person
+//                _addressBookNewPersonViewController.displayedPerson = appendedPerson;
             }
             break;
             

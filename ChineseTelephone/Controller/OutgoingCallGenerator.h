@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface OutgoingCallGenerator : NSObject <UIActionSheetDelegate> {
+@interface OutgoingCallGenerator : NSObject <UIAlertViewDelegate> {
     // generate an new outgoing call operation dependent view and view controller
     UIView *_mGenNewOutgoingCallOperationDependentView;
 	UIViewController *_mGenNewOutgoingCallOperationDependentViewController;

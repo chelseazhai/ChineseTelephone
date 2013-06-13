@@ -41,7 +41,7 @@
 #define CALLCONTROLLERBUTTON_ACTIONSELECTOR_KEY @"actionSelector"
 
 // call controller buton titles, images and action selectors array
-#define CALLCONTROLLERBUTTON_TITLES7IMAGES7ACTIONSELECTORS  [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"outgoing call call controller contacts button title", nil), CALLCONTROLLERBUTTON_TITLE_KEY, [UIImage compatibleImageNamed:@"img_callcontroller_contactsbtn"], CALLCONTROLLERBUTTON_IMAGE_KEY, NSStringFromSelector(@selector(showContactList)), CALLCONTROLLERBUTTON_ACTIONSELECTOR_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"outgoing call call controller keyboard button title", nil), CALLCONTROLLERBUTTON_TITLE_KEY, [UIImage compatibleImageNamed:@"img_callcontroller_keyboardbtn"], CALLCONTROLLERBUTTON_IMAGE_KEY, NSStringFromSelector(@selector(showKeyboard)), CALLCONTROLLERBUTTON_ACTIONSELECTOR_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"outgoing call call controller mute button title", nil), CALLCONTROLLERBUTTON_TITLE_KEY, [UIImage compatibleImageNamed:@"img_callcontroller_mutebtn"], CALLCONTROLLERBUTTON_IMAGE_KEY, NSStringFromSelector(@selector(mute)), CALLCONTROLLERBUTTON_ACTIONSELECTOR_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"outgoing call call controller speaker button title", nil), CALLCONTROLLERBUTTON_TITLE_KEY, [UIImage compatibleImageNamed:@"img_callcontroller_speakerbtn"], CALLCONTROLLERBUTTON_IMAGE_KEY, NSStringFromSelector(@selector(handsfree)), CALLCONTROLLERBUTTON_ACTIONSELECTOR_KEY, nil], nil]
+#define CALLCONTROLLERBUTTON_TITLES7IMAGES7ACTIONSELECTORS  [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"outgoing call call controller contacts button title", nil), CALLCONTROLLERBUTTON_TITLE_KEY, [UIImage compatibleImageNamed:@"img_callcontroller_contactsbtn"], CALLCONTROLLERBUTTON_IMAGE_KEY, NSStringFromSelector(@selector(showContactList)), CALLCONTROLLERBUTTON_ACTIONSELECTOR_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"outgoing call call controller keyboard button title", nil), CALLCONTROLLERBUTTON_TITLE_KEY, [UIImage compatibleImageNamed:@"img_callcontroller_keyboardbtn"], CALLCONTROLLERBUTTON_IMAGE_KEY, NSStringFromSelector(@selector(showKeyboard)), CALLCONTROLLERBUTTON_ACTIONSELECTOR_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"outgoing call call controller mute button title", nil), CALLCONTROLLERBUTTON_TITLE_KEY, [UIImage compatibleImageNamed:@"img_callcontroller_mutebtn"], CALLCONTROLLERBUTTON_IMAGE_KEY, NSStringFromSelector(@selector(mute6unmute:)), CALLCONTROLLERBUTTON_ACTIONSELECTOR_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"outgoing call call controller speaker button title", nil), CALLCONTROLLERBUTTON_TITLE_KEY, [UIImage compatibleImageNamed:@"img_callcontroller_speakerbtn"], CALLCONTROLLERBUTTON_IMAGE_KEY, NSStringFromSelector(@selector(handsfree6cancelHandsfree:)), CALLCONTROLLERBUTTON_ACTIONSELECTOR_KEY, nil], nil]
 
 // keyboard grid view weight and sum weight
 #define KEYBOARDGRIDVIEW_WEIGHT 10
@@ -70,17 +70,20 @@
 
 @interface OutgoingCallView ()
 
+// set call controller button background image for normal and highlighted state
+- (void)setCallControllerButtonBackgroundImage:(UIButton *)callControllerButton;
+
 // show contact list
 - (void)showContactList;
 
 // show keyboard grid view
 - (void)showKeyboard;
 
-// mute current outgoing sip call
-- (void)mute;
+// mute or unmute current outgoing sip call
+- (void)mute6unmute:(UIButton *)muteButton;
 
-// handsfree current outgoing call
-- (void)handsfree;
+// handsfree or cancel handsfree current outgoing call
+- (void)handsfree6cancelHandsfree:(UIButton *)handsfreeButton;
 
 // generate hangup button draw rectangle
 - (CGRect)genHangupButtonDrawRect:(BOOL)beResized;
@@ -166,8 +169,7 @@
             OutgoingCallControllerButton *_callControllerButton = [[OutgoingCallControllerButton alloc] initWithFrame:CGRectMake(_mCallControllerGridView.bounds.origin.x + (i % CALLCONTROLLERBUTTONGROUP_COLUMN) * (FILL_PARENT / CALLCONTROLLERBUTTONGROUP_COLUMN), _mCallControllerGridView.bounds.origin.y + (i / CALLCONTROLLERBUTTONGROUP_COLUMN) * (FILL_PARENT / CALLCONTROLLERBUTTONGROUP_ROW), FILL_PARENT / CALLCONTROLLERBUTTONGROUP_COLUMN, FILL_PARENT / CALLCONTROLLERBUTTONGROUP_ROW)];
             
             // set background image for normal and highlighted state
-            [_callControllerButton setBackgroundImage:[UIImage imageNamed:@"img_callcontrollerbtn_normal_bg"] forState:UIControlStateNormal];
-            [_callControllerButton setBackgroundImage:[UIImage imageNamed:@"img_callcontrollerbtn_highlighted_bg"] forState:UIControlStateHighlighted];
+            [self setCallControllerButtonBackgroundImage:_callControllerButton];
             
             // get call controller button title, image and action selector dictionary
             NSDictionary *_callControllerButtonTitle7Image7ActionSelectorDic = [CALLCONTROLLERBUTTON_TITLES7IMAGES7ACTIONSELECTORS objectAtIndex:i];
@@ -176,7 +178,13 @@
             [_callControllerButton setImage:[_callControllerButtonTitle7Image7ActionSelectorDic objectForKey:CALLCONTROLLERBUTTON_IMAGE_KEY] andTitle:[_callControllerButtonTitle7Image7ActionSelectorDic objectForKey:CALLCONTROLLERBUTTON_TITLE_KEY]];
             
             // add action selector and its response target for event
-            [_callControllerButton addTarget:self action:NSSelectorFromString([_callControllerButtonTitle7Image7ActionSelectorDic objectForKey:CALLCONTROLLERBUTTON_ACTIONSELECTOR_KEY]) forControlEvents:UIControlEventTouchUpInside];
+            if ([CALLCONTROLLERBUTTON_TITLES7IMAGES7ACTIONSELECTORS count] / 2 <= i) {
+                // mute and handsfree using touches
+                [_callControllerButton addTouchTarget:self action:NSSelectorFromString([_callControllerButtonTitle7Image7ActionSelectorDic objectForKey:CALLCONTROLLERBUTTON_ACTIONSELECTOR_KEY])];
+            }
+            else {
+                [_callControllerButton addTarget:self action:NSSelectorFromString([_callControllerButtonTitle7Image7ActionSelectorDic objectForKey:CALLCONTROLLERBUTTON_ACTIONSELECTOR_KEY]) forControlEvents:UIControlEventTouchUpInside];
+            }
             
             // add call controller button as subviews of call controller button group view
             [_mCallControllerGridView addSubview:_callControllerButton];
@@ -378,6 +386,10 @@
     _mCalleeLabel.text = callee;
 }
 
+- (void)setSipImplementation:(id<ISipProtocol>)sipImplementation{
+    _mSipImplementation = sipImplementation;
+}
+
 // SipInviteStateChangedProtocol
 - (void)onCallInitializing{
     //
@@ -408,6 +420,18 @@
 }
 
 // inner extension
+- (void)setCallControllerButtonBackgroundImage:(UIButton *)callControllerButton{
+    // check call controller button and set background image for normal, highlighted state
+    if (callControllerButton.tag) {
+        [callControllerButton setBackgroundImage:[UIImage imageNamed:@"img_callcontrollerbtn_highlighted_bg"] forState:UIControlStateNormal];
+        [callControllerButton setBackgroundImage:[UIImage imageNamed:@"img_callcontrollerbtn_normal_bg"] forState:UIControlStateHighlighted];
+    }
+    else {
+        [callControllerButton setBackgroundImage:[UIImage imageNamed:@"img_callcontrollerbtn_normal_bg"] forState:UIControlStateNormal];
+        [callControllerButton setBackgroundImage:[UIImage imageNamed:@"img_callcontrollerbtn_highlighted_bg"] forState:UIControlStateHighlighted];
+    }
+}
+
 - (void)showContactList{
     NSLog(@"show contacts list not implementation");
 }
@@ -426,12 +450,38 @@
     [_mHangupButton setImage:[self getHangupButtonImg]];
 }
 
-- (void)mute{
-    NSLog(@"mute not implementation");
+- (void)mute6unmute:(UIButton *)muteButton{
+    // get and check current sip voice call is muted
+    if (muteButton.tag) {
+        // set current sip voice call is unmuted and unmute it
+        muteButton.tag = FALSE;
+        [_mSipImplementation unmuteSipVoiceCall];
+    }
+    else {
+        // set current sip voice call is muted and mute it
+        muteButton.tag = TRUE;
+        [_mSipImplementation muteSipVoiceCall];
+    }
+    
+    // update mute button background image
+    [self setCallControllerButtonBackgroundImage:muteButton];
 }
 
-- (void)handsfree{
-    NSLog(@"handsfree not implementation");
+- (void)handsfree6cancelHandsfree:(UIButton *)handsfreeButton{
+    // get and check current sip voice call is handsfreed
+    if (handsfreeButton.tag) {
+        // set current sip voice call using earphone
+        handsfreeButton.tag = FALSE;
+        [_mSipImplementation setSipVoiceCallUsingEarphone];
+    }
+    else {
+        // set current sip voice call using loudspeaker
+        handsfreeButton.tag = TRUE;
+        [_mSipImplementation setSipVoiceCallUsingLoudspeaker];
+    }
+    
+    // update handsfree button background image
+    [self setCallControllerButtonBackgroundImage:handsfreeButton];
 }
 
 - (CGRect)genHangupButtonDrawRect:(BOOL)beResized{

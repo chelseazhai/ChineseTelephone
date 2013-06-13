@@ -43,6 +43,9 @@
             
         case DIRECT_CALL:
         default:
+            // set outgoing call view controller sip implementation 
+            [((OutgoingCallViewController *)_outgoingCallViewController) setSipImplementation:self];
+            
             // make a sip voice call using sip implementation
             _makeSipVoiceCallResult = [_mSipImplementationProtocolImpl makeSipVoiceCall:callee phone:phone stateChangedProtocolImpl:[((OutgoingCallViewController *)_outgoingCallViewController) getSipInviteStateChangedImplementation]];
             break;
@@ -55,14 +58,19 @@
 - (BOOL)hangupSipVoiceCall:(long)callDuration{
     //
     
-    return NO;
+    // hangup current sip voice call using sip implementation
+    return [_mSipImplementationProtocolImpl hangupSipVoiceCall];
 }
 
 - (void)setSipVoiceCallUsingLoudspeaker{
+    NSLog(@"SipBaseImplementation - setSipVoiceCallUsingLoudspeaker");
+    
     //
 }
 
 - (void)setSipVoiceCallUsingEarphone{
+    NSLog(@"SipBaseImplementation - setSipVoiceCallUsingEarphone");
+    
     //
 }
 

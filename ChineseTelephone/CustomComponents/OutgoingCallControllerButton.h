@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OutgoingCallControllerButton : UIButton
+@interface OutgoingCallControllerButton : UIButton {
+    // only response touches event flag
+    BOOL _mOnlyRespTouches;
+    
+    // touches target and action selector
+    id _mTouchesTarget;
+    SEL _mTouchesActionSelector;
+}
+
+// add touch target and action selector
+- (void)addTouchTarget:(id)target action:(SEL)action;
 
 // set image and title
 - (void)setImage:(UIImage *)image andTitle:(NSString *)title;

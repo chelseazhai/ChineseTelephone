@@ -12,9 +12,14 @@
 
 #import "SipInviteStateChangedProtocol.h"
 
+#import "ISipProtocol.h"
+
 @interface OutgoingCallView : UIView <SipInviteStateChangedProtocol> {
     // sip call phone
     NSString *_mSipCallPhone;
+    
+    // sip protocol implementation
+    id<ISipProtocol> _mSipImplementation;
     
     // callback sip voice call http request finished and failed response selector
     SEL _mCallbackSipVoiceCallHttpReqFinishedRespSelector;
@@ -51,5 +56,8 @@
 
 // set outgoing call sip call mode and callee
 - (void)setCallMode:(SipCallMode)callMode callee:(NSString *)callee phone:(NSString *)phone;
+
+// set sip protocol implementation
+- (void)setSipImplementation:(id<ISipProtocol>)sipImplementation;
 
 @end

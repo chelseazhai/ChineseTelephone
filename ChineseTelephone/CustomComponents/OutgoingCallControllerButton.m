@@ -10,6 +10,8 @@
 
 #import <CommonToolkit/CommonToolkit.h>
 
+#import <objc/message.h>
+
 // button image and title paddding
 #define IMG7TITLE_PADDING   10.0
 
@@ -20,8 +22,45 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        // set only resphonse touches event default value is false
+        _mOnlyRespTouches = FALSE;
     }
     return self;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    // check if it is only response touches event
+    if (_mOnlyRespTouches) {
+        // check touched event type
+        if (UIEventTypeTouches == event.type) {
+            // check touches target
+            if (nil != _mTouchesTarget) {
+                // check touches action selector
+                if (nil != _mTouchesActionSelector && [_mTouchesTarget respondsToSelector:_mTouchesActionSelector]) {
+                    // send message to its processor with param action
+                    objc_msgSend(_mTouchesTarget, _mTouchesActionSelector, self);
+                }
+                else {
+                    NSLog(@"Error: outgoing call controller button = %@ can't implement touches action selector = %@", _mTouchesTarget, NSStringFromSelector(_mTouchesActionSelector));
+                }
+            }
+            else{
+                NSLog(@"Warning: outgoing call controller button touches target is %@", _mTouchesTarget);
+            }
+        }
+    }
+    else {
+        [super touchesBegan:touches withEvent:event];
+    }
+}
+
+- (void)addTouchTarget:(id)target action:(SEL)action{
+    // set it is only response touches event
+    _mOnlyRespTouches = YES;
+    
+    // save touches target and action selector
+    _mTouchesTarget = target;
+    _mTouchesActionSelector = action;
 }
 
 - (void)setImage:(UIImage *)image andTitle:(NSString *)title{

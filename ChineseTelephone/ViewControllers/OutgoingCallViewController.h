@@ -12,10 +12,15 @@
 
 #import "SipInviteStateChangedProtocol.h"
 
+#import "ISipProtocol.h"
+
 @interface OutgoingCallViewController : UIViewController
 
 // set outgoing call sip call mode, phone and its ownnership
 - (void)setCallMode:(SipCallMode)callMode phone:(NSString *)phone ownnership:(NSString *)ownnership;
+
+// set sip protocol implementation
+- (void)setSipImplementation:(id<ISipProtocol>)sipImplementation;
 
 // get sip invite state changed implementation
 - (id<SipInviteStateChangedProtocol>)getSipInviteStateChangedImplementation;
