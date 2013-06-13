@@ -12,6 +12,8 @@
 
 #import "OutgoingCallControllerButton.h"
 
+#import "DialTabContentView.h"
+
 // hearder and footer view height
 #define HEADER6FOOTERVIEW_HEIGHT   96.0 
 
@@ -68,6 +70,16 @@
 #define FOOTERVIEW_HANGUP6HIDEKEYBOARDBUTTON_HEIGHTWEIGHT   18
 #define FOOTERVIEW_TOTALSUMWEIGHT   36.0
 
+// initiative and passive terminate delay
+#define INITIATIVETERMINATE_DELAY   0.5
+#define PASSIVETERMINATE_DELAY  0.7
+
+// sip voice call terminated type
+typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
+    // initiative or passive
+    INITIATIVE, PASSIVE
+};
+
 @interface OutgoingCallView ()
 
 // set call controller button background image for normal and highlighted state
@@ -96,6 +108,15 @@
 
 // hangup current outgoing sip call
 - (void)hangup;
+
+// terminate sip voice call
+- (void)terminateSipVoiceCall:(SipVoiceCallTerminatedType)terminatedType;
+
+// dismiss outgoing call view
+- (void)dismissOutgoingCallView;
+
+// keyboard number button clicked
+- (void)keyboardNumberButtonClicked:(UIButton *)keyboardNumberButton;
 
 // hide keyboard grid view
 - (void)hideKeyboard;
@@ -193,7 +214,32 @@
         // init keyboard grid view
         _mKeyboardGridView = [[UIView alloc] initWithFrame:CGRectMake(_centerView.bounds.origin.x + FILL_PARENT * ((KEYBOARDGRIDVIEW_TOTALSUMWEIGHT - KEYBOARDGRIDVIEW_WEIGHT) / (2 * KEYBOARDGRIDVIEW_TOTALSUMWEIGHT)), _centerView.bounds.origin.y + FILL_PARENT * ((KEYBOARDGRIDVIEW_TOTALSUMWEIGHT - KEYBOARDGRIDVIEW_WEIGHT) / (2 * KEYBOARDGRIDVIEW_TOTALSUMWEIGHT)), FILL_PARENT * (KEYBOARDGRIDVIEW_WEIGHT / KEYBOARDGRIDVIEW_TOTALSUMWEIGHT), FILL_PARENT * (KEYBOARDGRIDVIEW_WEIGHT / KEYBOARDGRIDVIEW_TOTALSUMWEIGHT))];
         
-        _mKeyboardGridView.backgroundColor = [UIColor orangeColor];
+        // get keyboard number button background normal and highlighted image
+        UIImage *_keyboardNumberBtnBgNormalImg = [UIImage imageNamed:@"img_callcontrollerbtn_normal_bg"];
+        UIImage *_keyboardNumberBtnBgHighlightedImg = [UIImage imageNamed:@"img_callcontrollerbtn_highlighted_bg"];
+        
+        // init each keyboard number button
+        for (int i = 0; i < [NUMBERBUTTON_VALUES7IMAGES7DTMFSOUNDTONEIDS count]; i++) {
+            // init keyboard number button
+            UIButton *_keyboardNumberButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            
+            // set its frame
+            _keyboardNumberButton.frame = CGRectMake(_mKeyboardGridView.bounds.origin.x + (i % NUMBERBUTTONGROUP_COLUMN) * (FILL_PARENT / NUMBERBUTTONGROUP_COLUMN), _mKeyboardGridView.bounds.origin.y + (i / NUMBERBUTTONGROUP_COLUMN) * (FILL_PARENT / NUMBERBUTTONGROUP_ROW), FILL_PARENT / NUMBERBUTTONGROUP_COLUMN, FILL_PARENT / NUMBERBUTTONGROUP_ROW);
+            
+            // set background image, image for normal and highlighted state
+            [_keyboardNumberButton setBackgroundImage:_keyboardNumberBtnBgNormalImg forState:UIControlStateNormal];
+            [_keyboardNumberButton setBackgroundImage:_keyboardNumberBtnBgHighlightedImg forState:UIControlStateHighlighted];
+            [_keyboardNumberButton setImage:[[NUMBERBUTTON_VALUES7IMAGES7DTMFSOUNDTONEIDS objectAtIndex:i] objectForKey:NUMBERBUTTON_IMAGE_KEY]];
+            
+            // set tag
+            _keyboardNumberButton.tag = i;
+            
+            // add action selector and its response target for event
+            [_keyboardNumberButton addTarget:self action:@selector(keyboardNumberButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            
+            // add keyboard number button as subviews of keyboard group view
+            [_mKeyboardGridView addSubview:_keyboardNumberButton];
+        }
         
         // hidden first
         _mKeyboardGridView.hidden = YES;
@@ -382,8 +428,8 @@
             break;
     }
     
-    // update callee label text
-    _mCalleeLabel.text = callee;
+    // save callee and update callee label text
+    _mCalleeLabel.text = _mCallee = callee;
 }
 
 - (void)setSipImplementation:(id<ISipProtocol>)sipImplementation{
@@ -513,11 +559,49 @@
 }
 
 - (void)hangup{
-    // dismiss outgoing call view
+    // update call status with terminating
+    _mCallStatusLabel.text = NSLocalizedString(@"outgoing call terminating status", nil);
+    
+    // terminate current sip voice call after 0.5 seconds
+    [self performSelector:@selector(terminateSipVoiceCall:) withObject:[NSNumber numberWithInteger:INITIATIVE] afterDelay:INITIATIVETERMINATE_DELAY];
+}
+
+- (void)terminateSipVoiceCall:(SipVoiceCallTerminatedType)terminatedType{
+    // update call status with terminated
+    _mCallStatusLabel.text = NSLocalizedString(@"outgoing call terminated status", nil);
+    
+    // dismiss outgoing call view after 0.7 seconds
+    [self performSelector:@selector(dismissOutgoingCallView) withObject:nil afterDelay:PASSIVETERMINATE_DELAY];
+}
+
+- (void)dismissOutgoingCallView{
+    // dismiss outgoing call view using its view controller
     [self.viewControllerRef dismissModalViewControllerAnimated:YES];
 }
 
+- (void)keyboardNumberButtonClicked:(UIButton *)keyboardNumberButton{
+    // play dtmf sound
+    [AudioServicesUtils playDTMFSound:((NSString *)[[NUMBERBUTTON_VALUES7IMAGES7DTMFSOUNDTONEIDS objectAtIndex:keyboardNumberButton.tag] objectForKey:NUMBERBUTTON_DTMFTONEID_KEY]).integerValue];
+    
+    // get clicked keyboard number button value
+    NSString *_clickedKeyboardNumberButtonValue = [[NUMBERBUTTON_VALUES7IMAGES7DTMFSOUNDTONEIDS objectAtIndex:keyboardNumberButton.tag] objectForKey:NUMBERBUTTON_VALUE_KEY];
+    
+    // compare callee label text with callee and update callee label text
+    if ([_mCallee isEqualToString:_mCalleeLabel.text]) {
+        _mCalleeLabel.text = _clickedKeyboardNumberButtonValue;
+    }
+    else {
+        _mCalleeLabel.text = [_mCalleeLabel.text stringByAppendingString:_clickedKeyboardNumberButtonValue];
+    }
+    
+    // send dtmf signal using sip implementation
+    [_mSipImplementation sendDTMF:_clickedKeyboardNumberButtonValue];
+}
+
 - (void)hideKeyboard{
+    // reset callee label text
+    _mCalleeLabel.text = _mCallee;
+    
     // hide keyboard grid view and show call controller grid view
     _mKeyboardGridView.hidden = YES;
     _mCallControllerGridView.hidden = NO;

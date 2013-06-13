@@ -31,20 +31,9 @@
 // dial number ownnership weight
 #define DIALNUMBEROWNNERSHIPLABEL_WEIGHT    1 / 4.0
 
-// dial number button group row and column
-#define DIALNUMBERBUTTONGROUP_ROW 4
-#define DIALNUMBERBUTTONGROUP_COLUMN  3
-
 // zero dial number button tag and shift value
 #define ZERODIALNUMBERBUTTON_TAG  10
 #define ZERODIALNUMBERBUTTON_SHIFTVALUE   @"+"
-
-// dial number button value and image key
-#define DIALNUMBERBUTTON_VALUE_KEY  @"value"
-#define DIALNUMBERBUTTON_IMAGE_KEY  @"image"
-
-// dial number button values and images array
-#define DIALNUMBERBUTTON_VALUES7IMAGES  [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:@"1", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_1_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"2", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_2_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"3", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_3_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"4", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_4_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"5", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_5_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"6", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_6_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"7", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_7_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"8", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_8_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"9", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_9_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"*", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_star_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"0", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_0_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], [NSDictionary dictionaryWithObjectsAndKeys:@"#", DIALNUMBERBUTTON_VALUE_KEY, [UIImage imageNamed:@"img_dial_pound_btn"], DIALNUMBERBUTTON_IMAGE_KEY, nil], nil]
 
 // controller view sum weight
 #define CONTROLLERVIEW_SUMWEIGHT    3.0
@@ -141,17 +130,17 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
         UIView *_dialNumberButtonGridView = [[UIView alloc] initWithFrame:CGRectMake(self.bounds.origin.x, self.bounds.origin.y + _dialNumber7OwnnershipView.bounds.size.height, FILL_PARENT, FILL_PARENT * (DIALNUMBERBUTTONGRIDVIEW_WEIGHT / TOTALSUMWEIGHT))];
         
         // init each dial number button
-        for (int i = 0; i < [DIALNUMBERBUTTON_VALUES7IMAGES count]; i++) {
+        for (int i = 0; i < [NUMBERBUTTON_VALUES7IMAGES7DTMFSOUNDTONEIDS count]; i++) {
             // init dial number button
             UIButton *_dialNumberButton = [UIButton buttonWithType:UIButtonTypeCustom];
             
             // set its frame
-            _dialNumberButton.frame = CGRectMake(_dialNumberButtonGridView.bounds.origin.x + (i % DIALNUMBERBUTTONGROUP_COLUMN) * (FILL_PARENT / DIALNUMBERBUTTONGROUP_COLUMN), _dialNumberButtonGridView.bounds.origin.y + (i / DIALNUMBERBUTTONGROUP_COLUMN) * (FILL_PARENT / DIALNUMBERBUTTONGROUP_ROW), FILL_PARENT / DIALNUMBERBUTTONGROUP_COLUMN, FILL_PARENT / DIALNUMBERBUTTONGROUP_ROW);
+            _dialNumberButton.frame = CGRectMake(_dialNumberButtonGridView.bounds.origin.x + (i % NUMBERBUTTONGROUP_COLUMN) * (FILL_PARENT / NUMBERBUTTONGROUP_COLUMN), _dialNumberButtonGridView.bounds.origin.y + (i / NUMBERBUTTONGROUP_COLUMN) * (FILL_PARENT / NUMBERBUTTONGROUP_ROW), FILL_PARENT / NUMBERBUTTONGROUP_COLUMN, FILL_PARENT / NUMBERBUTTONGROUP_ROW);
             
             // set background image, image for normal and highlighted state
             [_dialNumberButton setBackgroundImage:_dialBtnBgNormalImg forState:UIControlStateNormal];
             [_dialNumberButton setBackgroundImage:_dialBtnBgHighlightedImg forState:UIControlStateHighlighted];
-            [_dialNumberButton setImage:[[DIALNUMBERBUTTON_VALUES7IMAGES objectAtIndex:i] objectForKey:DIALNUMBERBUTTON_IMAGE_KEY]];
+            [_dialNumberButton setImage:[[NUMBERBUTTON_VALUES7IMAGES7DTMFSOUNDTONEIDS objectAtIndex:i] objectForKey:NUMBERBUTTON_IMAGE_KEY]];
             
             // set tag
             _dialNumberButton.tag = i;
@@ -377,8 +366,11 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
 }
 
 - (void)dialNumberButtonClicked:(UIButton *)dialNumberButton{
+    // play dtmf sound
+    [AudioServicesUtils playDTMFSound:((NSString *)[[NUMBERBUTTON_VALUES7IMAGES7DTMFSOUNDTONEIDS objectAtIndex:dialNumberButton.tag] objectForKey:NUMBERBUTTON_DTMFTONEID_KEY]).integerValue];
+    
     // update dial number label text
-    [self updateDialNumberLabelTextWithUpdateType:TEXT_APPEND string:[[DIALNUMBERBUTTON_VALUES7IMAGES objectAtIndex:dialNumberButton.tag] objectForKey:DIALNUMBERBUTTON_VALUE_KEY]];
+    [self updateDialNumberLabelTextWithUpdateType:TEXT_APPEND string:[[NUMBERBUTTON_VALUES7IMAGES7DTMFSOUNDTONEIDS objectAtIndex:dialNumberButton.tag] objectForKey:NUMBERBUTTON_VALUE_KEY]];
 }
 
 - (void)addNewContact2ABWithPhoneNumber:(UIButton *)addNewContact2ABWithPhoneNumberButton{

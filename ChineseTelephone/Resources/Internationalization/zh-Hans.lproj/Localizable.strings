@@ -35,6 +35,8 @@
 "no active and available network currently alertView setting button title" = "设置";
 
 "outgoing call calling status" = "正在呼叫 ...";
+"outgoing call terminating status" = "通话即将结束 ...";
+"outgoing call terminated status" = "通话结束";
 "outgoing call callback succeed status" = "回拨请求已提交";
 "outgoing call callback failed status" = "回拨请求提交失败";
 "outgoing call call controller contacts button title" = "联系人";

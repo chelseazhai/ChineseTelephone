@@ -15,6 +15,9 @@
 #import "ISipProtocol.h"
 
 @interface OutgoingCallView : UIView <SipInviteStateChangedProtocol> {
+    // sip call callee
+    NSString *_mCallee;
+    
     // sip call phone
     NSString *_mSipCallPhone;
     
