@@ -48,7 +48,7 @@
     [((OutgoingCallView *)self.view) setCallMode:callMode callee:nil != ownnership && ![@"" isEqualToString:ownnership] ? ownnership : phone phone:phone];
 }
 
-- (void)setSipImplementation:(id)sipImplementation{
+- (void)setSipImplementation:(id<ISipProtocol>)sipImplementation{
     // set outgoing call sip implementation
     [(OutgoingCallView *)self.view setSipImplementation:sipImplementation];
 }

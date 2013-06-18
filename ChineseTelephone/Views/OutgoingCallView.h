@@ -15,6 +15,9 @@
 #import "ISipProtocol.h"
 
 @interface OutgoingCallView : UIView <SipInviteStateChangedProtocol> {
+    // sip voice call is established
+    BOOL _mSipVoiceCallIsEstablished;
+    
     // sip call callee
     NSString *_mCallee;
     

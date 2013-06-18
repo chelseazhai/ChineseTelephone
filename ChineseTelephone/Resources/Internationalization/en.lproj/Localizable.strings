@@ -35,6 +35,8 @@
 "no active and available network currently alertView setting button title" = "Setting";
 
 "outgoing call calling status" = "Calling ...";
+"outgoing call early media or remote ring" = "Ringing ...";
+"outgoing call call failed status" = "Call failed";
 "outgoing call terminating status" = "Terminating ...";
 "outgoing call terminated status" = "Terminated";
 "outgoing call callback succeed status" = "Callback request has be submitted";

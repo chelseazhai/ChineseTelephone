@@ -19,32 +19,17 @@
     return self;
 }
 
+// ISipProtocol
 - (void)registerSipAccount:(SipRegistrationBean *)sipAccount stateChangedProtocolImpl:(id<SipRegistrationStateChangedProtocol>)sipRegistrationStateChangedProtocolImpl{
-    NSLog(@"PJSipImplementation - registerSipAccount - sip account = %@", sipAccount);
+    NSLog(@"PJSipImplementation - registerSipAccount, sip account = %@ and sip registration state changed protocol implementation = %@", sipAccount, sipRegistrationStateChangedProtocolImpl);
     
     //
 }
 
 - (void)unregisterSipAccount:(id<SipRegistrationStateChangedProtocol>)sipRegistrationStateChangedProtocolImpl{
-    NSLog(@"PJSipImplementation - unregisterSipAccount");
+    NSLog(@"PJSipImplementation - unregisterSipAccount, sip registration state changed protocol implementation = %@", sipRegistrationStateChangedProtocolImpl);
     
     //
-}
-
-- (BOOL)makeSipVoiceCall:(NSString *)calleeName phone:(NSString *)calleePhone stateChangedProtocolImpl:(id<SipInviteStateChangedProtocol>)stateChangedProtocolImpl{
-    NSLog(@"PJSipImplementation - makeSipVoiceCall - callee name = %@, callee phone = %@", calleeName, calleePhone);
-    
-    //
-    
-    return YES;
-}
-
-- (BOOL)hangupSipVoiceCall{
-    NSLog(@"PJSipImplementation - hangupSipVoiceCall");
-    
-    //
-    
-    return YES;
 }
 
 - (void)muteSipVoiceCall{
@@ -69,6 +54,23 @@
     NSLog(@"PJSipImplementation - destroySipEngine");
     
     //
+}
+
+// SipImplementationProtocol
+- (BOOL)makeSipVoiceCall:(NSString *)calleeName phone:(NSString *)calleePhone stateChangedProtocolImpl:(id<SipInviteStateChangedProtocol>)stateChangedProtocolImpl{
+    NSLog(@"PJSipImplementation - makeSipVoiceCall - callee name = %@, callee phone = %@ and state changed protocol implementation = %@", calleeName, calleePhone, stateChangedProtocolImpl);
+    
+    //
+    
+    return YES;
+}
+
+- (BOOL)hangupSipVoiceCall{
+    NSLog(@"PJSipImplementation - hangupSipVoiceCall");
+    
+    //
+    
+    return YES;
 }
 
 @end

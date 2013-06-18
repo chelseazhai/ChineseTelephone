@@ -10,6 +10,13 @@
 
 #import <CommonToolkit/CommonToolkit.h>
 
+@interface CallRecordHistoryListTabContentView ()
+
+// edit call records
+- (void)editCallRecords;
+
+@end
+
 @implementation CallRecordHistoryListTabContentView
 
 - (id)initWithFrame:(CGRect)frame
@@ -26,6 +33,9 @@
         // set call record history list table view dataSource and delegate
         self.dataSource = self;
         self.delegate = self;
+        
+        // set exit call records as right bar button item
+        self.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editCallRecords)];
         
         //
     }
@@ -63,6 +73,13 @@
     _cell.detailTextLabel.text = @"13770823456";
     
     return _cell;
+}
+
+// inner extension
+- (void)editCallRecords{
+    NSLog(@"edit call records");
+    
+    //
 }
 
 @end

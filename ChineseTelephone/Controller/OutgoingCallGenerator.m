@@ -222,8 +222,8 @@
     // check need to clear text dial number label
     if (nil != _mNeed2ClearTextDialNumberLabel && nil != _mStoragePreviousDialPhone) {
         // save previous dial phone and clear dial number label text
-        [_mStoragePreviousDialPhone appendString:phone];
         _mNeed2ClearTextDialNumberLabel.text = @"";
+        [_mStoragePreviousDialPhone appendString:phone];
     }
 }
 

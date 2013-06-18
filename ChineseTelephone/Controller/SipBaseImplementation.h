@@ -12,6 +12,8 @@
 
 #import "SipInviteStateChangedProtocol.h"
 
+#import <CommonToolkit/CommonToolkit.h>
+
 // sip implementation protocol
 @protocol SipImplementationProtocol <NSObject>
 
@@ -31,6 +33,12 @@
 @interface SipBaseImplementation : NSObject <ISipProtocol> {
     // sip implementation protocol implementation
     id<SipImplementationProtocol> _mSipImplementationProtocolImpl;
+    
+    // sip voice call log id
+	sqlite_int64 _mSipVoiceCallLogId;
 }
+
+// update sip voice call call record duration
+- (void)updateSipVoiceCallDuration:(long)duration;
 
 @end

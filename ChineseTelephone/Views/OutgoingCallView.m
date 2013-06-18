@@ -14,6 +14,8 @@
 
 #import "DialTabContentView.h"
 
+#import "SipBaseImplementation.h"
+
 // hearder and footer view height
 #define HEADER6FOOTERVIEW_HEIGHT   96.0 
 
@@ -49,6 +51,9 @@
 #define KEYBOARDGRIDVIEW_WEIGHT 10
 #define KEYBOARDGRIDVIEW_TOTALSUMWEIGHT 12.0
 
+// show or hide keyboard grid view animation duration
+#define SHOW6HIDEKEYBOARDGRIDVIEW_ANIMATIONDURATION 0.7f
+
 // callback view width, height weight and sum weight
 #define CALLBACKVIEW_WIDTHWEIGHT    7
 #define CALLBACKVIEW_HEIGHTWEIGHT   8
@@ -73,6 +78,9 @@
 // initiative and passive terminate delay
 #define INITIATIVETERMINATE_DELAY   0.5
 #define PASSIVETERMINATE_DELAY  0.7
+
+// sip voice call failed call duration
+#define SIPVOICECALL_CALLFAILED_CALLDURATION    -1L
 
 // sip voice call terminated type
 typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
@@ -435,6 +443,9 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
     
     // save callee and update callee label text
     _mCalleeLabel.text = _mCallee = callee;
+    
+    // set sip voice call is establishing
+    _mSipVoiceCallIsEstablished = NO;
 }
 
 - (void)setSipImplementation:(id<ISipProtocol>)sipImplementation{
@@ -443,31 +454,57 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
 
 // SipInviteStateChangedProtocol
 - (void)onCallInitializing{
-    //
+    // update call state label text, calling
+    _mCallStatusLabel.text = NSLocalizedString(@"outgoing call calling status", nil);
+    
+    // set sip voice call is establishing
+    _mSipVoiceCallIsEstablished = NO;
 }
 
 - (void)onCallEarlyMedia{
-    //
+    // update call state label text, calling
+    _mCallStatusLabel.text = NSLocalizedString(@"outgoing call early media or remote ring", nil);
+    
+    // set sip voice call is establishing
+    _mSipVoiceCallIsEstablished = NO;
 }
 
 - (void)onCallRemoteRinging{
-    //
+    [self onCallEarlyMedia];
 }
 
 - (void)onCallSpeaking{
+    // set sip voice call is established
+    _mSipVoiceCallIsEstablished = YES;
+    
     //
 }
 
 - (void)onCallFailed{
-    //
+    // update call state label text, call failed
+    _mCallStatusLabel.text = NSLocalizedString(@"outgoing call call failed status", nil);
+    
+    // set sip voice call is establishing
+    _mSipVoiceCallIsEstablished = NO;
+    
+    // update call failed call record with call log id
+    [((SipBaseImplementation *)_mSipImplementation) updateSipVoiceCallDuration:SIPVOICECALL_CALLFAILED_CALLDURATION];
+    
+    // terminate current sip voice call after 0.7 seconds
+    [self performSelector:@selector(onCallTerminated) withObject:[NSNumber numberWithInteger:INITIATIVE] afterDelay:PASSIVETERMINATE_DELAY];
 }
 
 - (void)onCallTerminating{
-    //
+    // update call state label text, call terminating
+    _mCallStatusLabel.text = NSLocalizedString(@"outgoing call terminating status", nil);
+    
+    // terminate current sip voice call after 0.7 seconds
+    [self performSelector:@selector(onCallTerminated) withObject:[NSNumber numberWithInteger:INITIATIVE] afterDelay:PASSIVETERMINATE_DELAY];
 }
 
 - (void)onCallTerminated{
-    //
+    // terminate current sip voice call
+    [self terminateSipVoiceCall:PASSIVE];
 }
 
 // inner extension
@@ -491,7 +528,7 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
 
 - (void)showKeyboard{
     // hide call controller grid view and show keyboard grid view with animation
-    [UIView transitionFromView:_mCallControllerGridView toView:_mKeyboardGridView duration:0.7f options:UIViewAnimationOptionTransitionFlipFromRight | UIViewAnimationOptionShowHideTransitionViews | UIViewAnimationOptionCurveEaseInOut completion:nil];
+    [UIView transitionFromView:_mCallControllerGridView toView:_mKeyboardGridView duration:SHOW6HIDEKEYBOARDGRIDVIEW_ANIMATIONDURATION options:UIViewAnimationOptionTransitionFlipFromRight | UIViewAnimationOptionShowHideTransitionViews | UIViewAnimationOptionCurveEaseInOut completion:nil];
     
     // show hide keyboard button
     _mHideKeyboardButton.hidden = NO;
@@ -576,6 +613,33 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
     // update call status with terminated
     _mCallStatusLabel.text = NSLocalizedString(@"outgoing call terminated status", nil);
     
+    // get call duration: seconds
+    // test by ares
+    long _callDuration = 100L;
+    
+    // check sip voice call terminated type
+    switch (terminatedType) {
+        case INITIATIVE:
+            // hangup current sip voice call
+            if (![_mSipImplementation hangupSipVoiceCall:_callDuration]) {
+                // force dismiss outgoing call view
+				[self dismissOutgoingCallView];
+                
+				// return immediately
+				return;
+            }
+            break;
+            
+        case PASSIVE:
+        default:
+            // check sip voice call is established
+            if (_mSipVoiceCallIsEstablished) {
+                // update sip voice call duration
+                [((SipBaseImplementation *)_mSipImplementation) updateSipVoiceCallDuration:_callDuration];
+            }
+            break;
+    }
+    
     // dismiss outgoing call view after 0.7 seconds
     [self performSelector:@selector(dismissOutgoingCallView) withObject:nil afterDelay:PASSIVETERMINATE_DELAY];
 }
@@ -609,7 +673,7 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
     _mCalleeLabel.text = _mCallee;
     
     // hide keyboard grid view and show call controller grid view with animation
-    [UIView transitionFromView:_mKeyboardGridView toView:_mCallControllerGridView duration:0.7f options:UIViewAnimationOptionTransitionFlipFromLeft | UIViewAnimationOptionShowHideTransitionViews | UIViewAnimationOptionCurveEaseInOut completion:nil];
+    [UIView transitionFromView:_mKeyboardGridView toView:_mCallControllerGridView duration:SHOW6HIDEKEYBOARDGRIDVIEW_ANIMATIONDURATION options:UIViewAnimationOptionTransitionFlipFromLeft | UIViewAnimationOptionShowHideTransitionViews | UIViewAnimationOptionCurveEaseInOut completion:nil];
     
     // hide hide keyboard button
     _mHideKeyboardButton.hidden = YES;

@@ -349,6 +349,9 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
                 }
             }
         }
+        
+        // update previous dial phone
+        [[_mPreviousDialPhone clear] appendString:_newText];
     }
 }
 

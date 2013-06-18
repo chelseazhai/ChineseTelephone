@@ -30,6 +30,19 @@
     // traversal addressBook
     [[AddressBookManager shareAddressBookManager] traversalAddressBook];
     
+    // open Chinese telephone database which under application documents folder, if not existed then generate an new and checked it
+    FMDatabase *_ChineseTelehoneDatabase = [FMDatabase databaseWithPath:[APP_DOCUMENTSPATH stringByAppendingPathComponent:CHINESETELEPHONE_DATABASENAME]];
+    if ([_ChineseTelehoneDatabase open]) {
+        // create call record table if not existed
+        [_ChineseTelehoneDatabase executeUpdate:[NSString stringWithFormat:CALLRECORDSTABLE_CREATESTATEMENT, CALLRECORDS_TABLENAME, CALLRECORDSTABLE_ROWID_FIELDNAME, CALLRECORDSTABLE_NAME_FIELDNAME, CALLRECORDSTABLE_PHONE_FIELDNAME, CALLRECORDSTABLE_DATE_FIELDNAME, CALLRECORDSTABLE_DUDATION_FIELDNAME, CALLRECORDSTABLE_FLAGS_FIELDNAME]];
+    }
+    else {
+        NSLog(@"open Chinese telephone database failed");
+    }
+    
+    // close Chinese telephone database
+    [_ChineseTelehoneDatabase close];
+    
     // create, init tab bar controller and its all content view controller
     UITabBarController *_tabBarController = [[UITabBarController alloc] init];
     UINavigationController *_callRecordHistoryListTabContentViewController = [[UINavigationController alloc] initWithRootViewController:[[CallRecordHistoryListTabContentViewController alloc] init] andBarTintColor:NAVIGATIONBAR_TINTCOLOR];
