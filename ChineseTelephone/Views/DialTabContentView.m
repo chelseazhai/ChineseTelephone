@@ -326,7 +326,7 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
             _mDialNumberLabel.text = NSLocalizedString(@"dial number label placeholder", nil);
         }
         else {
-            // first dial number exter
+            // first dial number enter
             if ([NSLocalizedString(@"dial number label placeholder", nil) isEqualToString:_oldText] && nil != _newText && ![@"" isEqualToString:_newText]) {
                 _mDialNumberLabel.textColor = [UIColor whiteColor];
                 _mDialNumberLabel.font = [UIFont boldSystemFontOfSize:DIALNUMBERLABEL_TEXT_MAXFONTSIZE];
@@ -476,9 +476,13 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
 - (void)callWithDialNumber:(UIButton *)dialButton{
     // get and check dial number
     NSString *_dialNumber = self.dialNumber;
-    if (nil != _dialNumber && ![@"" isEqualToString:_dialNumber]) {
-        // generate new outgoing call with contact
-        [[[OutgoingCallGenerator alloc] initWithDependentView:dialButton andViewController:self.viewControllerRef] generateNewOutgoingCall:_mDialNumberOwnnershipLabel.text phones:[NSArray arrayWithObject:_dialNumber]];
+    if (nil != _dialNumber && ![@"" isEqualToString:_dialNumber]) {        
+        // set dial number label for clearing its text and previous dial phone for saving then generate new outgoing call with contact
+        [[[[OutgoingCallGenerator alloc] initWithDependentView:dialButton andViewController:self.viewControllerRef] setDialNumberLabel4ClearingText7PreviousDialPhone4Saving:_mDialNumberLabel previousDialPhone:nil == _mPreviousDialPhone ? _mPreviousDialPhone = [[NSMutableString alloc] init] : [_mPreviousDialPhone clear]] generateNewOutgoingCall:_mDialNumberOwnnershipLabel.text phones:[NSArray arrayWithObject:_dialNumber]];
+    }
+    else if (nil != _mPreviousDialPhone && ![@"" isEqualToString:_mPreviousDialPhone]) {
+        // update dial number label text if there is previous dial phone
+        _mDialNumberLabel.text = _mPreviousDialPhone;
     }
 }
 

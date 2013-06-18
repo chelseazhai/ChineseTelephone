@@ -24,6 +24,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Override point for customization after application launch.
+    // show status bar when application did finish launching
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    
     // traversal addressBook
     [[AddressBookManager shareAddressBookManager] traversalAddressBook];
     

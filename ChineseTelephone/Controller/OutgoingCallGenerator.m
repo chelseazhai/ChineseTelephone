@@ -44,6 +44,14 @@
     return self;
 }
 
+- (OutgoingCallGenerator *)setDialNumberLabel4ClearingText7PreviousDialPhone4Saving:(UILabel *)need2clearTextDialNumberLabel previousDialPhone:(NSMutableString *)storagePreviousDialPhone{
+    // save need to clear text dial number label and storage previous dial phone
+    _mNeed2ClearTextDialNumberLabel = need2clearTextDialNumberLabel;
+    _mStoragePreviousDialPhone = storagePreviousDialPhone;
+    
+    return self;
+}
+
 - (void)generateNewOutgoingCall:(NSString *)contactName phones:(NSArray *)contactPhones{
     // get internet connection reachability
     Reachability *_reachabilityForInternetConnection = [Reachability reachabilityForInternetConnection];
@@ -209,6 +217,13 @@
     else {
         // make sip voice call
         [SipUtils makeSipVoiceCall:_mContactName phone:phone callMode:(SipCallMode)callMode fromViewController:_mGenNewOutgoingCallOperationDependentViewController];
+    }
+    
+    // check need to clear text dial number label
+    if (nil != _mNeed2ClearTextDialNumberLabel && nil != _mStoragePreviousDialPhone) {
+        // save previous dial phone and clear dial number label text
+        [_mStoragePreviousDialPhone appendString:phone];
+        _mNeed2ClearTextDialNumberLabel.text = @"";
     }
 }
 

@@ -16,10 +16,19 @@
     // contact info: display name and phone numbers
 	NSString *_mContactName;
 	NSArray *_mContactPhones;
+    
+    // for dial
+	// need to clear text dial number label and storage previous dial phone
+    UILabel *_mNeed2ClearTextDialNumberLabel;
+	NSMutableString *_mStoragePreviousDialPhone;
 }
 
 // init with generate an new outgoing call operation dependent view and view controller
 - (id)initWithDependentView:(UIView *)dependentView andViewController:(UIViewController *)dependentViewController;
+
+// for dial
+// set dial number label for clearing its text and previous dial phone for saving
+- (OutgoingCallGenerator *)setDialNumberLabel4ClearingText7PreviousDialPhone4Saving:(UILabel *)need2clearTextDialNumberLabel previousDialPhone:(NSMutableString *)storagePreviousDialPhone;
 
 // generate an new outgoing call with contact
 - (void)generateNewOutgoingCall:(NSString *)contactName phones:(NSArray *)contactPhones;

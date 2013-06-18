@@ -133,6 +133,9 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
 // show callback view and update callback call request result label text and image view image with response result
 - (void)showCallbackViewAndUpdateSubviews:(BOOL)isSucceed;
 
+// outgoing call enter to background
+- (void)outgoingCallEnter2Background;
+
 @end
 
 @implementation OutgoingCallView
@@ -143,7 +146,7 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
     if (self) {
         // Initialization code
         // set background image
-        self.backgroundColor = [UIColor greenColor];
+        self.backgroundImg = [UIImage compatibleImageNamed:@"img_outgoingcall_bg"];
         
         // create and init subviews
         // init hearer view
@@ -248,8 +251,7 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
         _mCallbackView = [[UIView alloc] initWithFrame:CGRectMake(_centerView.bounds.origin.x + FILL_PARENT * ((CALLBACKVIEW_TOTALSUMWEIGHT - CALLBACKVIEW_WIDTHWEIGHT) / (2 * CALLBACKVIEW_TOTALSUMWEIGHT)), _centerView.bounds.origin.y + FILL_PARENT * ((CALLBACKVIEW_TOTALSUMWEIGHT - CALLBACKVIEW_HEIGHTWEIGHT) / (2 * CALLBACKVIEW_TOTALSUMWEIGHT)), FILL_PARENT * (CALLBACKVIEW_WIDTHWEIGHT / CALLBACKVIEW_TOTALSUMWEIGHT), FILL_PARENT * (CALLBACKVIEW_HEIGHTWEIGHT / CALLBACKVIEW_TOTALSUMWEIGHT))];
         
         // set background image
-        // test by ares
-        _mCallbackView.backgroundColor = [UIColor blackColor];
+        _mCallbackView.backgroundImg = [UIImage imageNamed:@"img_callbackview_bg"];
         
         // init callback call request result image view
         UIImageView *_callbackCallRequestResultImageView = [[UIImageView alloc] initWithFrame:CGRectMake(_mCallbackView.bounds.origin.x, _mCallbackView.bounds.origin.y, FILL_PARENT, FILL_PARENT * (CALLBACKVIEW_REQUESTRESULTIMAGEVIEW_WEIGHT / CALLBACKVIEW_REQUESTRESULT_TOTALSUMWEIGHT))];
@@ -359,6 +361,9 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
         [self addSubview:_headerView];
         [self addSubview:_centerView];
         [self addSubview:_mFooterView];
+        
+        // add outgoing call enter to background observer
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(outgoingCallEnter2Background) name:UIApplicationDidEnterBackgroundNotification object:nil];
     }
     return self;
 }
@@ -480,12 +485,13 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
 
 - (void)showContactList{
     NSLog(@"show contacts list not implementation");
+    
+    //
 }
 
 - (void)showKeyboard{
-    // hide call controller grid view and show keyboard grid view
-    _mCallControllerGridView.hidden = YES;
-    _mKeyboardGridView.hidden = NO;
+    // hide call controller grid view and show keyboard grid view with animation
+    [UIView transitionFromView:_mCallControllerGridView toView:_mKeyboardGridView duration:0.7f options:UIViewAnimationOptionTransitionFlipFromRight | UIViewAnimationOptionShowHideTransitionViews | UIViewAnimationOptionCurveEaseInOut completion:nil];
     
     // show hide keyboard button
     _mHideKeyboardButton.hidden = NO;
@@ -602,9 +608,8 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
     // reset callee label text
     _mCalleeLabel.text = _mCallee;
     
-    // hide keyboard grid view and show call controller grid view
-    _mKeyboardGridView.hidden = YES;
-    _mCallControllerGridView.hidden = NO;
+    // hide keyboard grid view and show call controller grid view with animation
+    [UIView transitionFromView:_mKeyboardGridView toView:_mCallControllerGridView duration:0.7f options:UIViewAnimationOptionTransitionFlipFromLeft | UIViewAnimationOptionShowHideTransitionViews | UIViewAnimationOptionCurveEaseInOut completion:nil];
     
     // hide hide keyboard button
     _mHideKeyboardButton.hidden = YES;
@@ -617,7 +622,7 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
 
 - (void)back4waitingCallbackCall{
     // dismiss outgoing call view
-    [self.viewControllerRef dismissModalViewControllerAnimated:YES];
+    [self dismissOutgoingCallView];
 }
 
 - (void)sendCallbackSipVoiceCallSuccessful{
@@ -665,6 +670,12 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
             _mCallbackView.hidden = NO;
         }
     }
+}
+
+- (void)outgoingCallEnter2Background{
+    NSLog(@"outgoing call enter to background");
+    
+    //
 }
 
 @end
