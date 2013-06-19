@@ -403,6 +403,9 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
                 // get address book people picker navigation view controller
                 ABPeoplePickerNavigationController *_addressBookPeoplePickerNavigationViewController = [AddressBookUIUtils shareAddressBookUIUtils].addressBookPeoplePickerNavigationViewController;
                 
+                // set people picker navigation view controller navigation bar tint color
+                _addressBookPeoplePickerNavigationViewController.navigationBar.tintColor = NAVIGATIONBAR_TINTCOLOR;
+                
                 // set its people picker delegate
                 _addressBookPeoplePickerNavigationViewController.peoplePickerDelegate = self;
                 

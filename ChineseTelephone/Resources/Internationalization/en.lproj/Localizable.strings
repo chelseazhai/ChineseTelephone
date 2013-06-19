@@ -10,6 +10,16 @@
 // call record
 "call record history list tab content view navigation title" = "Call Record";
 "call record history list tab item title" = "Recents";
+"call record without call name" = "No name";
+"call record call created date yesterday" = "Yesterday";
+"call record call created date sunday" = "Sunday";
+"call record call created date monday" = "Monday";
+"call record call created date tuesday" = "Tuesday";
+"call record call created date wednesday" = "Wednesday";
+"call record call created date thursday" = "Thursday";
+"call record call created date friday" = "Friday";
+"call record call created date saturday" = "Saturday";
+"call record detail info view navigation title" = "Call Record DetailInfo";
 
 // contact list
 "contact list tab content view navigation title" = "Contact List";

@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CallRecordHistoryListTabContentView : UITableView <UITableViewDataSource, UITableViewDelegate>
+@interface CallRecordHistoryListTabContentView : UITableView <UITableViewDataSource, UITableViewDelegate> {
+    // call records info array
+    NSMutableArray *_mCallRecordsInfoArrayRef;
+}
+
+// get call records from sqlite database
+- (void)getCallRecordsFromDB;
 
 @end

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC0FA16417715AA100FB9E4A /* CallRecordDetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0FA16317715AA100FB9E4A /* CallRecordDetailInfoViewController.m */; };
+		DC0FA16717715AC100FB9E4A /* CallRecordDetailInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0FA16617715AC100FB9E4A /* CallRecordDetailInfoView.m */; };
+		DC0FA16A17715EEF00FB9E4A /* CallRecordHistoryListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0FA16917715EEF00FB9E4A /* CallRecordHistoryListTableViewCell.m */; };
+		DC0FA16D17715FFB00FB9E4A /* CallRecordBean.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0FA16C17715FFB00FB9E4A /* CallRecordBean.m */; };
+		DC0FA16F1771880600FB9E4A /* img_outgoingcall.png in Resources */ = {isa = PBXBuildFile; fileRef = DC0FA16E1771880600FB9E4A /* img_outgoingcall.png */; };
+		DC0FA171177199DD00FB9E4A /* img_outgoingcall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC0FA170177199DD00FB9E4A /* img_outgoingcall@2x.png */; };
 		DC14D703176F0D3E0073B77E /* img_callbackview_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC14D702176F0D3E0073B77E /* img_callbackview_bg.png */; };
 		DC5ED29B17587BE4002B5B81 /* img_newcontact_btn-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED29917587BE4002B5B81 /* img_newcontact_btn-568h@2x.png */; };
 		DC5ED29C17587BE4002B5B81 /* img_newcontact_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5ED29A17587BE4002B5B81 /* img_newcontact_btn@2x.png */; };
@@ -161,6 +167,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC0FA16217715AA100FB9E4A /* CallRecordDetailInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallRecordDetailInfoViewController.h; path = ViewControllers/CallRecordDetailInfoViewController.h; sourceTree = "<group>"; };
+		DC0FA16317715AA100FB9E4A /* CallRecordDetailInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CallRecordDetailInfoViewController.m; path = ViewControllers/CallRecordDetailInfoViewController.m; sourceTree = "<group>"; };
+		DC0FA16517715AC100FB9E4A /* CallRecordDetailInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallRecordDetailInfoView.h; path = Views/CallRecordDetailInfoView.h; sourceTree = "<group>"; };
+		DC0FA16617715AC100FB9E4A /* CallRecordDetailInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CallRecordDetailInfoView.m; path = Views/CallRecordDetailInfoView.m; sourceTree = "<group>"; };
+		DC0FA16817715EEF00FB9E4A /* CallRecordHistoryListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallRecordHistoryListTableViewCell.h; path = Views/CallRecordHistoryListTableViewCell.h; sourceTree = "<group>"; };
+		DC0FA16917715EEF00FB9E4A /* CallRecordHistoryListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CallRecordHistoryListTableViewCell.m; path = Views/CallRecordHistoryListTableViewCell.m; sourceTree = "<group>"; };
+		DC0FA16B17715FFA00FB9E4A /* CallRecordBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallRecordBean.h; path = Data/CallRecordBean.h; sourceTree = "<group>"; };
+		DC0FA16C17715FFB00FB9E4A /* CallRecordBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CallRecordBean.m; path = Data/CallRecordBean.m; sourceTree = "<group>"; };
+		DC0FA16E1771880600FB9E4A /* img_outgoingcall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_outgoingcall.png; sourceTree = "<group>"; };
+		DC0FA170177199DD00FB9E4A /* img_outgoingcall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_outgoingcall@2x.png"; sourceTree = "<group>"; };
 		DC14D702176F0D3E0073B77E /* img_callbackview_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_callbackview_bg.png; sourceTree = "<group>"; };
 		DC5ED29917587BE4002B5B81 /* img_newcontact_btn-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_newcontact_btn-568h@2x.png"; sourceTree = "<group>"; };
 		DC5ED29A17587BE4002B5B81 /* img_newcontact_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_newcontact_btn@2x.png"; sourceTree = "<group>"; };
@@ -558,6 +574,8 @@
 				DC5ED29917587BE4002B5B81 /* img_newcontact_btn-568h@2x.png */,
 				DC620BA51757349F00FEEC5A /* img_newcontact_btn.png */,
 				DC5ED29A17587BE4002B5B81 /* img_newcontact_btn@2x.png */,
+				DC0FA16E1771880600FB9E4A /* img_outgoingcall.png */,
+				DC0FA170177199DD00FB9E4A /* img_outgoingcall@2x.png */,
 				DCB25F05176F028000A65D53 /* img_outgoingcall_bg-568h@2x.png */,
 				DCB25F06176F028000A65D53 /* img_outgoingcall_bg.png */,
 				DCB25F07176F028000A65D53 /* img_outgoingcall_bg@2x.png */,
@@ -717,10 +735,18 @@
 		DC953B7E174F3A00006F5AB0 /* CallRecords */ = {
 			isa = PBXGroup;
 			children = (
+				DC0FA16B17715FFA00FB9E4A /* CallRecordBean.h */,
+				DC0FA16C17715FFB00FB9E4A /* CallRecordBean.m */,
+				DC0FA16517715AC100FB9E4A /* CallRecordDetailInfoView.h */,
+				DC0FA16617715AC100FB9E4A /* CallRecordDetailInfoView.m */,
+				DC0FA16217715AA100FB9E4A /* CallRecordDetailInfoViewController.h */,
+				DC0FA16317715AA100FB9E4A /* CallRecordDetailInfoViewController.m */,
 				DC953B7F174F3A4A006F5AB0 /* CallRecordHistoryListTabContentView.h */,
 				DC953B80174F3A4A006F5AB0 /* CallRecordHistoryListTabContentView.m */,
 				DC8A52D417558CA100B22630 /* CallRecordHistoryListTabContentViewController.h */,
 				DC8A52D517558CA100B22630 /* CallRecordHistoryListTabContentViewController.m */,
+				DC0FA16817715EEF00FB9E4A /* CallRecordHistoryListTableViewCell.h */,
+				DC0FA16917715EEF00FB9E4A /* CallRecordHistoryListTableViewCell.m */,
 			);
 			name = CallRecords;
 			sourceTree = "<group>";
@@ -917,6 +943,8 @@
 				DCB25F09176F028000A65D53 /* img_outgoingcall_bg.png in Resources */,
 				DCB25F0A176F028000A65D53 /* img_outgoingcall_bg@2x.png in Resources */,
 				DC14D703176F0D3E0073B77E /* img_callbackview_bg.png in Resources */,
+				DC0FA16F1771880600FB9E4A /* img_outgoingcall.png in Resources */,
+				DC0FA171177199DD00FB9E4A /* img_outgoingcall@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -947,6 +975,10 @@
 				DC63F4881761CD0B00229C43 /* PJSipImplementation.m in Sources */,
 				DC63F48D1761D30100229C43 /* SipRegistrationBean.m in Sources */,
 				DC63F4911761DC8C00229C43 /* SipCallDialModeSelector.m in Sources */,
+				DC0FA16417715AA100FB9E4A /* CallRecordDetailInfoViewController.m in Sources */,
+				DC0FA16717715AC100FB9E4A /* CallRecordDetailInfoView.m in Sources */,
+				DC0FA16A17715EEF00FB9E4A /* CallRecordHistoryListTableViewCell.m in Sources */,
+				DC0FA16D17715FFB00FB9E4A /* CallRecordBean.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

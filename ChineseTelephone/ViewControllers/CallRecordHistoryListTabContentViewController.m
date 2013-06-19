@@ -43,4 +43,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    // get call record history list tab content view
+    CallRecordHistoryListTabContentView *_callRecordHistoryListTabContentView = (CallRecordHistoryListTabContentView *)self.view;
+    
+    // get all call records from database and reload call record list table view data
+    [_callRecordHistoryListTabContentView getCallRecordsFromDB];
+    [_callRecordHistoryListTabContentView reloadData];
+}
+
 @end

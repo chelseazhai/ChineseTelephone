@@ -10,6 +10,16 @@
 // call record
 "call record history list tab content view navigation title" = "通话记录";
 "call record history list tab item title" = "最近通话";
+"call record without call name" = "未知联系人";
+"call record call created date yesterday" = "昨天";
+"call record call created date sunday" = "星期天";
+"call record call created date monday" = "星期一";
+"call record call created date tuesday" = "星期二";
+"call record call created date wednesday" = "星期三";
+"call record call created date thursday" = "星期四";
+"call record call created date friday" = "星期五";
+"call record call created date saturday" = "星期六";
+"call record detail info view navigation title" = "通话记录详情";
 
 // contact list
 "contact list tab content view navigation title" = "联系人";

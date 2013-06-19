@@ -46,7 +46,10 @@
 #define INSERTCALLRECORD2CALLRECORDSTABLESTATEMENT  @"INSERT OR REPLACE INTO %@ (%@, %@, %@, %@, %@) VALUES (?,?,?,?,?);"
 
     // update call record duration statement
-#define UPDATECALLRECORDDURATIONSTATEMENT   @"UPDATE %@ SET %@ = ? where %@ = ?;"
+#define UPDATECALLRECORDDURATIONSTATEMENT   @"UPDATE %@ SET %@ = ? WHERE %@ = ?;"
+
+    // query all call records statement
+#define QUERYALLCALLRECORDSSTATEMENT    @"SELECT * FROM %@ ORDER BY %@ DESC LIMIT 100;"
 
     // delete one call record from call records table statement
 #define DELETECALLRECORDFROMCALLRECORDSTABLESTATEMENT   @"DELETE FROM %@ WHERE %@ = ?;"

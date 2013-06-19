@@ -105,12 +105,8 @@
     // open Chinese telephone database and checked it
     FMDatabase *_ChineseTelehoneDatabase = [FMDatabase databaseWithPath:[APP_DOCUMENTSPATH stringByAppendingPathComponent:CHINESETELEPHONE_DATABASENAME]];
     if ([_ChineseTelehoneDatabase open]) {
-        // define current time date format
-        NSDateFormatter *_dateFormat = [[NSDateFormatter alloc] init];
-        [_dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-        
         // insert one call record record to call records table
-        if ([_ChineseTelehoneDatabase executeUpdate:[NSString stringWithFormat:INSERTCALLRECORD2CALLRECORDSTABLESTATEMENT, CALLRECORDS_TABLENAME, CALLRECORDSTABLE_NAME_FIELDNAME, CALLRECORDSTABLE_PHONE_FIELDNAME, CALLRECORDSTABLE_DATE_FIELDNAME, CALLRECORDSTABLE_DUDATION_FIELDNAME, CALLRECORDSTABLE_FLAGS_FIELDNAME], calleeName, calleePhone, [_dateFormat stringFromDate:[NSDate date]], [NSNumber numberWithInt:0], [NSNumber numberWithInt:CALLBACK == callMode ? CALLBACKCALL_CALLRECORDSFLAG : OUTGOINGCALL_CALLRECORDSFLAG]]) {
+        if ([_ChineseTelehoneDatabase executeUpdate:[NSString stringWithFormat:INSERTCALLRECORD2CALLRECORDSTABLESTATEMENT, CALLRECORDS_TABLENAME, CALLRECORDSTABLE_NAME_FIELDNAME, CALLRECORDSTABLE_PHONE_FIELDNAME, CALLRECORDSTABLE_DATE_FIELDNAME, CALLRECORDSTABLE_DUDATION_FIELDNAME, CALLRECORDSTABLE_FLAGS_FIELDNAME], calleeName, calleePhone, [NSDate date], [NSNumber numberWithInt:0], [NSNumber numberWithInt:CALLBACK == callMode ? CALLBACKCALL_CALLRECORDSFLAG : OUTGOINGCALL_CALLRECORDSFLAG]]) {
             
             // save current insert sip voice call log id
             _mSipVoiceCallLogId = _ChineseTelehoneDatabase.lastInsertRowId;

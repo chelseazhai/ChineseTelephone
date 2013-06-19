@@ -8,8 +8,6 @@
 
 #import "OutgoingCallView.h"
 
-#import <CommonToolkit/CommonToolkit.h>
-
 #import "OutgoingCallControllerButton.h"
 
 #import "DialTabContentView.h"
@@ -82,6 +80,9 @@
 // sip voice call failed call duration
 #define SIPVOICECALL_CALLFAILED_CALLDURATION    -1L
 
+// update call duration timer interval
+#define UPDATECALLDURATIONTIMERINTERVAL 1.0f
+
 // sip voice call terminated type
 typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
     // initiative or passive
@@ -98,6 +99,9 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
 
 // show keyboard grid view
 - (void)showKeyboard;
+
+// update sip call duration
+- (void)updateSipCallDuration;
 
 // mute or unmute current outgoing sip call
 - (void)mute6unmute:(UIButton *)muteButton;
@@ -477,21 +481,25 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
     // set sip voice call is established
     _mSipVoiceCallIsEstablished = YES;
     
-    //
+    // clear sip call duration
+    _mSipCallDuration = -1L;
+    
+    // init sip call duration timer, start it and repeat every 1 second
+    _mSipCallDurationTimer = [NSTimer scheduledTimerWithTimeInterval:UPDATECALLDURATIONTIMERINTERVAL target:self selector:@selector(updateSipCallDuration) userInfo:nil repeats:YES];
 }
 
 - (void)onCallFailed{
-    // update call state label text, call failed
-    _mCallStatusLabel.text = NSLocalizedString(@"outgoing call call failed status", nil);
+    // check sip voice call is or not established
+    if (!_mSipVoiceCallIsEstablished) {
+        // update call state label text, call failed
+        _mCallStatusLabel.text = NSLocalizedString(@"outgoing call call failed status", nil);
+        
+        // update call failed call record with call log id
+        [((SipBaseImplementation *)_mSipImplementation) updateSipVoiceCallDuration:SIPVOICECALL_CALLFAILED_CALLDURATION];
+    }
     
-    // set sip voice call is establishing
-    _mSipVoiceCallIsEstablished = NO;
-    
-    // update call failed call record with call log id
-    [((SipBaseImplementation *)_mSipImplementation) updateSipVoiceCallDuration:SIPVOICECALL_CALLFAILED_CALLDURATION];
-    
-    // terminate current sip voice call after 0.7 seconds
-    [self performSelector:@selector(onCallTerminated) withObject:[NSNumber numberWithInteger:INITIATIVE] afterDelay:PASSIVETERMINATE_DELAY];
+    // terminate current sip voice call after 0.5 or 0.7 seconds
+    [self performSelector:@selector(onCallTerminated) withObject:nil afterDelay:_mSipVoiceCallIsEstablished ? INITIATIVETERMINATE_DELAY : PASSIVETERMINATE_DELAY];
 }
 
 - (void)onCallTerminating{
@@ -499,12 +507,26 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
     _mCallStatusLabel.text = NSLocalizedString(@"outgoing call terminating status", nil);
     
     // terminate current sip voice call after 0.7 seconds
-    [self performSelector:@selector(onCallTerminated) withObject:[NSNumber numberWithInteger:INITIATIVE] afterDelay:PASSIVETERMINATE_DELAY];
+    [self performSelector:@selector(onCallTerminated) withObject:nil afterDelay:PASSIVETERMINATE_DELAY];
 }
 
 - (void)onCallTerminated{
     // terminate current sip voice call
     [self terminateSipVoiceCall:PASSIVE];
+}
+
+// ABPeoplePickerNavigationControllerDelegate
+- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker{
+    // dismiss people picker navigation view controller
+    [self.viewControllerRef dismissModalViewControllerAnimated:YES];
+}
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person{
+    return YES;
+}
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier{
+    return NO;
 }
 
 // inner extension
@@ -521,9 +543,29 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
 }
 
 - (void)showContactList{
-    NSLog(@"show contacts list not implementation");
+    // test by ares
+    if (_mSipVoiceCallIsEstablished) {
+        [self onCallFailed];
+        
+        return;
+    }
+    else {
+        [self onCallInitializing];
+        [self performSelector:@selector(onCallRemoteRinging) withObject:[NSNumber numberWithInteger:INITIATIVE] afterDelay:3.0];
+        [self performSelector:@selector(onCallSpeaking) withObject:[NSNumber numberWithInteger:INITIATIVE] afterDelay:5.0];
+    }
     
-    //
+    // get address book people picker navigation view controller
+    ABPeoplePickerNavigationController *_addressBookPeoplePickerNavigationViewController = [AddressBookUIUtils shareAddressBookUIUtils].addressBookPeoplePickerNavigationViewController;
+    
+    // set people picker navigation view controller navigation bar tint color
+    _addressBookPeoplePickerNavigationViewController.navigationBar.tintColor = NAVIGATIONBAR_TINTCOLOR;
+    
+    // set its people picker delegate
+    _addressBookPeoplePickerNavigationViewController.peoplePickerDelegate = self;
+    
+    // show contact from address book picker navigation view controller
+    [self.viewControllerRef presentModalViewController:_addressBookPeoplePickerNavigationViewController animated:YES];
 }
 
 - (void)showKeyboard{
@@ -537,6 +579,15 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
     [_mHangupButton setFrame:[self genHangupButtonDrawRect:YES]];
     [_mHangupButton setBackgroundImage:[self getHangupButtonBackgroundImg] forState:UIControlStateNormal];
     [_mHangupButton setImage:[self getHangupButtonImg]];
+}
+
+- (void)updateSipCallDuration{
+    // define call duration time date format
+    NSDateFormatter *_dateFormat = [[NSDateFormatter alloc] init];
+    [_dateFormat setDateFormat:@"mm:ss"];
+    
+    // update call status label text using sip call duration
+    _mCallStatusLabel.text = [_dateFormat stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:++_mSipCallDuration]];
 }
 
 - (void)mute6unmute:(UIButton *)muteButton{
@@ -613,15 +664,17 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
     // update call status with terminated
     _mCallStatusLabel.text = NSLocalizedString(@"outgoing call terminated status", nil);
     
-    // get call duration: seconds
-    // test by ares
-    long _callDuration = 100L;
-    
     // check sip voice call terminated type
     switch (terminatedType) {
         case INITIATIVE:
             // hangup current sip voice call
-            if (![_mSipImplementation hangupSipVoiceCall:_callDuration]) {
+            if (![_mSipImplementation hangupSipVoiceCall:_mSipCallDuration]) {
+                // stop sip call duration timer
+                if (nil != _mSipCallDurationTimer) {
+                    [_mSipCallDurationTimer invalidate];
+                    _mSipCallDurationTimer = nil;
+                }
+                
                 // force dismiss outgoing call view
 				[self dismissOutgoingCallView];
                 
@@ -635,9 +688,15 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
             // check sip voice call is established
             if (_mSipVoiceCallIsEstablished) {
                 // update sip voice call duration
-                [((SipBaseImplementation *)_mSipImplementation) updateSipVoiceCallDuration:_callDuration];
+                [((SipBaseImplementation *)_mSipImplementation) updateSipVoiceCallDuration:_mSipCallDuration];
             }
             break;
+    }
+    
+    // stop sip call duration timer
+    if (nil != _mSipCallDurationTimer) {
+        [_mSipCallDurationTimer invalidate];
+        _mSipCallDurationTimer = nil;
     }
     
     // dismiss outgoing call view after 0.7 seconds

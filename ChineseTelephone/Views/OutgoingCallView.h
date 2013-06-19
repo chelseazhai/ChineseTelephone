@@ -14,18 +14,22 @@
 
 #import "ISipProtocol.h"
 
-@interface OutgoingCallView : UIView <SipInviteStateChangedProtocol> {
+#import <CommonToolkit/CommonToolkit.h>
+
+@interface OutgoingCallView : UIView <SipInviteStateChangedProtocol, ABPeoplePickerNavigationControllerDelegate> {
     // sip voice call is established
     BOOL _mSipVoiceCallIsEstablished;
     
-    // sip call callee
+    // sip call callee and phone
     NSString *_mCallee;
-    
-    // sip call phone
     NSString *_mSipCallPhone;
     
     // sip protocol implementation
     id<ISipProtocol> _mSipImplementation;
+    
+    // sip call duration and its timer
+    long _mSipCallDuration;
+    NSTimer *_mSipCallDurationTimer;
     
     // callback sip voice call http request finished and failed response selector
     SEL _mCallbackSipVoiceCallHttpReqFinishedRespSelector;
