@@ -147,6 +147,9 @@
         // init call record controller group view
         UITableView *_controllerGroupView = [[UITableView alloc] initWithFrame:CGRectMake(self.bounds.origin.x, _callContactGroupView.frame.origin.y + FILL_PARENT * ((TOTALSUMWEIGHT - CONTROLLERVIEW_WEIGHT) / TOTALSUMWEIGHT), FILL_PARENT, FILL_PARENT * (CONTROLLERVIEW_WEIGHT / TOTALSUMWEIGHT)) style:UITableViewStyleGrouped];
         
+        // clear controller group view background
+        _controllerGroupView.backgroundView = nil;
+        
         // set call record controller list table view dataSource and delegate
         _controllerGroupView.dataSource = self;
         _controllerGroupView.delegate = self;
