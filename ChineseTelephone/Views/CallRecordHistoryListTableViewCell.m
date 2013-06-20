@@ -20,13 +20,26 @@
 // cell call phone label height
 #define CALLPHONELABEL_HEIGHT   18.0
 // cell call created date label width
-#define CALLCREATEDDATELABEL_WIDTH  80.0
+#define CALLCREATEDDATELABEL_WIDTH  90.0
 
 // cell created date label text color
 #define CALLCREATEDDATELABEL_TEXTCOLOR  [UIColor colorWithIntegerRed:36 integerGreen:112 integerBlue:216 alpha:1.0]
 
 // accessory button view width
 #define ACCESSORYBUTTONVIEW_WIDTH   (1.2 * MARGIN + 30.0)
+
+// seconds per day
+#define SECONDS_PER_DAY 24 * 60 * 60
+
+// weeks array
+#define WEEKS   [NSArray arrayWithObjects:NSLocalizedString(@"call record call created date sunday", nil), NSLocalizedString(@"call record call created date monday", nil), NSLocalizedString(@"call record call created date tuesday", nil), NSLocalizedString(@"call record call created date wednesday", nil), NSLocalizedString(@"call record call created date thursday", nil), NSLocalizedString(@"call record call created date friday", nil), NSLocalizedString(@"call record call created date saturday", nil), nil]
+
+@interface CallRecordHistoryListTableViewCell ()
+
+// get call created date string with call created date
+- (NSString *)getCallCreatedDateString:(NSDate *)callCreatedDate;
+
+@end
 
 @implementation CallRecordHistoryListTableViewCell
 
@@ -144,21 +157,79 @@
     // set call created date
     _mCallCreatedDate = callCreatedDate;
     
-    // get local current date
-    //NSDate *_localCurrentDate = [NSDate date];
-    
-    // define call created date format
-    NSDateFormatter *_dateFormat = [[NSDateFormatter alloc] init];
-    [_dateFormat setDateFormat:@"yy-MM-dd"];
-    [_dateFormat setTimeZone:[NSTimeZone localTimeZone]];
-    
-    // set call created date label text
-    _mCallCreatedDateLabel.text = [_dateFormat stringFromDate:callCreatedDate];
+    // get call created date string and set as call created date label text
+    _mCallCreatedDateLabel.text = [self getCallCreatedDateString:callCreatedDate];
 }
 
 + (CGFloat)cellHeight{
     // set tableViewCell default height
     return 2 * /*top margin*/MARGIN + /*call type image view height*/CALLTYPEIMGVIEW_WIDTH7HEIGHT;
+}
+
+// inner extension
+- (NSString *)getCallCreatedDateString:(NSDate *)callCreatedDate{
+    NSString *_callCreatedDateString;
+    
+    // get local current date
+    NSDate *_localCurrentDate = [NSDate date];
+    
+    // compare local current date with call created date
+    if (NSOrderedDescending == [callCreatedDate compare:_localCurrentDate]) {
+        NSLog(@"Error: call created date later than local current date");
+    }
+    else {
+        // define gregorian calendar
+        NSCalendar *_calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        
+        // define call created date format
+        NSDateFormatter *_dateFormat = [[NSDateFormatter alloc] init];
+        [_dateFormat setTimeZone:[NSTimeZone localTimeZone]];
+        
+        // get local current date components
+        NSDateComponents *_localCurrentDateComponents  = [_calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:_localCurrentDate];
+        
+        // generate today zero time date components
+        NSDateComponents *_todayZeroTimeDateComponents = [_localCurrentDateComponents copy];
+        // set hour and minute zero
+        [_todayZeroTimeDateComponents setHour:0];
+        [_todayZeroTimeDateComponents setMinute:0];
+        
+        // compare today zero time date with call created date
+        if (NSOrderedAscending != [callCreatedDate compare:[_calendar dateFromComponents:_todayZeroTimeDateComponents]]) {
+            // today, format "HH:mm"
+            [_dateFormat setDateFormat:@"HH:mm"];
+            
+            _callCreatedDateString = [_dateFormat stringFromDate:callCreatedDate];
+        }
+        else {
+            // generate yesterday zero time date
+            NSDate *_yesterdayZeroTimeDate = [[_calendar dateFromComponents:_todayZeroTimeDateComponents] dateByAddingTimeInterval:-SECONDS_PER_DAY];
+            
+            // compare yesterday zero time date with call created date
+            if (NSOrderedAscending != [callCreatedDate compare:_yesterdayZeroTimeDate]) {
+                // yesterday, format "Yesterday"
+                _callCreatedDateString = NSLocalizedString(@"call record call created date yesterday", nil);
+            }
+            else {
+                // generate this week first day zero time date
+                NSDate *_thisWeekFirstDayZeroTimeDate = [[[_calendar dateFromComponents:_todayZeroTimeDateComponents] copy] dateByAddingTimeInterval:-(_todayZeroTimeDateComponents.weekday - 1) * SECONDS_PER_DAY];
+                
+                // compare this week first day zero time date with call created date
+                if (NSOrderedAscending != [callCreatedDate compare:_thisWeekFirstDayZeroTimeDate]) {
+                    // this week, format "Sunday", "Monday" etc.
+                    _callCreatedDateString = [WEEKS objectAtIndex:[_calendar components:NSWeekdayCalendarUnit fromDate:callCreatedDate].weekday - 1];
+                }
+                else {
+                    // format "yy-MM-dd"
+                    [_dateFormat setDateFormat:@"yy-MM-dd"];
+                    
+                    _callCreatedDateString = [_dateFormat stringFromDate:callCreatedDate];
+                }
+            }
+        }
+    }
+    
+    return _callCreatedDateString;
 }
 
 @end
