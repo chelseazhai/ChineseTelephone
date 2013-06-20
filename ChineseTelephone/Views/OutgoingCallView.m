@@ -656,6 +656,12 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
     // update call status with terminating
     _mCallStatusLabel.text = NSLocalizedString(@"outgoing call terminating status", nil);
     
+    // stop sip call duration timer immediately
+    if (nil != _mSipCallDurationTimer) {
+        [_mSipCallDurationTimer invalidate];
+        _mSipCallDurationTimer = nil;
+    }
+    
     // terminate current sip voice call after 0.5 seconds
     [self performSelector:@selector(terminateSipVoiceCall:) withObject:[NSNumber numberWithInteger:INITIATIVE] afterDelay:INITIATIVETERMINATE_DELAY];
 }
@@ -685,18 +691,18 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
             
         case PASSIVE:
         default:
+            // stop sip call duration timer for passive ended
+            if (nil != _mSipCallDurationTimer) {
+                [_mSipCallDurationTimer invalidate];
+                _mSipCallDurationTimer = nil;
+            }
+            
             // check sip voice call is established
             if (_mSipVoiceCallIsEstablished) {
                 // update sip voice call duration
                 [((SipBaseImplementation *)_mSipImplementation) updateSipVoiceCallDuration:_mSipCallDuration];
             }
             break;
-    }
-    
-    // stop sip call duration timer
-    if (nil != _mSipCallDurationTimer) {
-        [_mSipCallDurationTimer invalidate];
-        _mSipCallDurationTimer = nil;
     }
     
     // dismiss outgoing call view after 0.7 seconds
