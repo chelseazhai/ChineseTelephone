@@ -33,14 +33,9 @@
 #define CALLRECORDSTABLE_DUDATION_FIELDNAME @"duration"
 #define CALLRECORDSTABLE_FLAGS_FIELDNAME    @"flags"
 
-    // call records sqlite table flag and its attributes dictionary
-#define CALLRECORDSFLAGS_NAME_KEYNAME   @"callRecords_flag_name"
-#define CALLRECORDSFLAGS_IMAGE_KEYNAME  @"callRecords_flag_image"
-
+    // call records sqlite table flags
 #define OUTGOINGCALL_CALLRECORDSFLAG    0
 #define CALLBACKCALL_CALLRECORDSFLAG    4
-
-#define CALLRECORDSFLAGS_ATTRIBUTESDIC  [NSDictionary dictionaryWithObjectsAndKeys:[NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"outgoing call name", nil), CALLRECORDSFLAGS_NAME_KEYNAME, [UIImage imageNamed:@"img_outgoingcall"], CALLRECORDSFLAGS_IMAGE_KEYNAME, nil], OUTGOINGCALL_CALLRECORDSFLAG, [NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"callback call name", nil), CALLRECORDSFLAGS_NAME_KEYNAME, [UIImage imageNamed:@"img_callbackcall"], CALLRECORDSFLAGS_IMAGE_KEYNAME, nil], CALLBACKCALL_CALLRECORDSFLAG, nil]
 
     // insert one call record record to call records table statement
 #define INSERTCALLRECORD2CALLRECORDSTABLESTATEMENT  @"INSERT OR REPLACE INTO %@ (%@, %@, %@, %@, %@) VALUES (?,?,?,?,?);"

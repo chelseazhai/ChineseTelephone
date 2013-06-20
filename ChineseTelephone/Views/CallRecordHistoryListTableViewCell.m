@@ -116,28 +116,8 @@
     // set call type
     _mCallType = callType;
     
-    // define call type image view image
-    UIImage *_callTypeImage;
-    
-    // check call type and get its image
-    switch (_mCallType) {
-        case INCOMINGCALL:
-            _callTypeImage = nil;
-            break;
-            
-        case MISSED_INCOMINGCALL:
-            _callTypeImage = nil;
-            break;
-            
-        case OUTGOINGCALL:
-        case CALLBACKCALL:
-        default:
-            _callTypeImage = [UIImage imageNamed:@"img_outgoingcall"];
-            break;
-    }
-    
-    // set call type image view image
-    _mCallTypeImgView.image = _callTypeImage;
+    // get call type image with call type and set as call type image view image
+    _mCallTypeImgView.image = [CallRecordBean getCallTypeImage:callType];
 }
 
 - (void)setCallName:(NSString *)callName{

@@ -160,8 +160,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
-    // show selected call record's detail info
-    [self.viewControllerRef.navigationController pushViewController:[[[CallRecordDetailInfoViewController alloc] init] setCallRecord:[_mCallRecordsInfoArrayRef objectAtIndex:indexPath.row]] animated:YES];
+    // init call record detail info view controller
+    CallRecordDetailInfoViewController *_callRecordDetailInfoViewController = [[[CallRecordDetailInfoViewController alloc] init] setCallRecord:[_mCallRecordsInfoArrayRef objectAtIndex:indexPath.row]];
+    
+    // hide bottom bar when call record detail info view controller pushed in
+    _callRecordDetailInfoViewController.hidesBottomBarWhenPushed = YES;
+    
+    // show selected call record detail info view
+    [self.viewControllerRef.navigationController pushViewController:_callRecordDetailInfoViewController animated:YES];
 }
 
 // inner extension

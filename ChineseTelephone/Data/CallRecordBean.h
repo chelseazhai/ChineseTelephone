@@ -13,7 +13,7 @@
 // call record call type
 typedef NS_ENUM(NSInteger, CallRecordCallType){
     // outgoing call, incoming call, missed incoming call, callback call
-    OUTGOINGCALL, INCOMINGCALL, MISSED_INCOMINGCALL, CALLBACKCALL = 4
+    OUTGOINGCALL = OUTGOINGCALL_CALLRECORDSFLAG, INCOMINGCALL, MISSED_INCOMINGCALL, CALLBACKCALL = CALLBACKCALL_CALLRECORDSFLAG
 };
 
 @interface CallRecordBean : NSObject
@@ -30,5 +30,11 @@ typedef NS_ENUM(NSInteger, CallRecordCallType){
 @property (nonatomic, assign) long duration;
 // call record call type
 @property (nonatomic, assign) CallRecordCallType callType;
+
+// get call record call type name with call type
++ (NSString *)getCallTypeName:(CallRecordCallType)callType;
+
+// get call record call type image with call type
++ (UIImage *)getCallTypeImage:(CallRecordCallType)callType;
 
 @end

@@ -20,6 +20,18 @@
 "call record call created date friday" = "星期五";
 "call record call created date saturday" = "星期六";
 "call record detail info view navigation title" = "通话记录详情";
+"call record call created date format string" = "yyyy年MM月dd日";
+"call record outgoing call name" = "呼出电话";
+"call record incoming call name" = "呼入电话";
+"call record call duration seconds" = "%d 秒";
+"call record call duration minutes" = "%d 分钟";
+"call record outgoing call canceled result" = "呼叫已取消";
+"call record outgoing call failed result" = "呼叫失败";
+"call record outgoing call callback result" = "回拨请求";
+"call record incoming call missed result" = "未接来电";
+"call record direct call the call phone" = "直拨 %@";
+"call record callback call the call phone" = "回拨 %@";
+"call record sms the call phone" = "短信息 %@";
 
 // contact list
 "contact list tab content view navigation title" = "联系人";
@@ -59,11 +71,11 @@
 "outgoing call call mode select title string format" = "请选择拨打模式来联系 %@";
 "outgoing call direct call call mode string format" = "直拨(%@)";
 "outgoing call callback call mode string format" = "回拨(%@)";
-"outgoing call phone call call mode string format" = "手机呼叫(%@)";
+"outgoing call phone call call mode string format" = "iPhone呼叫(%@)";
 "outgoing call call mode phones for selecting string format" = "%d 个号码供选择";
 "outgoing call contact phone numbers select title format" = "选择 %@ 的号码来 %@";
 "outgoing call direct call call mode string" = "直拨";
 "outgoing call callback call mode string" = "回拨";
-"outgoing call phone call call mode string" = "手机呼叫";
+"outgoing call phone call call mode string" = "iPhone呼叫";
 "outgoing call callback succeed comment format string" = "回拨请求提交成功，您的号码(%@)稍后将会接到回拨电话，接听后系统稍后将会为您接通%@";
 "outgoing call callback failed comment" = "回拨请求提交失败，请稍后重试";

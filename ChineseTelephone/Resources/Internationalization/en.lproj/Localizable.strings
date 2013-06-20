@@ -20,6 +20,18 @@
 "call record call created date friday" = "Friday";
 "call record call created date saturday" = "Saturday";
 "call record detail info view navigation title" = "Call Record DetailInfo";
+"call record call created date format string" = "yyyy-MM-dd";
+"call record outgoing call name" = "Outgoing call";
+"call record incoming call name" = "Incoming call";
+"call record call duration seconds" = "%d seconds";
+"call record call duration minutes" = "%d minutes";
+"call record outgoing call canceled result" = "Call canceled";
+"call record outgoing call failed result" = "Call failed";
+"call record outgoing call callback result" = "Callback call request";
+"call record incoming call missed result" = "Missed incoming call";
+"call record direct call the call phone" = "Direct dial %@";
+"call record callback call the call phone" = "Callback %@";
+"call record sms the call phone" = "SMS %@";
 
 // contact list
 "contact list tab content view navigation title" = "Contact List";
@@ -59,11 +71,11 @@
 "outgoing call call mode select title string format" = "Select dial mode for connecting %@";
 "outgoing call direct call call mode string format" = "Direct dial(%@)";
 "outgoing call callback call mode string format" = "Callback(%@)";
-"outgoing call phone call call mode string format" = "Phone call(%@)";
+"outgoing call phone call call mode string format" = "iPhone call(%@)";
 "outgoing call call mode phones for selecting string format" = "%d phones for selecting";
 "outgoing call contact phone numbers select title format" = "Select phones of %@ for %@";
 "outgoing call direct call call mode string" = "Direct dial";
 "outgoing call callback call mode string" = "Callback";
-"outgoing call phone call call mode string" = "Phone call";
+"outgoing call phone call call mode string" = "iPhone call";
 "outgoing call callback succeed comment format string" = "Callback request submit succeed, your phone(%@) will be ring later, accept first and then system will connect phone %@ for you";
 "outgoing call callback failed comment" = "Callback request submit failed, please try again later";
