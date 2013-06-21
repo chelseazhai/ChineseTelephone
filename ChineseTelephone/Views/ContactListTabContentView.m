@@ -62,7 +62,7 @@
         self.tableHeaderView = _mContactSearchBar;
         
         // get all contacts info array from addressBook
-        _mAllContactsInfoArrayInABRef = _mPresentContactsInfoArrayRef = [[AddressBookManager shareAddressBookManager].allContactsInfoArray phoneticsSortedContactsInfoArray];
+        _mAllContactsInfoArrayInABRef = _mPresentContactsInfoArrayRef = [[AddressBookManager shareAddressBookManager].allContactsInfoArray optPhoneticsSortedContactsInfoArray];
         // remove each contact extension dictionary
         for (ContactBean *_contact in _mAllContactsInfoArrayInABRef) {
             [_contact.extensionDic removeAllObjects];
@@ -299,7 +299,7 @@
 // AddressBookChangedDelegate
 - (void)addressBookChanged:(ABAddressBookRef)pAddressBook info:(NSDictionary *)pInfo observer:(id)pObserver{
     // reset all contacts info array from address book and present contacts info array of addressBook contacts list table view
-    NSArray *_newAllContactsInfoArrayInAB = [[AddressBookManager shareAddressBookManager].allContactsInfoArray phoneticsSortedContactsInfoArray];
+    NSArray *_newAllContactsInfoArrayInAB = [[AddressBookManager shareAddressBookManager].allContactsInfoArray optPhoneticsSortedContactsInfoArray];
     
     // process changed contact id array
     for (NSNumber *_contactId in [pInfo allKeys]) {

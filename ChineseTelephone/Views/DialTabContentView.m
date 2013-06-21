@@ -464,10 +464,16 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
                 if (ABMultiValueAddValueAndLabel(_phones, (__bridge CFTypeRef)(phone), kABPersonPhoneMobileLabel, NULL)) {
                     // add phone array to new contact
                     ABRecordSetValue(_newPerson, kABPersonPhoneProperty, _phones, &error);
+                    
+                    // release new added phones
+                    CFRelease(_phones);
                 }
                 
                 // set displayed person
                 _addressBookNewPersonViewController.displayedPerson = _newPerson;
+                
+                // release new person
+                CFRelease(_newPerson);
             }
             break;
     }

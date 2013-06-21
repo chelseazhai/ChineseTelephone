@@ -190,11 +190,11 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
         [_headerView addSubview:_mCalleeLabel];
         [_headerView addSubview:_mCallStatusLabel];
         
-//        // test by ares
-//        CGRect _rectangle;
+        // define center view
+        UIView *_centerView;
         
         // init center view
-        UIView *_centerView = [[UIView alloc] initWithFrame:/*_rectangle =*/ CGRectMakeWithFormat([NSNumber numberWithFloat:self.bounds.origin.x], [NSNumber numberWithFloat:(self.bounds.origin.y + _headerView.bounds.size.height)], [NSNumber numberWithFloat:FILL_PARENT], [NSValue valueWithCString:/*[[NSString stringWithFormat:@"%s-%d-%d", FILL_PARENT_STRING, (int)HEADERVIEW_HEIGHT, (int)FOOTERVIEW_HEIGHT] cStringUsingEncoding:NSUTF8StringEncoding]*/"FILL_PARENT-96-96"])];
+        _centerView = [_centerView = [UIView alloc] initWithFrame:CGRectMakeWithFormat(_centerView, [NSNumber numberWithFloat:self.bounds.origin.x], [NSNumber numberWithFloat:(self.bounds.origin.y + _headerView.bounds.size.height)], [NSNumber numberWithFloat:FILL_PARENT], [NSValue valueWithCString:[[NSString stringWithFormat:@"%s-%d-%d", FILL_PARENT_STRING, (int)HEADER6FOOTERVIEW_HEIGHT, (int)HEADER6FOOTERVIEW_HEIGHT] cStringUsingEncoding:NSUTF8StringEncoding]])];
         
         // init call controller grid view
         _mCallControllerGridView = [[UIView alloc] initWithFrame:CGRectMake(_centerView.bounds.origin.x + FILL_PARENT * ((CALLCONTROLLERGRIDVIEW_TOTALSUMWEIGHT - CALLCONTROLLERGRIDVIEW_WEIGHT) / (2 * CALLCONTROLLERGRIDVIEW_TOTALSUMWEIGHT)), _centerView.bounds.origin.y + FILL_PARENT * ((CALLCONTROLLERGRIDVIEW_TOTALSUMWEIGHT - CALLCONTROLLERGRIDVIEW_WEIGHT) / (2 * CALLCONTROLLERGRIDVIEW_TOTALSUMWEIGHT)), FILL_PARENT * (CALLCONTROLLERGRIDVIEW_WEIGHT / CALLCONTROLLERGRIDVIEW_TOTALSUMWEIGHT), FILL_PARENT * (CALLCONTROLLERGRIDVIEW_WEIGHT / CALLCONTROLLERGRIDVIEW_TOTALSUMWEIGHT))];
@@ -306,11 +306,8 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
             }
         }
         
-//        // test by ares
-//        NSLog(@"%f -- %f", _centerView.frame.origin.y, _rectangle.origin.y);
-        
         // init footer view
-        _mFooterView = [[UIView alloc] initWithFrame:CGRectMakeWithFormat([NSNumber numberWithFloat:self.bounds.origin.x], [NSValue valueWithCString:[[NSString stringWithFormat:@"%s-%d", FILL_PARENT_STRING, (int)HEADER6FOOTERVIEW_HEIGHT] cStringUsingEncoding:NSUTF8StringEncoding]], [NSNumber numberWithFloat:FILL_PARENT], [NSNumber numberWithFloat:HEADER6FOOTERVIEW_HEIGHT])];
+        _mFooterView = [_mFooterView = [UIView alloc] initWithFrame:CGRectMakeWithFormat(_mFooterView, [NSNumber numberWithFloat:self.bounds.origin.x], [NSValue valueWithCString:[[NSString stringWithFormat:@"%s-%d", FILL_PARENT_STRING, (int)HEADER6FOOTERVIEW_HEIGHT] cStringUsingEncoding:NSUTF8StringEncoding]], [NSNumber numberWithFloat:FILL_PARENT], [NSNumber numberWithFloat:HEADER6FOOTERVIEW_HEIGHT])];
         
         // set footer view background image
         _mFooterView.backgroundImg = [UIImage imageNamed:@"img_outgoingcall_footerview_bg"];
