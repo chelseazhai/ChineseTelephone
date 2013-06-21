@@ -508,8 +508,11 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
 }
 
 - (void)onCallTerminated{
-    // terminate current sip voice call
-    [self terminateSipVoiceCall:PASSIVE];
+    // check the sip voice call is hanguping, if it is hanguping ignore the call terminated message
+    if (!_mIsHanguping) {
+        // terminate current sip voice call
+        [self terminateSipVoiceCall:PASSIVE];
+    }
 }
 
 // ABPeoplePickerNavigationControllerDelegate
@@ -650,6 +653,9 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
 }
 
 - (void)hangup{
+    // set sip voice call is hanguping
+    _mIsHanguping = YES;
+    
     // update call status with terminating
     _mCallStatusLabel.text = NSLocalizedString(@"outgoing call terminating status", nil);
     

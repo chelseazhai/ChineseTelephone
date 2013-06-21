@@ -35,6 +35,9 @@
     SEL _mCallbackSipVoiceCallHttpReqFinishedRespSelector;
     SEL _mCallbackSipVoiceCallHttpReqFailedRespSelector;
     
+    // is hanguping
+    BOOL _mIsHanguping;
+    
     // present subviews
     // header view
     // callee label
