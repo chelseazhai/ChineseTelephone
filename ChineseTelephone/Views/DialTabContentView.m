@@ -384,7 +384,7 @@ typedef NS_ENUM(NSInteger, AddDialPhone2ContactMode){
     }
     else {
         // define dial numbers add to new or existed contact select action sheet and show it
-        UIActionSheet *_dialNumberAdd2NewOrExistedContactSelectActionSheet = [[UIActionSheet alloc] initWithContent:[NSArray arrayWithObjects:NSLocalizedString(@"dial numbers add to new contact button title", nil), NSLocalizedString(@"dial numbers add to existed contact button title", nil), nil] andTitleFormat:NSLocalizedString(@"dial numbers add to new or existed contact select title format", nil), self.dialNumber];
+        UIActionSheet *_dialNumberAdd2NewOrExistedContactSelectActionSheet = [[UIActionSheet alloc] initWithContent:[NSArray arrayWithObjects:NSLocalizedString(@"dial numbers add to new contact button title", nil), NSLocalizedString(@"dial numbers add to existed contact button title", nil), nil] andTitleFormat:NSLocalizedString(@"dial numbers add to new or existed contact select actionSheet title format", nil), self.dialNumber];
         
         // set actionSheet processor and button clicked event selector
         _dialNumberAdd2NewOrExistedContactSelectActionSheet.processor = self;

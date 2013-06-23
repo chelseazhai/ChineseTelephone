@@ -38,12 +38,13 @@
 "contact list tab item title" = "Contacts";
 "contact search bar placeholder" = "Search contact with character or phone";
 "contact has no phone number alertView title" = "The contact has no phone number";
-"contact has no phone number alertView button title" = "Reselect again";
+"contact has no phone number alertView reselect button title" = "Reselect again";
+"contact phone numbers select actionSheet title format" = "Select phones of %@ for %@";
 
 // dial
 "dial tab item title" = "Keypad";
 "dial number label placeholder" = "Please add area code header when dial fixed line telephone";
-"dial numbers add to new or existed contact select title format" = "Add phone number %@ to ?";
+"dial numbers add to new or existed contact select actionSheet title format" = "Add phone number %@ to ?";
 "dial numbers add to new contact button title" = "Add to new contact";
 "dial numbers add to existed contact button title" = "Add to existed contact";
 
@@ -68,12 +69,11 @@
 "outgoing call call controller mute button title" = "Mute";
 "outgoing call call controller speaker button title" = "Speaker";
 
-"outgoing call call mode select title string format" = "Select dial mode for connecting %@";
+"outgoing call call mode select actionSheet title format" = "Select dial mode for connecting %@";
 "outgoing call direct call call mode string format" = "Direct dial(%@)";
 "outgoing call callback call mode string format" = "Callback(%@)";
 "outgoing call phone call call mode string format" = "iPhone call(%@)";
 "outgoing call call mode phones for selecting string format" = "%d phones for selecting";
-"outgoing call contact phone numbers select title format" = "Select phones of %@ for %@";
 "outgoing call direct call call mode string" = "Direct dial";
 "outgoing call callback call mode string" = "Callback";
 "outgoing call phone call call mode string" = "iPhone call";

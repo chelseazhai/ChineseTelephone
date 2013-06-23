@@ -214,7 +214,7 @@
     // check select contact phone number array
     if (nil == _selectContactBean.phoneNumbers || 0 == [_selectContactBean.phoneNumbers count]) {
         // show contact has no phone number alertView
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"contact has no phone number alertView title", nil) message:_selectContactBean.displayName delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"contact has no phone number alertView button title", nil), nil] show];
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"contact has no phone number alertView title", nil) message:_selectContactBean.displayName delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"contact has no phone number alertView reselect button title", nil), nil] show];
     }
     else {
         // generate new outgoing call with contact

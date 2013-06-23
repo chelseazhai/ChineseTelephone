@@ -110,7 +110,7 @@
                     }
                     
                     // define new outgoing call call mode select action and show it
-                    UIActionSheet *_newOutgoingCallCallModeSelectActionSheet = [[UIActionSheet alloc] initWithContent:[NSArray arrayWithObjects:[NSString stringWithFormat:NSLocalizedString(@"outgoing call direct call call mode string format", nil), _phones4selectingString], [NSString stringWithFormat:NSLocalizedString(@"outgoing call callback call mode string format", nil), _phones4selectingString], [NSString stringWithFormat:NSLocalizedString(@"outgoing call phone call call mode string format", nil), _phones4selectingString], nil] andTitleFormat:NSLocalizedString(@"outgoing call call mode select title string format", nil), contactName];
+                    UIActionSheet *_newOutgoingCallCallModeSelectActionSheet = [[UIActionSheet alloc] initWithContent:[NSArray arrayWithObjects:[NSString stringWithFormat:NSLocalizedString(@"outgoing call direct call call mode string format", nil), _phones4selectingString], [NSString stringWithFormat:NSLocalizedString(@"outgoing call callback call mode string format", nil), _phones4selectingString], [NSString stringWithFormat:NSLocalizedString(@"outgoing call phone call call mode string format", nil), _phones4selectingString], nil] andTitleFormat:NSLocalizedString(@"outgoing call call mode select actionSheet title format", nil), contactName];
                     
                     // set actionSheet processor and button clicked event selector
                     _newOutgoingCallCallModeSelectActionSheet.processor = self;
@@ -168,7 +168,7 @@
         }
         
         // define contact phone numbers select action sheet and show it
-        UIActionSheet *_contactPhonesSelectActionSheet = [[UIActionSheet alloc] initWithContent:_mContactPhones andTitleFormat:[NSString stringWithFormat:NSLocalizedString(@"outgoing call contact phone numbers select title format", nil), _mContactName, _contactPhoneCallModeString]];
+        UIActionSheet *_contactPhonesSelectActionSheet = [[UIActionSheet alloc] initWithContent:_mContactPhones andTitleFormat:[NSString stringWithFormat:NSLocalizedString(@"contact phone numbers select actionSheet title format", nil), _mContactName, _contactPhoneCallModeString]];
         
         // set actionSheet processor and button clicked event selector
         _contactPhonesSelectActionSheet.processor = self;

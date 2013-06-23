@@ -211,6 +211,8 @@
             // generate each phone number attributed label and add to phone number attributed label parent view
             @autoreleasepool {
                 UIAttributedLabel *_phoneNumberAttributedLabel = [[UIAttributedLabel alloc] initWithFrame:CGRectMake(0.0, _index * PHONENUMBERSLABEL_DEFAULTHEIGHT, _mPhoneNumbersLabel.frame.size.width, PHONENUMBERSLABEL_DEFAULTHEIGHT)];
+                // set background color
+                _phoneNumberAttributedLabel.backgroundColor = [UIColor clearColor];
                 // set phone number attributed label attributed text
                 _phoneNumberAttributedLabel.attributedText = _attributedPhoneNumber;
                 // add to phone number attributed label parent view
