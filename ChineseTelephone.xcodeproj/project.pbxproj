@@ -69,7 +69,6 @@
 		DC6300D8174C78FD00C132C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6300D7174C78FD00C132C2 /* AppDelegate.m */; };
 		DC630126174CA2A300C132C2 /* CommonToolkitBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC63011E174CA2A300C132C2 /* CommonToolkitBundle.bundle */; };
 		DC630127174CA2A300C132C2 /* Pinyin4jBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC63011F174CA2A300C132C2 /* Pinyin4jBundle.bundle */; };
-		DC63013C174CA64800C132C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC630138174CA64800C132C2 /* InfoPlist.strings */; };
 		DC63F44E1761895100229C43 /* img_hangup_longbtn-hs.png in Resources */ = {isa = PBXBuildFile; fileRef = DC63F44B1761895100229C43 /* img_hangup_longbtn-hs.png */; };
 		DC63F44F1761895100229C43 /* img_hangup_shortbtn-hs.png in Resources */ = {isa = PBXBuildFile; fileRef = DC63F44C1761895100229C43 /* img_hangup_shortbtn-hs.png */; };
 		DC63F4501761895100229C43 /* img_hidekeyboardbtn-hs.png in Resources */ = {isa = PBXBuildFile; fileRef = DC63F44D1761895100229C43 /* img_hidekeyboardbtn-hs.png */; };
@@ -124,8 +123,6 @@
 		DC8E17D6175F899900BF8014 /* OutgoingCallControllerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8E17D5175F899900BF8014 /* OutgoingCallControllerButton.m */; };
 		DC8F3D561758EB5800EF6F78 /* OutgoingCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8F3D551758EB5800EF6F78 /* OutgoingCallViewController.m */; };
 		DC8F3D591758EB8600EF6F78 /* OutgoingCallView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8F3D581758EB8600EF6F78 /* OutgoingCallView.m */; };
-		DC8F3D5D1758EE4600EF6F78 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC8F3D5B1758EE4600EF6F78 /* Localizable.strings */; };
-		DC8F3D621758EED200EF6F78 /* Toast.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC8F3D601758EED200EF6F78 /* Toast.strings */; };
 		DC953B72174F138B006F5AB0 /* img_tab_callrecord.png in Resources */ = {isa = PBXBuildFile; fileRef = DC953B6A174F138B006F5AB0 /* img_tab_callrecord.png */; };
 		DC953B73174F138B006F5AB0 /* img_tab_callrecord@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC953B6B174F138B006F5AB0 /* img_tab_callrecord@2x.png */; };
 		DC953B74174F138B006F5AB0 /* img_tab_contactlist.png in Resources */ = {isa = PBXBuildFile; fileRef = DC953B6C174F138B006F5AB0 /* img_tab_contactlist.png */; };
@@ -144,6 +141,9 @@
 		DCB25F08176F028000A65D53 /* img_outgoingcall_bg-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB25F05176F028000A65D53 /* img_outgoingcall_bg-568h@2x.png */; };
 		DCB25F09176F028000A65D53 /* img_outgoingcall_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB25F06176F028000A65D53 /* img_outgoingcall_bg.png */; };
 		DCB25F0A176F028000A65D53 /* img_outgoingcall_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB25F07176F028000A65D53 /* img_outgoingcall_bg@2x.png */; };
+		DCE51905177BD339000CA65D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCE51903177BD339000CA65D /* InfoPlist.strings */; };
+		DCE5190C177BD355000CA65D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCE51908177BD355000CA65D /* Localizable.strings */; };
+		DCE5190D177BD355000CA65D /* Toast.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCE5190A177BD355000CA65D /* Toast.strings */; };
 		DCEB1C8A1760493900A603F7 /* img_callcontroller_speakerbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = DCEB1C861760493900A603F7 /* img_callcontroller_speakerbtn.png */; };
 		DCEB1C8B1760493900A603F7 /* img_callcontroller_keyboardbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = DCEB1C871760493900A603F7 /* img_callcontroller_keyboardbtn.png */; };
 		DCEB1C8C1760493900A603F7 /* img_callcontroller_mutebtn-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DCEB1C881760493900A603F7 /* img_callcontroller_mutebtn-568h@2x.png */; };
@@ -238,9 +238,6 @@
 		DC6300D7174C78FD00C132C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		DC63011E174CA2A300C132C2 /* CommonToolkitBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CommonToolkitBundle.bundle; sourceTree = "<group>"; };
 		DC63011F174CA2A300C132C2 /* Pinyin4jBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Pinyin4jBundle.bundle; sourceTree = "<group>"; };
-		DC630139174CA64800C132C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/Internationalization/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DC63013E174CA65100C132C2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Resources/Internationalization/zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		DC630140174CA65F00C132C2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Resources/Internationalization/zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		DC63F44B1761895100229C43 /* img_hangup_longbtn-hs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_hangup_longbtn-hs.png"; sourceTree = "<group>"; };
 		DC63F44C1761895100229C43 /* img_hangup_shortbtn-hs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_hangup_shortbtn-hs.png"; sourceTree = "<group>"; };
 		DC63F44D1761895100229C43 /* img_hidekeyboardbtn-hs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_hidekeyboardbtn-hs.png"; sourceTree = "<group>"; };
@@ -312,12 +309,6 @@
 		DC8F3D551758EB5800EF6F78 /* OutgoingCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutgoingCallViewController.m; path = ViewControllers/OutgoingCallViewController.m; sourceTree = "<group>"; };
 		DC8F3D571758EB8600EF6F78 /* OutgoingCallView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutgoingCallView.h; path = Views/OutgoingCallView.h; sourceTree = "<group>"; };
 		DC8F3D581758EB8600EF6F78 /* OutgoingCallView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutgoingCallView.m; path = Views/OutgoingCallView.m; sourceTree = "<group>"; };
-		DC8F3D5C1758EE4600EF6F78 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Internationalization/en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DC8F3D5E1758EE4D00EF6F78 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Internationalization/zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		DC8F3D5F1758EE5400EF6F78 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Internationalization/zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		DC8F3D611758EED200EF6F78 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Internationalization/en.lproj/Toast.strings; sourceTree = "<group>"; };
-		DC8F3D631758EEF400EF6F78 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Internationalization/zh-Hans.lproj/Toast.strings"; sourceTree = "<group>"; };
-		DC8F3D641758EEFB00EF6F78 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Internationalization/zh-Hant.lproj/Toast.strings"; sourceTree = "<group>"; };
 		DC953B6A174F138B006F5AB0 /* img_tab_callrecord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_tab_callrecord.png; sourceTree = "<group>"; };
 		DC953B6B174F138B006F5AB0 /* img_tab_callrecord@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_tab_callrecord@2x.png"; sourceTree = "<group>"; };
 		DC953B6C174F138B006F5AB0 /* img_tab_contactlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_tab_contactlist.png; sourceTree = "<group>"; };
@@ -341,6 +332,15 @@
 		DCB25F05176F028000A65D53 /* img_outgoingcall_bg-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_outgoingcall_bg-568h@2x.png"; sourceTree = "<group>"; };
 		DCB25F06176F028000A65D53 /* img_outgoingcall_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_outgoingcall_bg.png; sourceTree = "<group>"; };
 		DCB25F07176F028000A65D53 /* img_outgoingcall_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_outgoingcall_bg@2x.png"; sourceTree = "<group>"; };
+		DCE51904177BD339000CA65D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/Strings/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DCE51906177BD343000CA65D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Resources/Strings/zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		DCE51907177BD34B000CA65D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Resources/Strings/zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		DCE51909177BD355000CA65D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Strings/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DCE5190B177BD355000CA65D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Strings/en.lproj/Toast.strings; sourceTree = "<group>"; };
+		DCE5190E177BD35B000CA65D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Strings/zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		DCE5190F177BD35B000CA65D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Strings/zh-Hans.lproj/Toast.strings"; sourceTree = "<group>"; };
+		DCE51910177BD363000CA65D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Strings/zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		DCE51911177BD363000CA65D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Strings/zh-Hant.lproj/Toast.strings"; sourceTree = "<group>"; };
 		DCEB1C861760493900A603F7 /* img_callcontroller_speakerbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_callcontroller_speakerbtn.png; sourceTree = "<group>"; };
 		DCEB1C871760493900A603F7 /* img_callcontroller_keyboardbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_callcontroller_keyboardbtn.png; sourceTree = "<group>"; };
 		DCEB1C881760493900A603F7 /* img_callcontroller_mutebtn-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_callcontroller_mutebtn-568h@2x.png"; sourceTree = "<group>"; };
@@ -445,7 +445,7 @@
 			children = (
 				DC6300CF174C78FD00C132C2 /* ChineseTelephone-Info.plist */,
 				DC6300D5174C78FD00C132C2 /* ChineseTelephone-Prefix.pch */,
-				DC630138174CA64800C132C2 /* InfoPlist.strings */,
+				DCE51903177BD339000CA65D /* InfoPlist.strings */,
 				DC6300D3174C78FD00C132C2 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -457,8 +457,8 @@
 				DC63011D174CA2A300C132C2 /* Bundles */,
 				DC630120174CA2A300C132C2 /* Icons */,
 				DC630121174CA2A300C132C2 /* Images */,
-				DC8F3D5A1758EE2D00EF6F78 /* Internationalization */,
 				DC630122174CA2A300C132C2 /* Splashes */,
+				DC8F3D5A1758EE2D00EF6F78 /* Strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -679,13 +679,13 @@
 			name = OutgoingCall;
 			sourceTree = "<group>";
 		};
-		DC8F3D5A1758EE2D00EF6F78 /* Internationalization */ = {
+		DC8F3D5A1758EE2D00EF6F78 /* Strings */ = {
 			isa = PBXGroup;
 			children = (
-				DC8F3D5B1758EE4600EF6F78 /* Localizable.strings */,
-				DC8F3D601758EED200EF6F78 /* Toast.strings */,
+				DCE51908177BD355000CA65D /* Localizable.strings */,
+				DCE5190A177BD355000CA65D /* Toast.strings */,
 			);
-			name = Internationalization;
+			name = Strings;
 			sourceTree = "<group>";
 		};
 		DC953B22174EFA3D006F5AB0 /* System */ = {
@@ -831,7 +831,6 @@
 			files = (
 				DC630126174CA2A300C132C2 /* CommonToolkitBundle.bundle in Resources */,
 				DC630127174CA2A300C132C2 /* Pinyin4jBundle.bundle in Resources */,
-				DC63013C174CA64800C132C2 /* InfoPlist.strings in Resources */,
 				DC953B72174F138B006F5AB0 /* img_tab_callrecord.png in Resources */,
 				DC953B73174F138B006F5AB0 /* img_tab_callrecord@2x.png in Resources */,
 				DC953B74174F138B006F5AB0 /* img_tab_contactlist.png in Resources */,
@@ -892,8 +891,6 @@
 				DC5ED2D21758A670002B5B81 /* img_dial_pound_btn@2x.png in Resources */,
 				DC5ED2D31758A670002B5B81 /* img_dial_star_btn-568h@2x.png in Resources */,
 				DC5ED2D41758A670002B5B81 /* img_dial_star_btn@2x.png in Resources */,
-				DC8F3D5D1758EE4600EF6F78 /* Localizable.strings in Resources */,
-				DC8F3D621758EED200EF6F78 /* Toast.strings in Resources */,
 				DC75F5F5175F32B400A17B5A /* img_outgoingcall_footerview_bg.png in Resources */,
 				DC75F5F6175F32B400A17B5A /* img_outgoingcall_footerview_bg@2x.png in Resources */,
 				DC75F5F7175F32B400A17B5A /* img_outgoingcall_headerview_bg.png in Resources */,
@@ -949,6 +946,9 @@
 				DC0FA16F1771880600FB9E4A /* img_outgoingcall.png in Resources */,
 				DC0FA171177199DD00FB9E4A /* img_outgoingcall@2x.png in Resources */,
 				DC1C23761772F5F400940A52 /* img_default_gray_avatar.png in Resources */,
+				DCE51905177BD339000CA65D /* InfoPlist.strings in Resources */,
+				DCE5190C177BD355000CA65D /* Localizable.strings in Resources */,
+				DCE5190D177BD355000CA65D /* Toast.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -989,32 +989,32 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DC630138174CA64800C132C2 /* InfoPlist.strings */ = {
+		DCE51903177BD339000CA65D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DC630139174CA64800C132C2 /* en */,
-				DC63013E174CA65100C132C2 /* zh-Hans */,
-				DC630140174CA65F00C132C2 /* zh-Hant */,
+				DCE51904177BD339000CA65D /* en */,
+				DCE51906177BD343000CA65D /* zh-Hans */,
+				DCE51907177BD34B000CA65D /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		DC8F3D5B1758EE4600EF6F78 /* Localizable.strings */ = {
+		DCE51908177BD355000CA65D /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DC8F3D5C1758EE4600EF6F78 /* en */,
-				DC8F3D5E1758EE4D00EF6F78 /* zh-Hans */,
-				DC8F3D5F1758EE5400EF6F78 /* zh-Hant */,
+				DCE51909177BD355000CA65D /* en */,
+				DCE5190E177BD35B000CA65D /* zh-Hans */,
+				DCE51910177BD363000CA65D /* zh-Hant */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		DC8F3D601758EED200EF6F78 /* Toast.strings */ = {
+		DCE5190A177BD355000CA65D /* Toast.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DC8F3D611758EED200EF6F78 /* en */,
-				DC8F3D631758EEF400EF6F78 /* zh-Hans */,
-				DC8F3D641758EEFB00EF6F78 /* zh-Hant */,
+				DCE5190B177BD355000CA65D /* en */,
+				DCE5190F177BD35B000CA65D /* zh-Hans */,
+				DCE51911177BD363000CA65D /* zh-Hant */,
 			);
 			name = Toast.strings;
 			sourceTree = "<group>";
