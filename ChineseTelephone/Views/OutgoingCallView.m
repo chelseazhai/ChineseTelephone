@@ -453,7 +453,7 @@ typedef NS_ENUM(NSInteger, SipVoiceCallTerminatedType){
     _mSipImplementation = sipImplementation;
 }
 
-// SipInviteStateChangedProtocol
+// ISipInviteStateChangedProtocol
 - (void)onCallInitializing{
     // update call state label text, calling
     _mCallStatusLabel.text = NSLocalizedString(@"outgoing call calling status", nil);

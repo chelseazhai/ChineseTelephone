@@ -53,7 +53,7 @@
     [(OutgoingCallView *)self.view setSipImplementation:sipImplementation];
 }
 
-- (id<SipInviteStateChangedProtocol>)getSipInviteStateChangedImplementation{
+- (id<ISipInviteStateChangedProtocol>)getSipInviteStateChangedImplementation{
     return (OutgoingCallView *)self.view;
 }
 

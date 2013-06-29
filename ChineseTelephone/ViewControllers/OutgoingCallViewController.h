@@ -10,7 +10,7 @@
 
 #import "SipCallMode.h"
 
-#import "SipInviteStateChangedProtocol.h"
+#import "ISipInviteStateChangedProtocol.h"
 
 #import "ISipProtocol.h"
 
@@ -23,7 +23,7 @@
 - (void)setSipImplementation:(id<ISipProtocol>)sipImplementation;
 
 // get sip invite state changed implementation
-- (id<SipInviteStateChangedProtocol>)getSipInviteStateChangedImplementation;
+- (id<ISipInviteStateChangedProtocol>)getSipInviteStateChangedImplementation;
 
 // get callback sip voice call request processor
 - (id)getCallbackSipVoiceCallRequestProcessor;

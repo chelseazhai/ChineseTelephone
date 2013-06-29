@@ -14,17 +14,17 @@
 
 #import "SipRegistrationBean.h"
 
-#import "SipRegistrationStateChangedProtocol.h"
+#import "ISipRegistrationStateChangedProtocol.h"
 
 #import "SipCallMode.h"
 
 @interface SipUtils : NSObject
 
 // register sip account
-+ (void)registerSipAccount:(SipRegistrationBean *)sipAccount stateChangedProtocolImpl:(id<SipRegistrationStateChangedProtocol>)stateChangedProtocolImpl;
++ (void)registerSipAccount:(SipRegistrationBean *)sipAccount stateChangedProtocolImpl:(id<ISipRegistrationStateChangedProtocol>)stateChangedProtocolImpl;
 
 // unregister sip account
-+ (void)unregisterSipAccount:(id<SipRegistrationStateChangedProtocol>)stateChangedProtocolImpl;
++ (void)unregisterSipAccount:(id<ISipRegistrationStateChangedProtocol>)stateChangedProtocolImpl;
 
 // make sip voice call from view controller
 + (void)makeSipVoiceCall:(NSString *)callee phone:(NSString *)phone callMode:(SipCallMode)callMode fromViewController:(UIViewController *)sponsorViewController;

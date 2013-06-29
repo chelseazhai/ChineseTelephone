@@ -10,7 +10,7 @@
 
 #import "SipRegistrationBean.h"
 
-#import "SipRegistrationStateChangedProtocol.h"
+#import "ISipRegistrationStateChangedProtocol.h"
 
 #import "SipCallMode.h"
 
@@ -33,10 +33,10 @@
 @optional
 
 // register sip account
-- (void)registerSipAccount:(SipRegistrationBean *)sipAccount stateChangedProtocolImpl:(id<SipRegistrationStateChangedProtocol>)sipRegistrationStateChangedProtocolImpl;
+- (void)registerSipAccount:(SipRegistrationBean *)sipAccount stateChangedProtocolImpl:(id<ISipRegistrationStateChangedProtocol>)sipRegistrationStateChangedProtocolImpl;
 
 // unregister sip account
-- (void)unregisterSipAccount:(id<SipRegistrationStateChangedProtocol>)sipRegistrationStateChangedProtocolImpl;
+- (void)unregisterSipAccount:(id<ISipRegistrationStateChangedProtocol>)sipRegistrationStateChangedProtocolImpl;
 
 // mute current sip voice call
 - (void)muteSipVoiceCall;

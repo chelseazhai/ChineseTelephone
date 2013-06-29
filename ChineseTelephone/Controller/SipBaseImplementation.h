@@ -10,17 +10,17 @@
 
 #import "ISipProtocol.h"
 
-#import "SipInviteStateChangedProtocol.h"
+#import "ISipInviteStateChangedProtocol.h"
 
 #import <CommonToolkit/CommonToolkit.h>
 
 // sip implementation protocol
-@protocol SipImplementationProtocol <NSObject>
+@protocol ISipImplementationProtocol <NSObject>
 
 @required
 
 // make a sip voice call
-- (BOOL)makeSipVoiceCall:(NSString *)calleeName phone:(NSString *)calleePhone stateChangedProtocolImpl:(id<SipInviteStateChangedProtocol>)stateChangedProtocolImpl;
+- (BOOL)makeSipVoiceCall:(NSString *)calleeName phone:(NSString *)calleePhone stateChangedProtocolImpl:(id<ISipInviteStateChangedProtocol>)stateChangedProtocolImpl;
 
 // hangup current sip voice call
 - (BOOL)hangupSipVoiceCall;
@@ -32,7 +32,7 @@
 
 @interface SipBaseImplementation : NSObject <ISipProtocol> {
     // sip implementation protocol implementation
-    id<SipImplementationProtocol> _mSipImplementationProtocolImpl;
+    id<ISipImplementationProtocol> _mSipImplementationProtocolImpl;
     
     // sip voice call log id
 	sqlite_int64 _mSipVoiceCallLogId;

@@ -10,13 +10,13 @@
 
 #import "SipCallMode.h"
 
-#import "SipInviteStateChangedProtocol.h"
+#import "ISipInviteStateChangedProtocol.h"
 
 #import "ISipProtocol.h"
 
 #import <CommonToolkit/CommonToolkit.h>
 
-@interface OutgoingCallView : UIView <SipInviteStateChangedProtocol, ABPeoplePickerNavigationControllerDelegate> {
+@interface OutgoingCallView : UIView <ISipInviteStateChangedProtocol, ABPeoplePickerNavigationControllerDelegate> {
     // sip voice call is established
     BOOL _mSipVoiceCallIsEstablished;
     

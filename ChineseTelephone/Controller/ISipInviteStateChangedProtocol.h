@@ -1,5 +1,5 @@
 //
-//  SipInviteStateChangedProtocol.h
+//  ISipInviteStateChangedProtocol.h
 //  ChineseTelephone
 //
 //  Created by Ares on 13-6-7.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol SipInviteStateChangedProtocol <NSObject>
+@protocol ISipInviteStateChangedProtocol <NSObject>
 
 @required
 

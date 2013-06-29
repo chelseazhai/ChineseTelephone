@@ -23,7 +23,7 @@
 - (BOOL)requestCallbackSipVoiceCall:(NSString *)calleeName phone:(NSString *)calleePhone processorViewController:(UIViewController *)processorViewController;
 
 // after make sip voice call
-- (void)afterMakeSipVoiceCall:(BOOL)makeCallResult stateChangedProtocolImpl:(id<SipInviteStateChangedProtocol>)stateChangedProtocolImpl;
+- (void)afterMakeSipVoiceCall:(BOOL)makeCallResult stateChangedProtocolImpl:(id<ISipInviteStateChangedProtocol>)stateChangedProtocolImpl;
 
 @end
 
@@ -54,7 +54,7 @@
     UIViewController *_outgoingCallViewController = [self beforeMakeSipVoiceCall:callee phone:phone callMode:callMode sponsorViewController:sponsorViewController];
     
     // define sip invite state changed protocol implementation
-    id<SipInviteStateChangedProtocol> _sipInviteStateChangedImplementation;
+    id<ISipInviteStateChangedProtocol> _sipInviteStateChangedImplementation;
     
     // check call mode and get make sip voice call result
     BOOL _makeSipVoiceCallResult = NO;
@@ -144,7 +144,7 @@
     return YES;
 }
 
-- (void)afterMakeSipVoiceCall:(BOOL)makeCallResult stateChangedProtocolImpl:(id<SipInviteStateChangedProtocol>)stateChangedProtocolImpl{
+- (void)afterMakeSipVoiceCall:(BOOL)makeCallResult stateChangedProtocolImpl:(id<ISipInviteStateChangedProtocol>)stateChangedProtocolImpl{
     // check make call result and update call failed call record with call log id
     if (!makeCallResult) {
         // check sip invite state changed protocol implementation

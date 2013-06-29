@@ -1,5 +1,5 @@
 //
-//  SipRegistrationStateChangedProtocol.h
+//  ISipRegistrationStateChangedProtocol.h
 //  ChineseTelephone
 //
 //  Created by Ares on 13-6-7.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol SipRegistrationStateChangedProtocol <NSObject>
+@protocol ISipRegistrationStateChangedProtocol <NSObject>
 
 @required
 

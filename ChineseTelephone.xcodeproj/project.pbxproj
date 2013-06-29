@@ -269,8 +269,8 @@
 		DC63F4841761CCCE00229C43 /* SipBaseImplementation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SipBaseImplementation.m; path = Controller/SipBaseImplementation.m; sourceTree = "<group>"; };
 		DC63F4861761CD0B00229C43 /* PJSipImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PJSipImplementation.h; path = Controller/PJSipImplementation.h; sourceTree = "<group>"; };
 		DC63F4871761CD0B00229C43 /* PJSipImplementation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PJSipImplementation.m; path = Controller/PJSipImplementation.m; sourceTree = "<group>"; };
-		DC63F4891761CD7F00229C43 /* SipInviteStateChangedProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SipInviteStateChangedProtocol.h; path = Controller/SipInviteStateChangedProtocol.h; sourceTree = "<group>"; };
-		DC63F48A1761CDAA00229C43 /* SipRegistrationStateChangedProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SipRegistrationStateChangedProtocol.h; path = Controller/SipRegistrationStateChangedProtocol.h; sourceTree = "<group>"; };
+		DC63F4891761CD7F00229C43 /* ISipInviteStateChangedProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ISipInviteStateChangedProtocol.h; path = Controller/ISipInviteStateChangedProtocol.h; sourceTree = "<group>"; };
+		DC63F48A1761CDAA00229C43 /* ISipRegistrationStateChangedProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ISipRegistrationStateChangedProtocol.h; path = Controller/ISipRegistrationStateChangedProtocol.h; sourceTree = "<group>"; };
 		DC63F48B1761D2FD00229C43 /* SipRegistrationBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SipRegistrationBean.h; path = Data/SipRegistrationBean.h; sourceTree = "<group>"; };
 		DC63F48C1761D2FE00229C43 /* SipRegistrationBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SipRegistrationBean.m; path = Data/SipRegistrationBean.m; sourceTree = "<group>"; };
 		DC63F48F1761DC8C00229C43 /* SipCallDialModeSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SipCallDialModeSelector.h; path = Controller/SipCallDialModeSelector.h; sourceTree = "<group>"; };
@@ -637,8 +637,8 @@
 		DC63F4811761CBB500229C43 /* Listeners */ = {
 			isa = PBXGroup;
 			children = (
-				DC63F4891761CD7F00229C43 /* SipInviteStateChangedProtocol.h */,
-				DC63F48A1761CDAA00229C43 /* SipRegistrationStateChangedProtocol.h */,
+				DC63F4891761CD7F00229C43 /* ISipInviteStateChangedProtocol.h */,
+				DC63F48A1761CDAA00229C43 /* ISipRegistrationStateChangedProtocol.h */,
 			);
 			name = Listeners;
 			sourceTree = "<group>";

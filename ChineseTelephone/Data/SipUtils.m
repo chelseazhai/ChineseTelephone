@@ -20,11 +20,11 @@ static id<ISipProtocol> sipImplementation;
 
 @implementation SipUtils
 
-+ (void)registerSipAccount:(SipRegistrationBean *)sipAccount stateChangedProtocolImpl:(id<SipRegistrationStateChangedProtocol>)stateChangedProtocolImpl{
++ (void)registerSipAccount:(SipRegistrationBean *)sipAccount stateChangedProtocolImpl:(id<ISipRegistrationStateChangedProtocol>)stateChangedProtocolImpl{
     [[self getSipImplementation] registerSipAccount:sipAccount stateChangedProtocolImpl:stateChangedProtocolImpl];
 }
 
-+ (void)unregisterSipAccount:(id<SipRegistrationStateChangedProtocol>)stateChangedProtocolImpl{
++ (void)unregisterSipAccount:(id<ISipRegistrationStateChangedProtocol>)stateChangedProtocolImpl{
     [[self getSipImplementation] unregisterSipAccount:stateChangedProtocolImpl];
 }
 
